@@ -5,6 +5,8 @@
 //  Created by Kristin Beese on 2/14/16.
 //  Copyright © 2016 Team 9. All rights reserved.
 //
+//
+// CS307 Project Nomad Sprint 1
 
 // CS 307 Spring 2016
 
