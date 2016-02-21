@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */; };
+		A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6F1C795A880043EEF2 /* Entry.swift */; };
+		A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD711C795AAF0043EEF2 /* Photo.swift */; };
+		A5D8FD741C795AC30043EEF2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD731C795AC30043EEF2 /* Model.swift */; };
 		A5FC094E1C716B1700DF77D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC094D1C716B1700DF77D8 /* AppDelegate.swift */; };
 		A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC094F1C716B1700DF77D8 /* ViewController.swift */; };
 		A5FC09531C716B1700DF77D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09511C716B1700DF77D8 /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		A5D8FD6F1C795A880043EEF2 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		A5D8FD711C795AAF0043EEF2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		A5D8FD731C795AC30043EEF2 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A5FC094A1C716B1700DF77D8 /* Nomad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nomad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FC094D1C716B1700DF77D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5FC094F1C716B1700DF77D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +49,10 @@
 		A5FC09411C716B1700DF77D8 = {
 			isa = PBXGroup;
 			children = (
+				A5D8FD711C795AAF0043EEF2 /* Photo.swift */,
+				A5D8FD731C795AC30043EEF2 /* Model.swift */,
+				A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */,
+				A5D8FD6F1C795A880043EEF2 /* Entry.swift */,
 				A5FC095F1C716C7300DF77D8 /* MapKit.framework */,
 				A5FC094C1C716B1700DF77D8 /* Nomad */,
 				A5FC094B1C716B1700DF77D8 /* Products */,
@@ -101,6 +113,7 @@
 				TargetAttributes = {
 					A5FC09491C716B1700DF77D8 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = DW4LZ2DH42;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -145,8 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */,
+				A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */,
 				A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */,
+				A5D8FD741C795AC30043EEF2 /* Model.swift in Sources */,
 				A5FC094E1C716B1700DF77D8 /* AppDelegate.swift in Sources */,
+				A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +276,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Nomad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -271,6 +289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Nomad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -298,6 +317,7 @@
 				A5FC095E1C716B1700DF77D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
