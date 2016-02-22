@@ -16,16 +16,16 @@ class Entry: Model {
     var date: NSDate
     
     // optional variables
-    var description: String?
+    var info: String?
     var photo: Photo?
     var coords: Float?
     
-    init(title: String, date: NSDate, description: String, photo: Photo, coords: Float) {
+    init(title: String, date: NSDate, info: String, photo: Photo, coords: Float) {
         // constructor for loading from the disk
         
         self.title = title
         self.date = date
-        self.description = description
+        self.info = info
         self.photo = photo
         self.coords = coords
         
@@ -34,6 +34,10 @@ class Entry: Model {
     init(title: String, description: String, photo: Photo, coords: Float) {
         // constructor used for initial creation
         // calculate the date
+    }
+
+    required convenience internal init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
