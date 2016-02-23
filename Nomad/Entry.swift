@@ -20,7 +20,8 @@ class Entry: Model {
     var photo: Photo?
     var coords: Float?
     
-    init(title: String, date: NSDate, description: String, photo: Photo, coords: Float) {
+    //When user first creates an entry
+    init?(title: String, date: NSDate, description: String, photo: Photo, coords: Float) {
         // constructor for loading from the disk
         
         self.title = title
@@ -31,7 +32,8 @@ class Entry: Model {
         
     }
     
-    init(title: String, description: String, photo: Photo, coords: Float) {
+    //When loading off of the disk
+    init?(title: String, description: String, photo: Photo, coords: Float) {
         // constructor used for initial creation
         self.title = title
         self.description = description
