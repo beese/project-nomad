@@ -33,7 +33,15 @@ class Entry: Model {
     
     init(title: String, description: String, photo: Photo, coords: Float) {
         // constructor used for initial creation
+        self.title = title
+        self.description = description
+        self.photo = photo
+        self.coords = coords
+        
         // calculate the date
+        self.date = NSDate()
+        
+        
     }
     
     
