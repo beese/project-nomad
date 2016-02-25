@@ -11,6 +11,20 @@
 		A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6F1C795A880043EEF2 /* Entry.swift */; };
 		A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD711C795AAF0043EEF2 /* Photo.swift */; };
 		A5D8FD741C795AC30043EEF2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD731C795AC30043EEF2 /* Model.swift */; };
+		A5DF20F91C7F8855009EBCC9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF20F71C7F8855009EBCC9 /* HomeViewController.swift */; };
+		A5DF20FA1C7F8855009EBCC9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF20F81C7F8855009EBCC9 /* HomeViewController.xib */; };
+		A5DF20FF1C7F88C1009EBCC9 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF20FD1C7F88C1009EBCC9 /* TripsTableViewController.swift */; };
+		A5DF21001C7F88C1009EBCC9 /* TripsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF20FE1C7F88C1009EBCC9 /* TripsTableViewController.xib */; };
+		A5DF21031C7F88E3009EBCC9 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21011C7F88E3009EBCC9 /* TripViewController.swift */; };
+		A5DF21041C7F88E3009EBCC9 /* TripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF21021C7F88E3009EBCC9 /* TripViewController.xib */; };
+		A5DF21071C7F892C009EBCC9 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21051C7F892C009EBCC9 /* AddTripViewController.swift */; };
+		A5DF21081C7F892C009EBCC9 /* AddTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF21061C7F892C009EBCC9 /* AddTripViewController.xib */; };
+		A5DF210B1C7F8940009EBCC9 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21091C7F8940009EBCC9 /* AddEntryViewController.swift */; };
+		A5DF210C1C7F8940009EBCC9 /* AddEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF210A1C7F8940009EBCC9 /* AddEntryViewController.xib */; };
+		A5DF210F1C7F895E009EBCC9 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF210D1C7F895E009EBCC9 /* EntryTableViewController.swift */; };
+		A5DF21101C7F895E009EBCC9 /* EntryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */; };
+		A5DF21131C7F8987009EBCC9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21111C7F8987009EBCC9 /* MapViewController.swift */; };
+		A5DF21141C7F8987009EBCC9 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF21121C7F8987009EBCC9 /* MapViewController.xib */; };
 		A5FC094E1C716B1700DF77D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC094D1C716B1700DF77D8 /* AppDelegate.swift */; };
 		A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC094F1C716B1700DF77D8 /* ViewController.swift */; };
 		A5FC09531C716B1700DF77D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09511C716B1700DF77D8 /* Main.storyboard */; };
@@ -24,6 +38,20 @@
 		A5D8FD6F1C795A880043EEF2 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A5D8FD711C795AAF0043EEF2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A5D8FD731C795AC30043EEF2 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A5DF20F71C7F8855009EBCC9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A5DF20F81C7F8855009EBCC9 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		A5DF20FD1C7F88C1009EBCC9 /* TripsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
+		A5DF20FE1C7F88C1009EBCC9 /* TripsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripsTableViewController.xib; sourceTree = "<group>"; };
+		A5DF21011C7F88E3009EBCC9 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		A5DF21021C7F88E3009EBCC9 /* TripViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripViewController.xib; sourceTree = "<group>"; };
+		A5DF21051C7F892C009EBCC9 /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		A5DF21061C7F892C009EBCC9 /* AddTripViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTripViewController.xib; sourceTree = "<group>"; };
+		A5DF21091C7F8940009EBCC9 /* AddEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
+		A5DF210A1C7F8940009EBCC9 /* AddEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEntryViewController.xib; sourceTree = "<group>"; };
+		A5DF210D1C7F895E009EBCC9 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
+		A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryTableViewController.xib; sourceTree = "<group>"; };
+		A5DF21111C7F8987009EBCC9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A5DF21121C7F8987009EBCC9 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		A5FC094A1C716B1700DF77D8 /* Nomad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nomad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FC094D1C716B1700DF77D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5FC094F1C716B1700DF77D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,16 +74,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5DF20FB1C7F8860009EBCC9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF21161C7F89A7009EBCC9 /* Entries */,
+				A5DF21151C7F899A009EBCC9 /* Trips */,
+				A5DF20F71C7F8855009EBCC9 /* HomeViewController.swift */,
+				A5DF20F81C7F8855009EBCC9 /* HomeViewController.xib */,
+				A5DF21111C7F8987009EBCC9 /* MapViewController.swift */,
+				A5DF21121C7F8987009EBCC9 /* MapViewController.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A5DF20FC1C7F8883009EBCC9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5D8FD6F1C795A880043EEF2 /* Entry.swift */,
+				A5D8FD731C795AC30043EEF2 /* Model.swift */,
+				A5D8FD711C795AAF0043EEF2 /* Photo.swift */,
+				A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5DF21151C7F899A009EBCC9 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF21051C7F892C009EBCC9 /* AddTripViewController.swift */,
+				A5DF21061C7F892C009EBCC9 /* AddTripViewController.xib */,
+				A5DF21011C7F88E3009EBCC9 /* TripViewController.swift */,
+				A5DF21021C7F88E3009EBCC9 /* TripViewController.xib */,
+				A5DF20FD1C7F88C1009EBCC9 /* TripsTableViewController.swift */,
+				A5DF20FE1C7F88C1009EBCC9 /* TripsTableViewController.xib */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
+		A5DF21161C7F89A7009EBCC9 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF21091C7F8940009EBCC9 /* AddEntryViewController.swift */,
+				A5DF210A1C7F8940009EBCC9 /* AddEntryViewController.xib */,
+				A5DF210D1C7F895E009EBCC9 /* EntryTableViewController.swift */,
+				A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */,
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
 		A5FC09411C716B1700DF77D8 = {
 			isa = PBXGroup;
 			children = (
-				A5D8FD711C795AAF0043EEF2 /* Photo.swift */,
-				A5D8FD731C795AC30043EEF2 /* Model.swift */,
-				A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */,
-				A5D8FD6F1C795A880043EEF2 /* Entry.swift */,
-				A5FC095F1C716C7300DF77D8 /* MapKit.framework */,
+				A5DF20FC1C7F8883009EBCC9 /* Models */,
 				A5FC094C1C716B1700DF77D8 /* Nomad */,
 				A5FC094B1C716B1700DF77D8 /* Products */,
+				A5DF20FB1C7F8860009EBCC9 /* View Controllers */,
+				A5FC095F1C716C7300DF77D8 /* MapKit.framework */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -72,11 +146,11 @@
 			isa = PBXGroup;
 			children = (
 				A5FC094D1C716B1700DF77D8 /* AppDelegate.swift */,
-				A5FC094F1C716B1700DF77D8 /* ViewController.swift */,
-				A5FC09511C716B1700DF77D8 /* Main.storyboard */,
 				A5FC09541C716B1700DF77D8 /* Assets.xcassets */,
-				A5FC09561C716B1700DF77D8 /* LaunchScreen.storyboard */,
 				A5FC09591C716B1700DF77D8 /* Info.plist */,
+				A5FC09561C716B1700DF77D8 /* LaunchScreen.storyboard */,
+				A5FC09511C716B1700DF77D8 /* Main.storyboard */,
+				A5FC094F1C716B1700DF77D8 /* ViewController.swift */,
 			);
 			path = Nomad;
 			sourceTree = "<group>";
@@ -145,9 +219,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DF21001C7F88C1009EBCC9 /* TripsTableViewController.xib in Resources */,
+				A5DF21041C7F88E3009EBCC9 /* TripViewController.xib in Resources */,
+				A5DF21101C7F895E009EBCC9 /* EntryTableViewController.xib in Resources */,
+				A5DF21141C7F8987009EBCC9 /* MapViewController.xib in Resources */,
 				A5FC09581C716B1700DF77D8 /* LaunchScreen.storyboard in Resources */,
 				A5FC09551C716B1700DF77D8 /* Assets.xcassets in Resources */,
 				A5FC09531C716B1700DF77D8 /* Main.storyboard in Resources */,
+				A5DF210C1C7F8940009EBCC9 /* AddEntryViewController.xib in Resources */,
+				A5DF20FA1C7F8855009EBCC9 /* HomeViewController.xib in Resources */,
+				A5DF21081C7F892C009EBCC9 /* AddTripViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +241,16 @@
 			files = (
 				A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */,
 				A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */,
+				A5DF20FF1C7F88C1009EBCC9 /* TripsTableViewController.swift in Sources */,
+				A5DF21031C7F88E3009EBCC9 /* TripViewController.swift in Sources */,
+				A5DF210B1C7F8940009EBCC9 /* AddEntryViewController.swift in Sources */,
 				A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */,
+				A5DF21131C7F8987009EBCC9 /* MapViewController.swift in Sources */,
+				A5DF21071C7F892C009EBCC9 /* AddTripViewController.swift in Sources */,
 				A5D8FD741C795AC30043EEF2 /* Model.swift in Sources */,
 				A5FC094E1C716B1700DF77D8 /* AppDelegate.swift in Sources */,
+				A5DF20F91C7F8855009EBCC9 /* HomeViewController.swift in Sources */,
+				A5DF210F1C7F895E009EBCC9 /* EntryTableViewController.swift in Sources */,
 				A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +264,7 @@
 				A5FC09521C716B1700DF77D8 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		A5FC09561C716B1700DF77D8 /* LaunchScreen.storyboard */ = {
@@ -184,6 +273,7 @@
 				A5FC09571C716B1700DF77D8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
