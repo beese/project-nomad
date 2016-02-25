@@ -32,10 +32,10 @@ class Entry: Model {
     }
     
     //When loading off of the disk
-    init?(title: String, description: String, photo: Photo, coords: Float) {
+    init?(title: String, info: String, photo: Photo, coords: Float) {
         // constructor used for initial creation
         self.title = title
-        self.description = description
+        self.info = info
         self.photo = photo
         self.coords = coords
         
