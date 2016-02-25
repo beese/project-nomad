@@ -10,18 +10,28 @@ import Foundation
 
 public class Photo: Model {
     
-    // MARK: Properties
+    // MARK: Read only Properties
     
     var fileName: String
-    var thumbnailPath: String
-    var fullSizePath: String
+    var thumbnailPath: String {
+        get {
+            return self.guID.UUIDString
+        }
+    }
+    var fullSizePath: String {
+        get {
+            return self.guID.UUIDString
+        }
+    }
     
-    init(_fileName: String, _thumbnailPath: String, _fullSizePath: String) {
+    // Create a new Photo
+    
+    init?(_fileName: String, _thumbnailPath: String, _fullSizePath: String) {
         
         // Initialize variables
         fileName = _fileName
-        thumbnailPath = _thumbnailPath
-        fullSizePath = _fullSizePath
+        //thumbnailPath = _thumbnailPath
+        //fullSizePath = _fullSizePath
         // Create a guid for file name
         super.init(guid: NSUUID())
         
@@ -33,8 +43,8 @@ public class Photo: Model {
         
         // Initialize variables
         fileName = _fileName
-        thumbnailPath = _thumbnailPath
-        fullSizePath = _fullSizePath
+        //thumbnailPath = _thumbnailPath
+        //fullSizePath = _fullSizePath
         // Find the file name??
         super.init(guid: _guid)
         
