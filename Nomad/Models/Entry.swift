@@ -19,6 +19,7 @@ public class Entry: Model {
     var info: String?
     var photo: Photo?
     var coords: Float?
+    var trip: String?
     
     init(_title: String, _info: String, _photo: Photo, _coords: Float) {
         // constructor for loading from the disk

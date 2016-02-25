@@ -15,6 +15,7 @@ public class Trip: Model {
     var title: String
     var travelers: String
     var startDate: NSDate
+    var entries: [String]?
     
     // Read only computed property
     var activeTrip: Bool {
@@ -111,7 +112,12 @@ public class Trip: Model {
     func endTrip() {
         
         // get ending date
-        self.endDate = NSDate()
+        endDate = NSDate()
+        
+    }
+    
+    func loadAll() {
+        //return array of all entries associated with it
         
     }
     
