@@ -29,22 +29,26 @@ class Entry: Model {
         self.photo = photo
         self.coords = coords
         
-        super.init(guid: NSUUID())
+         super.init(guid: NSUUID())
         
     }
     
     //When loading off of the disk
-    init?(title: String, info: String, photo: Photo, coords: Float) {
+    init?(title: String, date: NSDate, info: String, photo: Photo, coords: Float, guid: NSUUID) {
         // constructor used for initial creation
         self.title = title
         self.info = info
         self.photo = photo
         self.coords = coords
+        self.date = date
         
-        // calculate the date
-        self.date = NSDate()
+        super.init(guid: guid)
         
-        
+    }
+    
+    required convenience public init?(coder dcoder: NSCoder) {
+        guard let title = decoder.decodeObjectForKey("title") as? String,
+        let 
     }
 
     required convenience internal init?(coder decoder: NSCoder) {
