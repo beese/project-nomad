@@ -15,5 +15,12 @@ class Photo: Model {
     var fileName: String
     var thumbnailPath: String
     var fullSizePath: String
+    init(fileName: String, thumbnailPath: String, fullSizePath: String) {
+        self.fileName = fileName
+        self.thumbnailPath = thumbnailPath
+        self.fullSizePath = fullSizePath
+        
+    }
+    
     
 }
