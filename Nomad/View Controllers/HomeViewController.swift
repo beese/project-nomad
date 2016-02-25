@@ -10,6 +10,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var viewTripsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +22,25 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func startTripTapped(sender: AnyObject) {
+        // code for when user taps start trip button
+        
+        // open add trip view
+        self.navigationController?.pushViewController(AddTripViewController(), animated: true)
+        
+        // change button to say end trip
+        
+        // add an add entry button
+    }
+    
+    @IBAction func viewTripsTapped(sender: AnyObject) {
+        // code for when user taps view trips
+        
+        // open view trips view
+        
+        self.navigationController?.pushViewController(TripsTableViewController(), animated: true)
     }
     
 

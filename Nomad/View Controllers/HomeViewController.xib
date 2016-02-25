@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Nomad" customModuleProvider="target">
             <connections>
+                <outlet property="startButton" destination="VrE-gP-LGa" id="wMW-Wm-vjf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewTripsButton" destination="IXg-jV-QNZ" id="Auf-Yl-faf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,7 +18,13 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXg-jV-QNZ">
                     <rect key="frame" x="8" y="532" width="584" height="30"/>
-                    <state key="normal" title="View Trips"/>
+                    <color key="backgroundColor" red="0.79780409697920773" green="0.96079962092079774" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="View Trips">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewTripsTapped:" destination="-1" eventType="touchUpInside" id="RGO-Ig-k7u"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B38-Vg-rme">
                     <rect key="frame" x="8" y="75" width="584" height="54"/>
@@ -26,11 +34,26 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrE-gP-LGa">
                     <rect key="frame" x="8" y="477" width="584" height="30"/>
-                    <state key="normal" title="Start Trip"/>
+                    <color key="backgroundColor" red="0.8232702526346295" green="1" blue="0.83668065155618565" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Start Trip">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startTripTapped:" destination="-1" eventType="touchUpInside" id="nGh-kv-UzR"/>
+                    </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your interactive travel scrapbook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-OU-7K2">
+                    <rect key="frame" x="8" y="137" width="584" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Arz-OU-7K2" firstAttribute="top" secondItem="B38-Vg-rme" secondAttribute="bottom" constant="8" id="4OY-Ml-msN"/>
+                <constraint firstAttribute="trailing" secondItem="Arz-OU-7K2" secondAttribute="trailing" constant="8" id="4R6-CM-oyS"/>
+                <constraint firstItem="Arz-OU-7K2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7KK-yG-MBH"/>
                 <constraint firstAttribute="trailing" secondItem="B38-Vg-rme" secondAttribute="trailing" constant="8" id="Bhy-Nm-yV9"/>
                 <constraint firstItem="B38-Vg-rme" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EDb-Ve-Y28"/>
                 <constraint firstItem="VrE-gP-LGa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Jsc-xI-sch"/>
@@ -42,6 +65,7 @@
                 <constraint firstAttribute="bottom" secondItem="IXg-jV-QNZ" secondAttribute="bottom" constant="38" id="pWb-w2-ILc"/>
                 <constraint firstAttribute="trailing" secondItem="VrE-gP-LGa" secondAttribute="trailing" constant="8" id="rqO-tm-Y1P"/>
                 <constraint firstAttribute="trailing" secondItem="VrE-gP-LGa" secondAttribute="trailing" constant="8" id="rxp-6k-3QT"/>
+                <constraint firstItem="Arz-OU-7K2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tt6-5z-TCd"/>
                 <constraint firstAttribute="trailing" secondItem="IXg-jV-QNZ" secondAttribute="trailing" constant="8" id="vil-hi-Ng5"/>
             </constraints>
             <variation key="default">
