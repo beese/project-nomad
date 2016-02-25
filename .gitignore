@@ -60,3 +60,8 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+#I really don't know where to put this
+.DS_Store
+Nomad/.DS_Store
+Nomad/Nomad/AppDelegate.swift.orig

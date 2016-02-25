@@ -16,7 +16,6 @@ class Photo: Model {
     var thumbnailPath: String
     var fullSizePath: String
     init(fileName: String, thumbnailPath: String, fullSizePath: String) {
-        // constructor for loading from the disk
         self.fileName = fileName
         self.thumbnailPath = thumbnailPath
         self.fullSizePath = fullSizePath
