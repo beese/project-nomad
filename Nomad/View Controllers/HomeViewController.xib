@@ -13,7 +13,43 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXg-jV-QNZ">
+                    <rect key="frame" x="8" y="532" width="584" height="30"/>
+                    <state key="normal" title="View Trips"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B38-Vg-rme">
+                    <rect key="frame" x="8" y="75" width="584" height="54"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrE-gP-LGa">
+                    <rect key="frame" x="8" y="477" width="584" height="30"/>
+                    <state key="normal" title="Start Trip"/>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="B38-Vg-rme" secondAttribute="trailing" constant="8" id="Bhy-Nm-yV9"/>
+                <constraint firstItem="B38-Vg-rme" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EDb-Ve-Y28"/>
+                <constraint firstItem="VrE-gP-LGa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Jsc-xI-sch"/>
+                <constraint firstItem="IXg-jV-QNZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="L9V-Io-yey"/>
+                <constraint firstItem="B38-Vg-rme" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NR5-46-cGH"/>
+                <constraint firstItem="IXg-jV-QNZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QPf-RS-7J0"/>
+                <constraint firstItem="IXg-jV-QNZ" firstAttribute="top" secondItem="VrE-gP-LGa" secondAttribute="bottom" constant="25" id="RWZ-Jb-Pcv"/>
+                <constraint firstItem="B38-Vg-rme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="bM9-EF-YSK"/>
+                <constraint firstAttribute="bottom" secondItem="IXg-jV-QNZ" secondAttribute="bottom" constant="38" id="pWb-w2-ILc"/>
+                <constraint firstAttribute="trailing" secondItem="VrE-gP-LGa" secondAttribute="trailing" constant="8" id="rqO-tm-Y1P"/>
+                <constraint firstAttribute="trailing" secondItem="VrE-gP-LGa" secondAttribute="trailing" constant="8" id="rxp-6k-3QT"/>
+                <constraint firstAttribute="trailing" secondItem="IXg-jV-QNZ" secondAttribute="trailing" constant="8" id="vil-hi-Ng5"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="rqO-tm-Y1P"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="436" y="378"/>
         </view>
     </objects>
 </document>

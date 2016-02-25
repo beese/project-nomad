@@ -22,6 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // when application opens
+        // bring user to home view controller
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let navController = UINavigationController(rootViewController: HomeViewController())
+        self.window?.rootViewController = navController
+        
+        // call operating system
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
