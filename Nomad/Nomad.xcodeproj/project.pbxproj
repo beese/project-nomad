@@ -90,10 +90,10 @@
 		A5DF20FC1C7F8883009EBCC9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */,
 				A5D8FD6F1C795A880043EEF2 /* Entry.swift */,
 				A5D8FD731C795AC30043EEF2 /* Model.swift */,
 				A5D8FD711C795AAF0043EEF2 /* Photo.swift */,
-				A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

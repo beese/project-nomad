@@ -29,6 +29,8 @@ class Entry: Model {
         self.photo = photo
         self.coords = coords
         
+        super.init(guid: NSUUID())
+        
     }
     
     //When loading off of the disk
