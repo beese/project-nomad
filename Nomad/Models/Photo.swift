@@ -13,16 +13,8 @@ public class Photo: Model {
     // MARK: Read only Properties
     
     var fileName: String
-    var thumbnailPath: String {
-        get {
-            return self.guID.UUIDString
-        }
-    }
-    var fullSizePath: String {
-        get {
-            return self.guID.UUIDString
-        }
-    }
+    var thumbnailPath: String
+    var fullSizePath: String
     
     // Create a new Photo
     
@@ -30,8 +22,8 @@ public class Photo: Model {
         
         // Initialize variables
         fileName = _fileName
-        //thumbnailPath = _thumbnailPath
-        //fullSizePath = _fullSizePath
+        thumbnailPath = _thumbnailPath
+        fullSizePath = _fullSizePath
         // Create a guid for file name
         super.init(guid: NSUUID())
         
@@ -43,8 +35,8 @@ public class Photo: Model {
         
         // Initialize variables
         fileName = _fileName
-        //thumbnailPath = _thumbnailPath
-        //fullSizePath = _fullSizePath
+        thumbnailPath = _thumbnailPath
+        fullSizePath = _fullSizePath
         // Find the file name??
         super.init(guid: _guid)
         
