@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Nomad" customModuleProvider="target">
             <connections>
+                <outlet property="addEntryButton" destination="9nE-do-6Fq" id="LRJ-s9-pSr"/>
                 <outlet property="startButton" destination="VrE-gP-LGa" id="wMW-Wm-vjf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewTripsButton" destination="IXg-jV-QNZ" id="Auf-Yl-faf"/>
@@ -29,7 +30,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B38-Vg-rme">
                     <rect key="frame" x="8" y="75" width="584" height="54"/>
                     <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrE-gP-LGa">
@@ -43,11 +44,21 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your interactive travel scrapbook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-OU-7K2">
-                    <rect key="frame" x="8" y="137" width="584" height="21"/>
+                    <rect key="frame" x="8" y="137" width="584" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nE-do-6Fq">
+                    <rect key="frame" x="8" y="422" width="584" height="30"/>
+                    <color key="backgroundColor" red="0.97963105873104306" green="1" blue="0.83503603746882593" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Add Entry">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addEntryTapped:" destination="-1" eventType="touchUpInside" id="TKc-Jn-7KL"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -56,12 +67,15 @@
                 <constraint firstItem="Arz-OU-7K2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7KK-yG-MBH"/>
                 <constraint firstAttribute="trailing" secondItem="B38-Vg-rme" secondAttribute="trailing" constant="8" id="Bhy-Nm-yV9"/>
                 <constraint firstItem="B38-Vg-rme" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EDb-Ve-Y28"/>
+                <constraint firstItem="9nE-do-6Fq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="FIO-EO-9uG"/>
                 <constraint firstItem="VrE-gP-LGa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Jsc-xI-sch"/>
                 <constraint firstItem="IXg-jV-QNZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="L9V-Io-yey"/>
                 <constraint firstItem="B38-Vg-rme" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NR5-46-cGH"/>
                 <constraint firstItem="IXg-jV-QNZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QPf-RS-7J0"/>
                 <constraint firstItem="IXg-jV-QNZ" firstAttribute="top" secondItem="VrE-gP-LGa" secondAttribute="bottom" constant="25" id="RWZ-Jb-Pcv"/>
+                <constraint firstAttribute="trailing" secondItem="9nE-do-6Fq" secondAttribute="trailing" constant="8" id="VLo-yA-IgO"/>
                 <constraint firstItem="B38-Vg-rme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="bM9-EF-YSK"/>
+                <constraint firstItem="VrE-gP-LGa" firstAttribute="top" secondItem="9nE-do-6Fq" secondAttribute="bottom" constant="25" id="nLZ-BH-4J4"/>
                 <constraint firstAttribute="bottom" secondItem="IXg-jV-QNZ" secondAttribute="bottom" constant="38" id="pWb-w2-ILc"/>
                 <constraint firstAttribute="trailing" secondItem="VrE-gP-LGa" secondAttribute="trailing" constant="8" id="rqO-tm-Y1P"/>
                 <constraint firstAttribute="trailing" secondItem="VrE-gP-LGa" secondAttribute="trailing" constant="8" id="rxp-6k-3QT"/>
