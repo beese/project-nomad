@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddEntryViewController" customModule="Nomad" customModuleProvider="target">
             <connections>
+                <outlet property="entryLable" destination="WyC-Hk-hDq" id="ZTU-GW-Zxz"/>
+                <outlet property="entryTextBox" destination="wSf-7H-nTL" id="7cF-QQ-fN7"/>
+                <outlet property="infoLable" destination="ioj-Da-YbD" id="VnS-DH-726"/>
+                <outlet property="infoTextBox" destination="ZpU-EF-mlT" id="VY6-jl-iDs"/>
+                <outlet property="photoImageView" destination="QYp-5L-Kn9" id="B5J-db-38O"/>
+                <outlet property="photoLable" destination="vpY-xq-BYI" id="aQt-dt-8fR"/>
+                <outlet property="selectImageFromPhotoLibrary" destination="SYo-g6-nYs" id="TrM-rI-Bvd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +22,67 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Entry Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyC-Hk-hDq">
+                    <rect key="frame" x="8" y="34" width="78" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Decription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioj-Da-YbD">
+                    <rect key="frame" x="7" y="98" width="80" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Description on this Entry" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZpU-EF-mlT">
+                    <rect key="frame" x="7" y="127" width="584" height="120"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardAppearance="light" returnKeyType="done"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpY-xq-BYI">
+                    <rect key="frame" x="8" y="255" width="47" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-7H-nTL">
+                    <rect key="frame" x="8" y="60" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-5L-Kn9">
+                    <rect key="frame" x="7" y="284" width="300" height="300"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="QYp-5L-Kn9" secondAttribute="height" multiplier="1:1" id="EJ0-en-2xP"/>
+                        <constraint firstAttribute="width" secondItem="QYp-5L-Kn9" secondAttribute="height" multiplier="1:1" id="erj-iZ-Au0"/>
+                        <constraint firstAttribute="width" secondItem="QYp-5L-Kn9" secondAttribute="height" multiplier="53:28" id="fqn-2q-1gq"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="SYo-g6-nYs" appends="YES" id="5it-mp-I1g"/>
+                    </connections>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottomMargin" secondItem="wSf-7H-nTL" secondAttribute="bottom" constant="8" id="0jW-lq-GHh"/>
+                <constraint firstItem="WyC-Hk-hDq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="Hj2-Vg-CvR"/>
+                <constraint firstItem="WyC-Hk-hDq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="72" id="I5W-x5-lcz"/>
+                <constraint firstItem="wSf-7H-nTL" firstAttribute="top" secondItem="WyC-Hk-hDq" secondAttribute="bottom" constant="8" id="N1V-3M-gfO"/>
+                <constraint firstItem="wSf-7H-nTL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="bLe-qA-875"/>
+                <constraint firstItem="WyC-Hk-hDq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="c4T-w9-CMC"/>
+                <constraint firstItem="wSf-7H-nTL" firstAttribute="top" secondItem="WyC-Hk-hDq" secondAttribute="bottom" constant="8" id="dzG-Wf-zVV"/>
+                <constraint firstItem="wSf-7H-nTL" firstAttribute="top" secondItem="WyC-Hk-hDq" secondAttribute="bottom" constant="72" id="rjK-qc-0ri"/>
+            </constraints>
         </view>
+        <tapGestureRecognizer id="SYo-g6-nYs">
+            <connections>
+                <action selector="selectImageFromPhotoLibrary:" destination="-1" id="1Hh-Um-3be"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="defaultPhoto" width="320" height="320"/>
+    </resources>
 </document>
