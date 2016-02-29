@@ -35,7 +35,7 @@ public class Entry: Model {
     }
     
     //When loading off of the disk
-    init?(_title: String, _date: NSDate, _info: String, _photo: Photo, _coords: Float, _guid: NSUUID) {
+    init?(_title: String, _date: NSDate, _info: String?, _photo: Photo?, _coords: Float?, _guid: NSUUID) {
         // constructor used for initial creation
         title = _title
         info = _info
@@ -50,9 +50,9 @@ public class Entry: Model {
     required convenience public init?(coder decoder: NSCoder) {
         guard let title = decoder.decodeObjectForKey("title") as? String,
         let date = decoder.decodeObjectForKey("date") as? NSDate,
-        let info = decoder.decodeObjectForKey("info") as? String,
-        let photo = decoder.decodeObjectForKey("photo") as? Photo,
-        let coords = decoder.decodeObjectForKey("coords") as? Float,
+        let info = decoder.decodeObjectForKey("info") as? String?,
+        let photo = decoder.decodeObjectForKey("photo") as? Photo?,
+        let coords = decoder.decodeObjectForKey("coords") as? Float?,
         let guid = decoder.decodeObjectForKey("guid") as? NSUUID            else {return nil}
         
         self.init(

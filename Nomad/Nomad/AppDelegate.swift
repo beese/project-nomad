@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
         
+        // print all trips to console that were stored on the disk
+        
+        print(Trip.loadAll())
+        
         return true
     }
 

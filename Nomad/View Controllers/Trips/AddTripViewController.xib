@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTripViewController" customModule="Nomad" customModuleProvider="target">
             <connections>
+                <outlet property="titleTextBox" destination="xsO-uc-hgC" id="9ND-Sq-uAb"/>
+                <outlet property="travelersTextBox" destination="sSo-LQ-Nw6" id="v5w-C4-FKJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +15,44 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xsO-uc-hgC">
+                    <rect key="frame" x="8" y="100.5" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveler names" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSo-LQ-Nw6">
+                    <rect key="frame" x="8" y="182.5" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travelers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJ3-lE-Ddt">
+                    <rect key="frame" x="8" y="154" width="70" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mr5-tQ-qZl">
+                    <rect key="frame" x="8" y="72" width="67.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="sSo-LQ-Nw6" secondAttribute="trailing" constant="8" id="FSM-vP-aPB"/>
+                <constraint firstItem="Mr5-tQ-qZl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="UI5-fE-1NX"/>
+                <constraint firstItem="sSo-LQ-Nw6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="VKM-uO-INY"/>
+                <constraint firstItem="xsO-uc-hgC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Y3c-a5-wcT"/>
+                <constraint firstItem="xsO-uc-hgC" firstAttribute="top" secondItem="Mr5-tQ-qZl" secondAttribute="bottom" constant="8" id="YO4-2d-uyC"/>
+                <constraint firstItem="tJ3-lE-Ddt" firstAttribute="top" secondItem="xsO-uc-hgC" secondAttribute="bottom" constant="24" id="da4-My-fLe"/>
+                <constraint firstItem="Mr5-tQ-qZl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dun-xt-kIR"/>
+                <constraint firstItem="sSo-LQ-Nw6" firstAttribute="top" secondItem="tJ3-lE-Ddt" secondAttribute="bottom" constant="8" id="kHG-X7-XGW"/>
+                <constraint firstItem="tJ3-lE-Ddt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mWm-Ci-9Kd"/>
+                <constraint firstAttribute="trailing" secondItem="xsO-uc-hgC" secondAttribute="trailing" constant="8" id="oQR-uG-KVr"/>
+            </constraints>
+            <point key="canvasLocation" x="252" y="396"/>
         </view>
     </objects>
 </document>

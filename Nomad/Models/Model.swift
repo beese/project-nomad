@@ -84,13 +84,17 @@ public class Model: NSObject, NSCoding {
         
     }
     
-    public static func loadFromDisk(path: String) -> Model? {
+    public static func loadFromDisk<T>(path: String) -> T? {
+        
+        print(path)
         
         // Loads information from the disk
-        guard let model = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [Model] else { return nil }
+        guard let model = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? T else {
+            return nil
+        }
         
         // return the model loaded from the disk
-        return model.first
+        return model
         
     }
     

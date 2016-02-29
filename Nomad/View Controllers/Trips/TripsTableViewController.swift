@@ -9,15 +9,26 @@
 import UIKit
 
 class TripsTableViewController: UITableViewController {
-        
+    
+    var listOfTrips: [Trip] = Trip.loadAll()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "All Trips"
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 88
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +40,35 @@ class TripsTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        // only 1 section
+        
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return listOfTrips.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
+        
+        // Put in the name of the trip
+        let trip = listOfTrips[indexPath.row]
+        
+        cell.textLabel?.text = "\(trip.title)\n\(trip.travelers)\n\(trip.startDate) – \(trip.endDate)"
+        cell.textLabel?.numberOfLines = 0
+        // Puts arrow next to it
+        cell.accessoryType = .DisclosureIndicator
+        
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

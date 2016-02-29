@@ -81,9 +81,9 @@ public class Trip: Model {
         guard let title = decoder.decodeObjectForKey("title") as? String,
             let travelers = decoder.decodeObjectForKey("travelers") as? String,
             let startDate = decoder.decodeObjectForKey("start date") as? NSDate,
-            let endDate = decoder.decodeObjectForKey("end date") as? NSDate,
-            let startCoords = decoder.decodeObjectForKey("start coords") as? [Float],
-            let endCoords = decoder.decodeObjectForKey("end coords") as? [Float],
+            let endDate = decoder.decodeObjectForKey("end date") as? NSDate?,
+            let startCoords = decoder.decodeObjectForKey("start coords") as? [Float]?,
+            let endCoords = decoder.decodeObjectForKey("end coords") as? [Float]?,
             let guid = decoder.decodeObjectForKey("guid") as? NSUUID
             else { return nil }
         
@@ -137,10 +137,10 @@ public class Trip: Model {
             for folder in folders {
                 
                 // gets string of file containing trip info
-                let tripFile = (folder as NSString).stringByAppendingPathComponent("trip")
+                let tripFile = (allTripsFolder().stringByAppendingPathComponent(folder) as NSString).stringByAppendingPathComponent("trip")
                 
                 // load that file from the disk and use super's loadFromDisk to extract the trip
-                let tripObject = Trip.loadFromDisk(tripFile) as! Trip?
+                let tripObject: Trip? = Trip.loadFromDisk(tripFile)
                 
                 // load in the trip's entries
                 var loadedEntries: [Entry] = []
@@ -157,7 +157,7 @@ public class Trip: Model {
                     // loop through entries
                     for entry in allEntries {
                         
-                        let entryObject = Entry.loadFromDisk(entry) as! Entry?
+                        let entryObject: Entry? = Entry.loadFromDisk(entry)
                         
                         // make sure it isn't nil
                         if let o = entryObject {
@@ -181,6 +181,12 @@ public class Trip: Model {
             print(e)
         }
         
+        // Sort based on the start date
+        // returns true if $0 is less than $1
+        trip.sortInPlace {
+            $1.startDate.compare($0.startDate) == .OrderedAscending
+        }
+        
         return trip
         
     }
@@ -188,7 +194,7 @@ public class Trip: Model {
     public override func filePath() -> NSString {
         
         let tripsFolder = filePathFolder()
-        return (tripsFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString).stringByAppendingPathComponent("trip")
+        return (tripsFolder as NSString).stringByAppendingPathComponent("trip")
         
     }
     
@@ -202,6 +208,11 @@ public class Trip: Model {
     // returns path to folder containing all of the trips
     static func allTripsFolder() -> NSString {
         return Model.rootFolder.stringByAppendingPathComponent("trips")
+    }
+    
+    // similar to Java toString method to print out an object for debugging
+    override public var description : String {
+        return "{ TRIP:\n\ttitle: \(title)\n\ttravellers: \(travelers) }\n"
     }
     
 }
