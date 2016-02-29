@@ -14,12 +14,12 @@ public class Entry: Model {
     
     var title: String
     var date: NSDate
+    var trip: Trip?
     
     // optional variables
     var info: String?
     var photo: Photo?
     var coords: Float?
-    var trip: String?
     
     init(_title: String, _info: String, _photo: Photo, _coords: Float) {
         // constructor for loading from the disk
@@ -74,5 +74,14 @@ public class Entry: Model {
         coder.encodeObject(self.info, forKey: "info")
         coder.encodeObject(self.photo, forKey: "photo")
         coder.encodeObject(self.coords, forKey: "coords")
+    }
+    
+    public override func filePath() -> NSString {
+        
+        // rootfolder/trips/tripGUID/entries/{entryGUID}
+        
+        let entryFolder = self.trip!.filePathFolder() as NSString
+        return (entryFolder.stringByAppendingPathComponent("entries") as NSString).stringByAppendingPathComponent(guID.UUIDString)
+        
     }
 }

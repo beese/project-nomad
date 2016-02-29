@@ -15,7 +15,7 @@ public class Trip: Model {
     var title: String
     var travelers: String
     var startDate: NSDate
-    var entries: [String]?
+    var entries: [Entry]
     
     // Read only computed property
     var activeTrip: Bool {
@@ -40,6 +40,9 @@ public class Trip: Model {
         title = _title
         travelers = _travelers
         
+        // originally set to be empty
+        entries = []
+        
         // Take the current time and save it in startDate
         startDate = NSDate() // Format: Oct 12, 2015, 4:49 PM
         
@@ -56,6 +59,8 @@ public class Trip: Model {
         title = _title
         travelers = _travelers
         
+        entries = []
+        
         startCoords = _startCoords
         endCoords = _endCoords
         
@@ -70,7 +75,8 @@ public class Trip: Model {
     }
     
     // MARK: NSCoding
-
+    
+    // load
     required convenience public init?(coder decoder: NSCoder) {
         guard let title = decoder.decodeObjectForKey("title") as? String,
             let travelers = decoder.decodeObjectForKey("travelers") as? String,
@@ -92,6 +98,7 @@ public class Trip: Model {
         )
     }
     
+    // saving
     public override func encodeWithCoder(coder: NSCoder) {
         
         // encodes guid
@@ -116,16 +123,85 @@ public class Trip: Model {
         
     }
     
-    func loadAll() {
-        //return array of all entries associated with it
+    static public func loadAll() -> [Trip] {
+        
+        //return array of all trips with entries associated with it
+        
+        var trip: [Trip] = []
+        
+        do {
+            // returns an array of paths to each item in the trips folder
+            // should return an array of paths to each individual trip folder
+            let folders = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(allTripsFolder() as String)
+            
+            for folder in folders {
+                
+                // gets string of file containing trip info
+                let tripFile = (folder as NSString).stringByAppendingPathComponent("trip")
+                
+                // load that file from the disk and use super's loadFromDisk to extract the trip
+                let tripObject = Trip.loadFromDisk(tripFile) as! Trip?
+                
+                // load in the trip's entries
+                var loadedEntries: [Entry] = []
+                
+                let entriesFolder = (folder as NSString).stringByAppendingPathComponent("entries")
+                
+                // check if folder exists
+                
+                if NSFileManager.defaultManager().fileExistsAtPath(entriesFolder) {
+                    
+                    // load in the entries
+                    let allEntries = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(entriesFolder as String)
+                    
+                    // loop through entries
+                    for entry in allEntries {
+                        
+                        let entryObject = Entry.loadFromDisk(entry) as! Entry?
+                        
+                        // make sure it isn't nil
+                        if let o = entryObject {
+                            o.trip = tripObject
+                            loadedEntries.append(o)
+                        }
+                        
+                    }
+                    
+                }
+                
+                if let o = tripObject {
+                    // make sure tripObject isn't nil
+                    o.entries = loadedEntries
+                    trip.append(o)
+                }
+                
+            }
+        } catch let e as NSError {
+            // error
+            print(e)
+        }
+        
+        return trip
         
     }
     
     public override func filePath() -> NSString {
         
-        let tripsFolder = rootFolder.stringByAppendingPathComponent("trips") as NSString
+        let tripsFolder = filePathFolder()
         return (tripsFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString).stringByAppendingPathComponent("trip")
         
+    }
+    
+    public func filePathFolder() -> NSString {
+        
+        let tripsFolder = Model.rootFolder.stringByAppendingPathComponent("trips") as NSString
+        return (tripsFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString)
+        
+    }
+    
+    // returns path to folder containing all of the trips
+    static func allTripsFolder() -> NSString {
+        return Model.rootFolder.stringByAppendingPathComponent("trips")
     }
     
 }

@@ -72,7 +72,7 @@ public class Photo: Model {
     
     public override func filePath() -> NSString {
         
-        let photosFolder = rootFolder.stringByAppendingPathComponent("photo") as NSString
+        let photosFolder = Model.rootFolder.stringByAppendingPathComponent("photo") as NSString
         return (photosFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString).stringByAppendingPathComponent("photo")
         
     }

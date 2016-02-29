@@ -13,7 +13,28 @@ public class Model: NSObject, NSCoding {
     // MARK: Properties
     
     var guID: NSUUID
-    var rootFolder: NSString
+    
+    // need rootFolder to be static for all children
+    // declares an anonymous function and then immediately calls it
+    static var rootFolder: NSString = {
+        
+        // Finds the path to user's documents
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        
+        // Creates path to Nomad folder
+        let rFolder = documentsDirectory.stringByAppendingPathComponent("nomad")
+        
+        // Create Nomad Folder
+        // Will throw an error if the file had already been created
+        do {
+            try NSFileManager.defaultManager().createDirectoryAtPath(rFolder as String, withIntermediateDirectories: false, attributes: nil)
+        } catch _ as NSError {
+            // file has already been created
+        }
+        
+        return rFolder
+        
+    }()
     
     override convenience init() {
         
@@ -23,21 +44,8 @@ public class Model: NSObject, NSCoding {
     }
     
     init(guid: NSUUID) {
+        
         self.guID = guid
-        
-        // Finds the path to user's documents
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        
-        // Creates path to Nomad folder
-        self.rootFolder = documentsDirectory.stringByAppendingPathComponent("nomad")
-        
-        // Create Nomad Folder
-        // Will throw an error if the file had already been created
-        do {
-            try NSFileManager.defaultManager().createDirectoryAtPath(self.rootFolder as String, withIntermediateDirectories: false, attributes: nil)
-        } catch _ as NSError {
-            // file has already been created
-        }
         
     }
     
@@ -82,14 +90,14 @@ public class Model: NSObject, NSCoding {
         guard let model = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [Model] else { return nil }
         
         // return the model loaded from the disk
-        return model[0]
+        return model.first
         
     }
     
     func filePath() -> NSString {
         
         // Return the file path
-        return self.rootFolder
+        return Model.rootFolder
         
     }
     
