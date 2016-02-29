@@ -55,8 +55,6 @@
                     <rect key="frame" x="7" y="284" width="300" height="300"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="QYp-5L-Kn9" secondAttribute="height" multiplier="1:1" id="EJ0-en-2xP"/>
-                        <constraint firstAttribute="width" secondItem="QYp-5L-Kn9" secondAttribute="height" multiplier="1:1" id="erj-iZ-Au0"/>
                         <constraint firstAttribute="width" secondItem="QYp-5L-Kn9" secondAttribute="height" multiplier="53:28" id="fqn-2q-1gq"/>
                     </constraints>
                     <connections>
@@ -68,12 +66,10 @@
             <constraints>
                 <constraint firstAttribute="bottomMargin" secondItem="wSf-7H-nTL" secondAttribute="bottom" constant="8" id="0jW-lq-GHh"/>
                 <constraint firstItem="WyC-Hk-hDq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="Hj2-Vg-CvR"/>
-                <constraint firstItem="WyC-Hk-hDq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="72" id="I5W-x5-lcz"/>
                 <constraint firstItem="wSf-7H-nTL" firstAttribute="top" secondItem="WyC-Hk-hDq" secondAttribute="bottom" constant="8" id="N1V-3M-gfO"/>
                 <constraint firstItem="wSf-7H-nTL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="bLe-qA-875"/>
                 <constraint firstItem="WyC-Hk-hDq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="c4T-w9-CMC"/>
                 <constraint firstItem="wSf-7H-nTL" firstAttribute="top" secondItem="WyC-Hk-hDq" secondAttribute="bottom" constant="8" id="dzG-Wf-zVV"/>
-                <constraint firstItem="wSf-7H-nTL" firstAttribute="top" secondItem="WyC-Hk-hDq" secondAttribute="bottom" constant="72" id="rjK-qc-0ri"/>
             </constraints>
         </view>
         <tapGestureRecognizer id="SYo-g6-nYs">
