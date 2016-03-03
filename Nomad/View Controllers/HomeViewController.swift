@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         }
     }
     var allTrips: [Trip] = []
-    
+    //get currentTrip
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)

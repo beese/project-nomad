@@ -39,10 +39,27 @@ class AddEntryViewController: UIViewController,UITextFieldDelegate, UIImagePicke
         
         let travel = Entry(_title: title!, _info: info!, _photo: nil, _coords: nil)
         
+        //get currentTrip
+        var currentTrip : Trip?
+        var allTrips: [Trip] = []
+        allTrips = Trip.loadAll();
+        
+        for trip in allTrips {
+            if (trip.endDate == nil) {
+                currentTrip = trip
+            }
+        }
+        //go through array and find nil
+        travel!.trip = currentTrip;
+        currentTrip!.entries.append(travel!);
+        
         travel!.save()
+        //save currentTrip
+        currentTrip!.save()
         
         self.navigationController?.popViewControllerAnimated(true)
     }
+
     
     // MARK: UIImagePickerControllerDelegate
     
