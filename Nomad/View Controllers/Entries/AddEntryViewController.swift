@@ -9,7 +9,7 @@
 
 import UIKit
 
-class AddEntryViewController: UIViewController,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var entryLable: UILabel!
     @IBOutlet weak var titleTextBox: UITextField!
@@ -62,12 +62,13 @@ class AddEntryViewController: UIViewController,UITextFieldDelegate, UIImagePicke
 
     
     // MARK: UIImagePickerControllerDelegate
-    
-    /*func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    /*
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         
         // Dismiss the picker if the user canceled.
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         // The info dictionary contains multiple representations of the image, and this uses the original.
@@ -78,12 +79,12 @@ class AddEntryViewController: UIViewController,UITextFieldDelegate, UIImagePicke
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
-    }
+    }*/
     
     
     // MARK: - Actions
 
-    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+    /*@IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
         
         // Hide the keyboard.
         titleTextBox.resignFirstResponder()

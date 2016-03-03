@@ -10,7 +10,9 @@ import UIKit
 
 class AddTripViewController: UIViewController {
 
+    @IBOutlet weak var tripTitleLabel: UILabel!
     @IBOutlet weak var titleTextBox: UITextField!
+    @IBOutlet weak var travelerTitleLabel: UILabel!
     @IBOutlet weak var travelersTextBox: UITextField!
     
     
