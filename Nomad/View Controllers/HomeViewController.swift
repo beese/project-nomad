@@ -80,9 +80,6 @@ class HomeViewController: UIViewController {
             self.navigationController?.pushViewController(AddTripViewController(), animated: true)
         }
         
-        // change button to say end trip
-        
-        // add an add entry button
     }
     
     @IBAction func viewTripsTapped(sender: AnyObject) {
