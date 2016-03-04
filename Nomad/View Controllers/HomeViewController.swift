@@ -51,18 +51,28 @@ class HomeViewController: UIViewController {
         // open add trip view
         
         if (onTrip) {
+            // MARK: End trip confirmation dialog
+            // create the alert
+            let alert = UIAlertController(title: "Are you sure?", message: "You will not be able to add any more entries to this trip.", preferredStyle: UIAlertControllerStyle.Alert)
             
-            // ends the trip
-            let tripToEnd = allTrips.filter({ $0.endDate == nil })
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "End trip", style: UIAlertActionStyle.Destructive, handler: { action in
+                // ends the trip
+                let tripToEnd = self.allTrips.filter({ $0.endDate == nil })
+                
+                for trip in tripToEnd {
+                    trip.endDate = NSDate()
+                    trip.save()
+                }
+                
+                // change the home screen
+                self.updateUI()
+            }))
             
-            for trip in tripToEnd {
-                trip.endDate = NSDate()
-                trip.save()
-            }
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
             
-            // change the home screen
-            
-            updateUI()
+            // show the alert
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
             // not on trip
