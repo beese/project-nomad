@@ -9,9 +9,9 @@
 import UIKit
 
 class EntryTableViewController: UITableViewController {
+    // current trip
+    var listOfEntries: [Entry] = [] // how to load entries of this trip ?
     
-    var listOfEntries: [Entry] = Entry.loadAll()
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -3,8 +3,6 @@
 //  Nomad
 //
 //  Created by Kristin Beese on 2/20/16.
-//  Edited by Janka Gal on 2/25/16.
-//  Edited by Raj Iyer on 2/29/16.
 //  Copyright © 2016 Team 9. All rights reserved.
 //
 
@@ -78,58 +76,19 @@ public class Entry: Model {
         coder.encodeObject(self.coords, forKey: "coords")
     }
     
-    static public func loadAll() -> [Entry] {
-        
-        var entry: [Entry] = []
-        do {
-            // returns an array of paths to each item in the entry folder
-            // should return an array of paths to each individual entry folder
-            let folders = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(allEntriesFolder() as String)
-            
-            for folder in folders {
-                
-                // gets string of file containing entry info
-                let entryFile = (allEntriesFolder().stringByAppendingPathComponent(folder) as NSString).stringByAppendingPathComponent("entry")
-                
-                // load that file from the disk and use super's loadFromDisk to extract the entry
-                //let entryObject: Entry? = Entry.loadFromDisk(entryFile)
-                // NOT sure how to load objects
-                
-                
-                
-            }
-        } catch let e as NSError {
-            // error
-            print(e)
-        }
-        
-        // Sort based on the start date
-        // returns true if $0 is less than $1
-        entry.sortInPlace {
-            $1.date.compare($0.date) == .OrderedAscending
-        }
-        
-        return entry
-        
-    }
     
     public override func filePath() -> NSString {
         
         // rootfolder/trips/tripGUID/entries/{entryGUID}
         
         let entryFolder = self.trip!.filePathFolder() as NSString
+        print(entryFolder)
         return (entryFolder.stringByAppendingPathComponent("entries") as NSString).stringByAppendingPathComponent(guID.UUIDString)
         
     }
-    // NOT SURE
-    public func filePathFolder() -> NSString {
-        
-        let entriesFolder = Model.rootFolder.stringByAppendingPathComponent("entries") as NSString
-        return (entriesFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString)
-        
+    // similar to Java toString method to print out an object for debugging
+    override public var description : String {
+        return "{ Entry:\n\ttitle: \(self.title)\n\tinfo: \(self.info) }\n"
     }
-    // NOT SURE
-    static func allEntriesFolder() -> NSString {
-        return Model.rootFolder.stringByAppendingPathComponent("entries")
-    }
+    
 }
