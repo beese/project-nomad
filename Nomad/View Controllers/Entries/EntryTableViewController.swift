@@ -11,7 +11,7 @@ import UIKit
 class EntryTableViewController: UITableViewController {
     // current trip
     var listOfEntries: [Entry] = [] // how to load entries of this trip ?
-    
+     //var listOfTrips: [Trip] = Trip.loadAll()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,18 +44,19 @@ class EntryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return listOfEntries.count
+        //return listOfTrips.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
         
         let entry = listOfEntries[indexPath.row]
-        
+        //let entry = listOfTrips[indexPath.row]
         cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
-
+        //cell.textLabel?.text = "\(entry.title)\n\(entry.travelers)"
         cell.textLabel?.numberOfLines = 0
         cell.accessoryType = .DisclosureIndicator
         return cell

@@ -89,16 +89,15 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(AddEntryViewController(), animated: true)
         
     }
+    
     @IBAction func viewEntriesTapped(sender: AnyObject) {
-        // code for when user taps view trips
-        
-        // open view trips view
-        
         self.navigationController?.pushViewController(EntryTableViewController(), animated: true)
     }
     
+    
     func updateUI() {
         addEntryButton.hidden = true
+        viewEntriesButton.hidden = true
         
         
         // if user is on a trip
@@ -108,7 +107,7 @@ class HomeViewController: UIViewController {
             // on a trip
             
             addEntryButton.hidden = false
-            //viewEntriesButton.hidden = false
+            viewEntriesButton.hidden = false
             startButton.backgroundColor = UIColor(red: 0.9615, green: 0.7353, blue: 0.724, alpha: 1.0)
             startButton.setTitle("End Trip", forState: UIControlState.Normal)
             
@@ -119,7 +118,7 @@ class HomeViewController: UIViewController {
             // not on a trip
             
             addEntryButton.hidden = true
-            //viewEntriesButton.hidden = true
+            viewEntriesButton.hidden = true
             startButton.backgroundColor = UIColor(red: 0.8233, green: 1.0, blue: 0.8367, alpha: 1.0)
             startButton.setTitle("Start Trip", forState: UIControlState.Normal)
         }

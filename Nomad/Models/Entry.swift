@@ -86,6 +86,18 @@ public class Entry: Model {
         return (entryFolder.stringByAppendingPathComponent("entries") as NSString).stringByAppendingPathComponent(guID.UUIDString)
         
     }
+    public func filePathFolder() -> NSString {
+        
+        let entriesFolder = Model.rootFolder.stringByAppendingPathComponent("entries") as NSString
+        return (entriesFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString)
+        
+    }
+    
+    // returns path to folder containing all of the trips
+    static func allTripsFolder() -> NSString {
+        return Model.rootFolder.stringByAppendingPathComponent("entries")
+    }
+    
     // similar to Java toString method to print out an object for debugging
     override public var description : String {
         return "{ Entry:\n\ttitle: \(self.title)\n\tinfo: \(self.info) }\n"
