@@ -10,16 +10,18 @@ import UIKit
 
 class TripViewController: UITableViewController {
     var toPass : Trip!
+    var listOfEntries : [Entry]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let _trip = toPass {
             print(_trip.title);
+            print(_trip.entries)
         } else {
             print("whyy");
         }
         self.title = toPass.title
-        
+        self.listOfEntries = toPass.entries
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -38,9 +40,10 @@ class TripViewController: UITableViewController {
         // Configure the cell...
         print("here")
         // Put in the name of the trip
-        let trip = toPass
+        let entry = listOfEntries[indexPath.row]
+        cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
+        //cell.textLabel?.text = "Travelers: \(trip.travelers)\nFrom: \(trip.startDate)\nTo: \(trip.endDate)"
         
-        cell.textLabel?.text = "Travelers: \(trip.travelers)\nFrom: \(trip.startDate)\nTo: \(trip.endDate)"
         cell.textLabel?.numberOfLines = 0
         
         return cell
@@ -60,7 +63,7 @@ class TripViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return listOfEntries.count
     }
 
     /*
