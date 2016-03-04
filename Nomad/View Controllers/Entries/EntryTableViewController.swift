@@ -10,10 +10,22 @@ import UIKit
 
 class EntryTableViewController: UITableViewController {
     // current trip
-    var listOfEntries: [Entry] = [] // how to load entries of this trip ?
-     //var listOfTrips: [Trip] = Trip.loadAll()
+    
+    var currentTrip : Trip?
+    var allTrips: [Trip] = Trip.loadAll()
+    var listOfEntries: [Entry] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        for trip in allTrips {
+            if (trip.endDate == nil) {
+                currentTrip = trip
+            }
+        }
+        
+        listOfEntries = currentTrip!.entries
         
         self.title = "All Entires"
         
@@ -44,7 +56,6 @@ class EntryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return listOfEntries.count
-        //return listOfTrips.count
     }
 
     
@@ -54,9 +65,7 @@ class EntryTableViewController: UITableViewController {
         // Configure the cell...
         
         let entry = listOfEntries[indexPath.row]
-        //let entry = listOfTrips[indexPath.row]
         cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
-        //cell.textLabel?.text = "\(entry.title)\n\(entry.travelers)"
         cell.textLabel?.numberOfLines = 0
         cell.accessoryType = .DisclosureIndicator
         return cell

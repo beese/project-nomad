@@ -11,19 +11,20 @@ import Foundation
 public class Photo: Model {
     
     // MARK: Read only Properties
-    
-    var fileName: String
-    var thumbnailPath: String
-    var fullSizePath: String
+    var photo: NSData
+    var entry: Entry?
+
     
     // Create a new Photo
     
-    init?(_fileName: String, _thumbnailPath: String, _fullSizePath: String) {
+    init?(_photo: NSData) {
         
         // Initialize variables
-        fileName = _fileName
-        thumbnailPath = _thumbnailPath
-        fullSizePath = _fullSizePath
+        //fileName = _fileName
+        //thumbnailPath = _thumbnailPath
+        //fullSizePath = _fullSizePath
+        photo =  _photo
+        
         // Create a guid for file name
         super.init(guid: NSUUID())
         
@@ -31,12 +32,13 @@ public class Photo: Model {
  
     // Loading a photo off the disk
     
-    init(_fileName: String, _thumbnailPath: String, _fullSizePath: String, _guid: NSUUID) {
+    init?(_photo: NSData, _guid: NSUUID) {
         
         // Initialize variables
-        fileName = _fileName
-        thumbnailPath = _thumbnailPath
-        fullSizePath = _fullSizePath
+        //fileName = _fileName
+        //thumbnailPath = _thumbnailPath
+        //fullSizePath = _fullSizePath
+        photo =  _photo
         // Find the file name??
         super.init(guid: _guid)
         
@@ -45,16 +47,18 @@ public class Photo: Model {
     // MARK: NSCoding 
     
     required convenience public init?(coder decoder: NSCoder) {
-        guard let fileName = decoder.decodeObjectForKey("fileName") as? String,
-            let thumbnailPath = decoder.decodeObjectForKey("thumbnailPath") as? String,
-            let fullSizePath = decoder.decodeObjectForKey("fullSizePath") as? String,
+        guard //let fileName = decoder.decodeObjectForKey("fileName") as? String,
+            //let thumbnailPath = decoder.decodeObjectForKey("thumbnailPath") as? String,
+            //let fullSizePath = decoder.decodeObjectForKey("fullSizePath") as? String,
+            let photo = decoder.decodeObjectForKey("photo") as? NSData,
             let guid = decoder.decodeObjectForKey("guid") as? NSUUID
             else { return nil }
         
         self.init(
-            _fileName: fileName,
-            _thumbnailPath: thumbnailPath,
-            _fullSizePath: fullSizePath,
+            //_fileName: fileName,
+            //_thumbnailPath: thumbnailPath,
+            //_fullSizePath: fullSizePath,
+            _photo: photo,
             _guid: guid
         )
     }
@@ -64,16 +68,20 @@ public class Photo: Model {
         // encodes guid
         super.encodeWithCoder(coder)
         
-        coder.encodeObject(self.fileName, forKey: "fileName")
-        coder.encodeObject(self.thumbnailPath, forKey: "thumbnailPath")
-        coder.encodeObject(self.fullSizePath, forKey: "fullSizePath")
+        //coder.encodeObject(self.fileName, forKey: "fileName")
+        //coder.encodeObject(self.thumbnailPath, forKey: "thumbnailPath")
+        //coder.encodeObject(self.fullSizePath, forKey: "fullSizePath")
+        coder.encodeObject(self.photo, forKey: "photo")
 
     }
     
     public override func filePath() -> NSString {
         
-        let photosFolder = Model.rootFolder.stringByAppendingPathComponent("photo") as NSString
-        return (photosFolder.stringByAppendingPathComponent(guID.UUIDString) as NSString).stringByAppendingPathComponent("photo")
+        // rootfolder/trips/tripGUID/entries/{entryGUID}
+        
+        let photopath = self.entry!.filePath() as NSString
+        print(photopath)
+        return (photopath.stringByAppendingPathComponent("photo") as NSString).stringByAppendingPathComponent(guID.UUIDString)
         
     }
     

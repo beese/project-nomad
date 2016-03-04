@@ -31,9 +31,10 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         print("Entry Save")
         let title = titleTextBox.text
         let info = infoTextBox.text
-        //let photo = photoImageView.image
+        // This creates an NSData instance containing the raw bytes for a JPEG image at a 60% quality setting.
+        let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
-        let travel = Entry(_title: title!, _info: info!, _photo: nil, _coords: nil)
+        let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: nil)
         
         //get currentTrip
         var currentTrip : Trip?
@@ -54,11 +55,6 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         currentTrip!.save()
         
         self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    // MARK: UIImagePickerControllerDelegate
-    
-    @IBAction func selectImageFromLibrary(sender: UITapGestureRecognizer) {
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -86,67 +82,22 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBAction func selectImage(sender: UITapGestureRecognizer) {
         
         // Hide the keyboard.
-        titleTextBox.resignFirstResponder()
-        infoTextBox.resignFirstResponder()
+        //titleTextBox.resignFirstResponder()
+        //infoTextBox.resignFirstResponder()
         
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
+        let imagePicker = UIImagePickerController()
         
         // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .PhotoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
+        //imagePicker.delegate = self
         
-        presentViewController(imagePickerController, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-/*
-    @IBAction func selectImageFromLibrary(sender: UITapGestureRecognizer) {
-    }
     
-    // MARK: UIImagePickerControllerDelegate
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
-        // Dismiss the picker if the user canceled.
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        // The info dictionary contains multiple representations of the image, and this uses the original.
-        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
-        // Set photoImageView to display the selected image.
-        photoImageView.image = selectedImage
-        
-        // Dismiss the picker.
-        dismissViewControllerAnimated(true, completion: nil)
-    }*/
-    
-    
-    // MARK: - Actions
-
-    /*@IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
-        
-        // Hide the keyboard.
-        titleTextBox.resignFirstResponder()
-        infoTextBox.resignFirstResponder()
-        
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
-        
-        // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .PhotoLibrary
-        
-        // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        
-        // The method asks ViewController to present the view controller defined by imagePickerController.
-        presentViewController(imagePickerController, animated: true, completion: nil)
-
-    }*/
     
     /*
     // MARK: - Navigation
