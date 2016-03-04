@@ -10,15 +10,46 @@
 import UIKit
 
 class EntryViewController: UITableViewController {
+    var toPass : Entry!
     
     override func viewDidLoad() {
+        print("in entry view");
+
         super.viewDidLoad()
+
+        if let _entry = toPass {
+            print(_entry.title);
+            //print(_entry.info)
+        } else {
+            print("whyy");
+        }
+        self.title = toPass.title
+        //self.listOfEntries = toPass.entries'
+        print("before calling tableview");
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 88
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        // Configure the cell...
+        print("here entry")
+        // Put in the name of the trip
+        let entry = toPass
+        
+        cell.textLabel?.text = "Title: \(entry.title)\nDescription: \(entry.info)\nLoaction: \(entry.coords)"
+        
+        cell.textLabel?.numberOfLines = 0
+        return cell
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,13 +61,15 @@ class EntryViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
+    
+    
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

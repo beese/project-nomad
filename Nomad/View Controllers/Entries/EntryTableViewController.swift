@@ -14,6 +14,7 @@ class EntryTableViewController: UITableViewController {
     var currentTrip : Trip?
     var allTrips: [Trip] = Trip.loadAll()
     var listOfEntries: [Entry] = []
+    var selectedEntry : Entry?
     
     
     
@@ -73,6 +74,19 @@ class EntryTableViewController: UITableViewController {
         cell.textLabel?.numberOfLines = 0
         cell.accessoryType = .DisclosureIndicator
         return cell
+    }
+    //for a trip selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedEntry = listOfEntries[indexPath.row]
+        
+        print("selected a entry: " + selectedEntry.title);
+        
+        let viewController = EntryViewController()
+        print("loaded vc")
+        viewController.toPass = selectedEntry
+        print("toPass = " + viewController.toPass.title)
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
     }
     
 

@@ -45,7 +45,7 @@ class TripViewController: UITableViewController {
         //cell.textLabel?.text = "Travelers: \(trip.travelers)\nFrom: \(trip.startDate)\nTo: \(trip.endDate)"
         
         cell.textLabel?.numberOfLines = 0
-        
+        cell.accessoryType = .DisclosureIndicator
         return cell
     }
     
