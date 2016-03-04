@@ -82,7 +82,7 @@ public class Entry: Model {
         // rootfolder/trips/tripGUID/entries/{entryGUID}
         
         let entryFolder = self.trip!.filePathFolder() as NSString
-        print(entryFolder)
+        print("Entry folder: " + (entryFolder as String))
         return (entryFolder.stringByAppendingPathComponent("entries") as NSString).stringByAppendingPathComponent(guID.UUIDString)
         
     }

@@ -124,7 +124,7 @@ public class Trip: Model {
     }
     
     static public func loadAll() -> [Trip] {
-        
+        print("in load all")
         //return array of all trips with entries associated with it
         
         var trip: [Trip] = []
@@ -135,7 +135,7 @@ public class Trip: Model {
             let folders = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(allTripsFolder() as String)
             
             for folder in folders {
-                
+                print("in folder in folders")
                 // gets string of file containing trip info
                 let tripFile = (allTripsFolder().stringByAppendingPathComponent(folder) as NSString).stringByAppendingPathComponent("trip")
                 
@@ -145,8 +145,10 @@ public class Trip: Model {
                 // load in the trip's entries
                 var loadedEntries: [Entry] = []
                 
-                let entriesFolder = (folder as NSString).stringByAppendingPathComponent("entries")
-                
+                //let entriesFolder = (folder as NSString).stringByAppendingPathComponent("entries")
+                let entriesFolder = (allTripsFolder().stringByAppendingPathComponent(folder) as NSString).stringByAppendingPathComponent("entries")
+                print("entriesFolder is ");
+                print(entriesFolder)
                 // check if folder exists
                 
                 if NSFileManager.defaultManager().fileExistsAtPath(entriesFolder) {
@@ -154,17 +156,23 @@ public class Trip: Model {
                     // load in the entries
                     let allEntries = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(entriesFolder as String)
                     
+                    print("got all entries")
                     // loop through entries
                     for entry in allEntries {
+                        print("looping through entries")
                         
-                        let entryObject: Entry? = Entry.loadFromDisk(entry)
+                        let entryPath = (entriesFolder as NSString).stringByAppendingPathComponent(entry as String)
+                        
+                        let entryObject: Entry? = Entry.loadFromDisk(entryPath)
                         
                         // make sure it isn't nil
                         if let o = entryObject {
+                            print("entry is " + o.title)
                             o.trip = tripObject
                             loadedEntries.append(o)
                         }
-                        
+                        print("loaded entries")
+                        print(loadedEntries)
                     }
                     
                 }

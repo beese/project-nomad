@@ -25,7 +25,12 @@ class EntryTableViewController: UITableViewController {
             }
         }
         
+        var tripss: [Trip] = Trip.loadAll()
+       
         listOfEntries = currentTrip!.entries
+        print("Current trip: " + currentTrip!.title)
+        print("List of entries: ")
+        print(listOfEntries);
         
         self.title = "All Entires"
         

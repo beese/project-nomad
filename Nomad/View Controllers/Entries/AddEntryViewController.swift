@@ -35,6 +35,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
         let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: nil)
+        print("Entry Title is " + travel!.title)
         
         //get currentTrip
         var currentTrip : Trip?
@@ -46,9 +47,12 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 currentTrip = trip
             }
         }
+        print("Current trip is " + currentTrip!.title)
         //go through array and find nil
         travel!.trip = currentTrip;
-        currentTrip!.entries.append(travel!);
+        
+        print(currentTrip!.entries);
+        print("Saved trip to entry: " + travel!.trip!.title)
         
         travel!.save()
         //save currentTrip

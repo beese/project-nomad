@@ -86,7 +86,7 @@ public class Model: NSObject, NSCoding {
     
     public static func loadFromDisk<T>(path: String) -> T? {
         
-        print(path)
+        print("print path in loadFromDisk: " + path)
         
         // Loads information from the disk
         guard let model = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? T else {
