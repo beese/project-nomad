@@ -9,17 +9,43 @@
 import UIKit
 
 class TripViewController: UITableViewController {
-        
+    var toPass : Trip!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let _trip = toPass {
+            print(_trip.title);
+        } else {
+            print("whyy");
+        }
+        self.title = toPass.title
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 88
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        // Configure the cell...
+        print("here")
+        // Put in the name of the trip
+        let trip = toPass
+        
+        cell.textLabel?.text = "Travelers: \(trip.travelers)\nFrom: \(trip.startDate)\nTo: \(trip.endDate)"
+        cell.textLabel?.numberOfLines = 0
+        
+        return cell
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,12 +55,12 @@ class TripViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
     /*

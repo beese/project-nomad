@@ -11,6 +11,7 @@ import UIKit
 class TripsTableViewController: UITableViewController {
     
     var listOfTrips: [Trip] = Trip.loadAll()
+    var selectedTrip: Trip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,21 @@ class TripsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    //for a trip selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedTrip = listOfTrips[indexPath.row]
+        
+        print("selected a trip: " + selectedTrip.title);
+        
+        let viewController = TripViewController()
+        viewController.toPass = selectedTrip
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+    }
+    
+ 
 
     /*
     // Override to support conditional editing of the table view.
