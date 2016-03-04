@@ -32,7 +32,7 @@ class EntryTableViewController: UITableViewController {
         print("List of entries: ")
         print(listOfEntries);
         
-        self.title = "All Entires"
+        self.title = "All Entries"
         
         tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "cell")
         
