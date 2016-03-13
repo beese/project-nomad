@@ -87,6 +87,22 @@ class TripViewController: UITableViewController {
             return 1
         }
     }
+    
+    //for an entry selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row != 0) {
+            let selectedEntry = listOfEntries[indexPath.row - 1]
+            
+            print("selected a entry: " + selectedEntry.title);
+            
+            let viewController = EntryViewController()
+            print("loaded vc")
+            viewController.toPass = selectedEntry
+            print("toPass = " + viewController.toPass.title)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+    }
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -78,7 +78,7 @@ class EntryTableViewController: UITableViewController {
         cell.accessoryType = .DisclosureIndicator
         return cell
     }
-    //for a trip selected
+    //for an entry selected
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedEntry = listOfEntries[indexPath.row]
         
