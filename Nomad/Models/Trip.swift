@@ -127,7 +127,7 @@ public class Trip: Model {
         print("in load all")
         //return array of all trips with entries associated with it
         
-        var trip: [Trip] = []
+        var trips: [Trip] = []
         
         do {
             // returns an array of paths to each item in the trips folder
@@ -179,8 +179,11 @@ public class Trip: Model {
                 
                 if let o = tripObject {
                     // make sure tripObject isn't nil
+                    loadedEntries.sortInPlace {
+                        $1.date.compare($0.date) == .OrderedAscending
+                    }
                     o.entries = loadedEntries
-                    trip.append(o)
+                    trips.append(o)
                 }
                 
             }
@@ -191,11 +194,11 @@ public class Trip: Model {
         
         // Sort based on the start date
         // returns true if $0 is less than $1
-        trip.sortInPlace {
+        trips.sortInPlace {
             $1.startDate.compare($0.startDate) == .OrderedAscending
         }
         
-        return trip
+        return trips
         
     }
     
