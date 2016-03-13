@@ -37,26 +37,33 @@ class TripViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        // Configure the cell...
-        print("here")
-        // Put in the name of the trip
-        let entry = listOfEntries[indexPath.row]
-        //cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE, MMMM d, yyy"
-        
-        let startString = formatter.stringFromDate(toPass.startDate)
-        if (toPass.endDate != nil) {
-             let endString = formatter.stringFromDate(toPass.endDate!)
-            cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - \(endString)"
-        } else {
-            cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - now\n"
+        if indexPath.row == 0 {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "EEE, MMMM d, yyy"
+            
+            let startString = formatter.stringFromDate(toPass.startDate)
+            if (toPass.endDate != nil) {
+                let endString = formatter.stringFromDate(toPass.endDate!)
+                cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - \(endString)"
+            } else {
+                cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - now\n"
+            }
+            
+            
+            cell.textLabel?.numberOfLines = 0
         }
+        else  {
+            let entry = listOfEntries[indexPath.row - 1]
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
+            let time = formatter.stringFromDate(entry.date)
+            cell.textLabel?.text = "\(entry.title)\n\(time)"
+            cell.textLabel?.numberOfLines = 0
+            cell.accessoryType = .DisclosureIndicator
         
-        
-        cell.textLabel?.numberOfLines = 0
-        cell.accessoryType = .DisclosureIndicator
+        }
+       
         return cell
     }
     
@@ -74,7 +81,11 @@ class TripViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listOfEntries.count
+        if listOfEntries.count != 0 {
+            return listOfEntries.count + 1
+        } else {
+            return 1
+        }
     }
 
     /*
