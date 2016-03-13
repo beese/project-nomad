@@ -23,7 +23,7 @@ class EntryViewController: UITableViewController {
         } else {
             print("whyy");
         }
-        self.title = toPass.title
+        self.title = "Details"
         //self.listOfEntries = toPass.entries'
         print("before calling tableview");
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -45,8 +45,19 @@ class EntryViewController: UITableViewController {
         print("here entry")
         // Put in the name of the trip
         let entry = toPass
+        let formatter = NSDateFormatter()
+        formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
         
-        cell.textLabel?.text = "Title: \(entry.title)\nDescription: \(entry.info)\nLoaction: \(entry.coords)"
+        let time = formatter.stringFromDate(entry.date)
+        
+        var entryInfo: String
+        
+        if entry.info != nil{
+            entryInfo = entry.info!
+        } else {
+            entryInfo = ""
+        }
+        cell.textLabel?.text = "\(entry.title)\non \(time)\nat \(entry.coords)\n\(entryInfo)\n"
         
         cell.textLabel?.numberOfLines = 0
         return cell

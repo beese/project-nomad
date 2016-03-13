@@ -70,7 +70,10 @@ class EntryTableViewController: UITableViewController {
         // Configure the cell...
         
         let entry = listOfEntries[indexPath.row]
-        cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
+        let formatter = NSDateFormatter()
+        formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
+        let time = formatter.stringFromDate(entry.date)
+        cell.textLabel?.text = "\(entry.title)\n\(time)"
         cell.textLabel?.numberOfLines = 0
         cell.accessoryType = .DisclosureIndicator
         return cell
