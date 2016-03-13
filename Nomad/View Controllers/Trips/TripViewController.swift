@@ -41,8 +41,19 @@ class TripViewController: UITableViewController {
         print("here")
         // Put in the name of the trip
         let entry = listOfEntries[indexPath.row]
-        cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
-        //cell.textLabel?.text = "Travelers: \(trip.travelers)\nFrom: \(trip.startDate)\nTo: \(trip.endDate)"
+        //cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE, MMMM d, yyy"
+        
+        let startString = formatter.stringFromDate(toPass.startDate)
+        if (toPass.endDate != nil) {
+             let endString = formatter.stringFromDate(toPass.endDate!)
+            cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - \(endString)"
+        } else {
+            cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - now\n"
+        }
+        
         
         cell.textLabel?.numberOfLines = 0
         cell.accessoryType = .DisclosureIndicator
