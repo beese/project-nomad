@@ -38,6 +38,7 @@ class TripViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         if indexPath.row == 0 {
+            
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEE, MMMM d, yyy"
             
@@ -49,7 +50,7 @@ class TripViewController: UITableViewController {
                 cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - now\n"
             }
             
-            
+            cell.accessoryType = .None
             cell.textLabel?.numberOfLines = 0
         }
         else  {
@@ -90,7 +91,13 @@ class TripViewController: UITableViewController {
     
     //for an entry selected
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row != 0) {
+        if (indexPath.row == 0) {
+            let tripViewController = NewTripViewController()
+            tripViewController.toPass = self.toPass
+            self.navigationController?.pushViewController(tripViewController, animated: true)
+        }
+        
+        else {
             let selectedEntry = listOfEntries[indexPath.row - 1]
             
             print("selected a entry: " + selectedEntry.title);
