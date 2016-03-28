@@ -62,7 +62,18 @@ class TripsTableViewController: UITableViewController {
         // Put in the name of the trip
         let trip = listOfTrips[indexPath.row]
         
-        cell.textLabel?.text = "\(trip.title)\n\(trip.travelers)\n\(trip.startDate) – \(trip.endDate)"
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE, MMMM d, yyy"
+        
+        let startString = formatter.stringFromDate(trip.startDate)
+        if (trip.endDate != nil) {
+            let endString = formatter.stringFromDate(trip.endDate!)
+            cell.textLabel?.text = "\(trip.title)\nwith \(trip.travelers)\n\(startString) - \(endString)"
+        } else {
+            cell.textLabel?.text = "\(trip.title)\nwith \(trip.travelers)\n\(startString) - now\n"
+        }
+        
+        //cell.textLabel?.text = "\(trip.title)\n\(trip.travelers)\n\(trip.startDate) – \(trip.endDate)"
         cell.textLabel?.numberOfLines = 0
         // Puts arrow next to it
         cell.accessoryType = .DisclosureIndicator

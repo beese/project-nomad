@@ -37,15 +37,34 @@ class TripViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        // Configure the cell...
-        print("here")
-        // Put in the name of the trip
-        let entry = listOfEntries[indexPath.row]
-        cell.textLabel?.text = "\(entry.title)\n\(entry.info)\n\(entry.coords)"
-        //cell.textLabel?.text = "Travelers: \(trip.travelers)\nFrom: \(trip.startDate)\nTo: \(trip.endDate)"
+        if indexPath.row == 0 {
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "EEE, MMMM d, yyy"
+            
+            let startString = formatter.stringFromDate(toPass.startDate)
+            if (toPass.endDate != nil) {
+                let endString = formatter.stringFromDate(toPass.endDate!)
+                cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - \(endString)"
+            } else {
+                cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - now\n"
+            }
+            
+            cell.accessoryType = .None
+            cell.textLabel?.numberOfLines = 0
+        }
+        else  {
+            let entry = listOfEntries[indexPath.row - 1]
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
+            let time = formatter.stringFromDate(entry.date)
+            cell.textLabel?.text = "\(entry.title)\n\(time)"
+            cell.textLabel?.numberOfLines = 0
+            cell.accessoryType = .DisclosureIndicator
         
-        cell.textLabel?.numberOfLines = 0
-        cell.accessoryType = .DisclosureIndicator
+        }
+       
         return cell
     }
     
@@ -63,7 +82,33 @@ class TripViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listOfEntries.count
+        if listOfEntries.count != 0 {
+            return listOfEntries.count + 1
+        } else {
+            return 1
+        }
+    }
+    
+    //for an entry selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == 0) {
+            let tripViewController = NewTripViewController()
+            tripViewController.toPass = self.toPass
+            self.navigationController?.pushViewController(tripViewController, animated: true)
+        }
+        
+        else {
+            let selectedEntry = listOfEntries[indexPath.row - 1]
+            
+            print("selected a entry: " + selectedEntry.title);
+            
+            let viewController = EntryViewController()
+            print("loaded vc")
+            viewController.toPass = selectedEntry
+            print("toPass = " + viewController.toPass.title)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
     }
 
     /*
