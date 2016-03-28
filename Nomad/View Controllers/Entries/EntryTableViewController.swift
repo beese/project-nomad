@@ -86,7 +86,6 @@ class EntryTableViewController: UITableViewController {
         viewController.toPass = selectedEntry
         print("toPass = " + viewController.toPass.title)
         self.navigationController?.pushViewController(viewController, animated: true)
-        
     }
     
 

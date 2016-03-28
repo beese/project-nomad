@@ -13,11 +13,27 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var infoTextBox: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
+    
+    var passToEditEntry : Entry!
+    var editMode : Bool!
 
     override func viewDidLoad() {
-        self.title = "Add an Entry"
+        print("in addEntryVC, editMode is \(editMode)")
+        
+        if ((editMode) != false) {
+            self.title = "Edit Entry"
+            print("Loading selected entry to edit into text boxes")
+            let selectedEntry = passToEditEntry
+            titleTextBox.text = selectedEntry.title
+            infoTextBox.text = selectedEntry.info
+            //photoImageView.image = selectedEntry.photo
+        }
+        else {
+            self.title = "Add an Entry"
+        }
+        
         super.viewDidLoad()
-        //self.title = "Add an Entry"
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveTapped")
 
         // Do any additional setup after loading the view.
@@ -27,6 +43,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func saveTapped() {
         print("Entry Save")
         let title = titleTextBox.text
@@ -34,29 +51,31 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // This creates an NSData instance containing the raw bytes for a JPEG image at a 60% quality setting.
         let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
-        let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: nil)
-        print("Entry Title is " + travel!.title)
+        if (editMode != false) {
+            let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: nil)
+            print("Entry Title is " + travel!.title)
         
-        //get currentTrip
-        var currentTrip : Trip?
-        var allTrips: [Trip] = []
-        allTrips = Trip.loadAll();
+            //get currentTrip
+            var currentTrip : Trip?
+            var allTrips: [Trip] = []
+            allTrips = Trip.loadAll();
         
-        for trip in allTrips {
-            if (trip.endDate == nil) {
-                currentTrip = trip
+            for trip in allTrips {
+                if (trip.endDate == nil) {
+                    currentTrip = trip
+                }
             }
+            print("Current trip is " + currentTrip!.title)
+            //go through array and find nil
+            travel!.trip = currentTrip;
+        
+            print(currentTrip!.entries);
+            print("Saved trip to entry: " + travel!.trip!.title)
+        
+            travel!.save()
+            //save currentTrip
+            currentTrip!.save()
         }
-        print("Current trip is " + currentTrip!.title)
-        //go through array and find nil
-        travel!.trip = currentTrip;
-        
-        print(currentTrip!.entries);
-        print("Saved trip to entry: " + travel!.trip!.title)
-        
-        travel!.save()
-        //save currentTrip
-        currentTrip!.save()
         
         self.navigationController?.popViewControllerAnimated(true)
     }

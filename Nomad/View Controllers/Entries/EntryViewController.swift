@@ -35,7 +35,12 @@ class EntryViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editTapped")
+        
+        let addEntryVC = AddEntryViewController()
+        addEntryVC.editMode = false
+        print("edit mode = \(addEntryVC.editMode)")
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -50,6 +55,23 @@ class EntryViewController: UITableViewController {
         
         cell.textLabel?.numberOfLines = 0
         return cell
+    }
+    
+    func editTapped() {
+        // pass entry information to AddEntryViewController
+        print("Entry Edit")
+        let selectedEntry = toPass
+        print("selected a entry: " + selectedEntry.title);
+        
+        let AEViewController = AddEntryViewController()
+        print("loaded vc")
+        AEViewController.passToEditEntry = selectedEntry
+        AEViewController.editMode = true
+        print("passToEditEntry = " + AEViewController.passToEditEntry.title)
+        print("edit mode from EntryVC = \(AEViewController.editMode)")
+
+        //push AddEntryViewController
+        self.navigationController?.pushViewController(AEViewController, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
