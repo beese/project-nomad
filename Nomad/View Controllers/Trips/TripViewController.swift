@@ -34,27 +34,80 @@ class TripViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Trip Information"
+        }
+        else {
+            return "Entries"
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        if indexPath.row == 0 {
-            
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEE, MMMM d, yyy"
-            
-            let startString = formatter.stringFromDate(toPass.startDate)
-            if (toPass.endDate != nil) {
-                let endString = formatter.stringFromDate(toPass.endDate!)
-                cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - \(endString)"
-            } else {
-                cell.textLabel?.text = "Travelers: \(toPass.travelers)\n\(startString) - now\n"
-            }
+        if indexPath.section == 0 {
+            // Information section
             
             cell.accessoryType = .None
             cell.textLabel?.numberOfLines = 0
+            
+            if indexPath.row == 0 {
+                // display trip title
+                
+                cell.textLabel?.text = "Trip Title: \(toPass.title)"
+                cell.accessoryType = .None
+                cell.selectionStyle = .None
+                
+            }
+            
+            
+            else if indexPath.row == 1 {
+                // display travelers
+                cell.textLabel?.text = "Travelers: \(toPass.travelers)"
+                cell.accessoryType = .None
+                cell.selectionStyle = .None
+                
+            }
+            
+            else if indexPath.row == 2 {
+                // display trip dates
+                
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "MMMM d, yyy"
+                
+                let startString = formatter.stringFromDate(toPass.startDate)
+                
+                // trip is over
+                if (toPass.endDate != nil) {
+                    let endString = formatter.stringFromDate(toPass.endDate!)
+                    cell.textLabel?.text = "Dates: \(startString) - \(endString)"
+                }
+                // still on trip
+                else {
+                    cell.textLabel?.text = "Dates: \(startString) - now"
+                }
+                
+                cell.accessoryType = .None
+                cell.selectionStyle = .None
+                
+            }
+            
+            else if indexPath.row == 3 {
+                // button for the map view
+                
+                cell.textLabel?.text = "View Map 🗺"
+                cell.textLabel?.font = UIFont.boldSystemFontOfSize(UIFont.systemFontSize())
+                cell.accessoryType = .DisclosureIndicator
+                cell.textLabel?.textAlignment = .Center
+            }
+            
         }
-        else  {
-            let entry = listOfEntries[indexPath.row - 1]
+        
+        else {
+            
+            let entry = listOfEntries[indexPath.row]
             
             let formatter = NSDateFormatter()
             formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
@@ -62,7 +115,6 @@ class TripViewController: UITableViewController {
             cell.textLabel?.text = "\(entry.title)\n\(time)"
             cell.textLabel?.numberOfLines = 0
             cell.accessoryType = .DisclosureIndicator
-        
         }
        
         return cell
@@ -77,28 +129,38 @@ class TripViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if listOfEntries.count != 0 {
-            return listOfEntries.count + 1
-        } else {
-            return 1
+        if section == 0 {
+            return 4
+        }
+        else {
+            return listOfEntries.count
         }
     }
     
     //for an entry selected
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == 0) {
-            let tripViewController = NewTripViewController()
-            tripViewController.toPass = self.toPass
-            self.navigationController?.pushViewController(tripViewController, animated: true)
+
+        if indexPath.section == 0 {
+            if indexPath.row == 3 {
+                // viewing the map
+                
+                let viewController = MapViewController(trip: toPass)
+                print("loaded vc")
+                self.navigationController?.pushViewController(viewController, animated: true)
+                
+            }
+            
+            return
         }
         
+        
         else {
-            let selectedEntry = listOfEntries[indexPath.row - 1]
+            let selectedEntry = listOfEntries[indexPath.row]
             
             print("selected a entry: " + selectedEntry.title);
             
