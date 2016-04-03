@@ -34,13 +34,29 @@ class AddTripViewController: UIViewController {
         let title = titleTextBox.text
         let travelers = travelersTextBox.text
         
-        // TODO: get coordinates
+        titleTextBox.resignFirstResponder()
+        travelersTextBox.resignFirstResponder()
+
+        SwiftSpinner.show("Fetching GPS Coordinates...", animated: true);
         
-        let travel = Trip(_title: title!, _travelers: travelers!, coords: nil)
-        
-        travel!.save()
-        
-        self.navigationController?.popViewControllerAnimated(true)
+        // get coordinates
+        GPSHelper.sharedInstance.getQuickLocationUpdate { (locations) -> (Void) in
+            
+            let travel = Trip(_title: title!, _travelers: travelers!, coords: locations)
+            
+            SwiftSpinner.hide();
+            
+            travel!.save()
+            
+            self.navigationController?.popViewControllerAnimated(true)
+            
+            if locations == nil {
+                let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Trip created but there are no starting coordinates", preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+            }
+            
+        }
         
     }
     

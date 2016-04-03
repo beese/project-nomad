@@ -62,7 +62,27 @@ class HomeViewController: UIViewController {
                 
                 for trip in tripToEnd {
                     trip.endDate = NSDate()
-                    trip.save()
+                    
+                    SwiftSpinner.show("Fetching Ending GPS Coordinates...", animated: true);
+                    
+                    GPSHelper.sharedInstance.getQuickLocationUpdate { (locations) -> (Void) in
+                        
+                        trip.endCoords = locations
+                        
+                        SwiftSpinner.hide()
+                        
+                        trip.save()
+                        
+                        self.navigationController?.popViewControllerAnimated(true)
+                        
+                        if locations == nil {
+                            let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Trip ended but there are no ending coordinates", preferredStyle: .Alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                            self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+                        }
+                        
+                    }
+
                 }
                 
                 // change the home screen

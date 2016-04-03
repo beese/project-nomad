@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 public class Trip: Model {
     
@@ -26,15 +27,15 @@ public class Trip: Model {
     
     // optional variables
     public var endDate: NSDate?
-    public var startCoords: [Float]?
-    public var endCoords: [Float]?
+    public var startCoords: CLLocation?
+    public var endCoords: CLLocation?
     
     
     
     // MARK: Initializers
     
     // When the user first creates a trip
-    init?(_title: String, _travelers: String, coords: [Float]?) {
+    init?(_title: String, _travelers: String, coords: CLLocation?) {
         
         
         title = _title
@@ -54,7 +55,7 @@ public class Trip: Model {
     }
     
     // Loading a trip off the disk
-    init?(_title: String, _travelers: String, _startCoords: [Float]?, _endCoords: [Float]?, _startDate: NSDate, _endDate: NSDate?, _guid: NSUUID) {
+    init?(_title: String, _travelers: String, _startCoords: CLLocation?, _endCoords: CLLocation?, _startDate: NSDate, _endDate: NSDate?, _guid: NSUUID) {
         
         title = _title
         travelers = _travelers
@@ -82,8 +83,8 @@ public class Trip: Model {
             let travelers = decoder.decodeObjectForKey("travelers") as? String,
             let startDate = decoder.decodeObjectForKey("start date") as? NSDate,
             let endDate = decoder.decodeObjectForKey("end date") as? NSDate?,
-            let startCoords = decoder.decodeObjectForKey("start coords") as? [Float]?,
-            let endCoords = decoder.decodeObjectForKey("end coords") as? [Float]?,
+            let startCoords = decoder.decodeObjectForKey("start coords") as? CLLocation?,
+            let endCoords = decoder.decodeObjectForKey("end coords") as? CLLocation?,
             let guid = decoder.decodeObjectForKey("guid") as? NSUUID
             else { return nil }
         

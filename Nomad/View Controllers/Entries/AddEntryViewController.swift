@@ -15,7 +15,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var photoImageView: UIImageView!
     
     var passToEditEntry : Entry!
-    var editMode : Bool!
+    var editMode : Bool = false
 
     override func viewDidLoad() {
         print("in addEntryVC, editMode is \(editMode)")
@@ -51,33 +51,55 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // This creates an NSData instance containing the raw bytes for a JPEG image at a 60% quality setting.
         let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
-        if (editMode != false) {
-            let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: nil)
-            print("Entry Title is " + travel!.title)
-        
-            //get currentTrip
-            var currentTrip : Trip?
-            var allTrips: [Trip] = []
-            allTrips = Trip.loadAll();
-        
-            for trip in allTrips {
-                if (trip.endDate == nil) {
-                    currentTrip = trip
+        if (editMode == false) {
+            titleTextBox.resignFirstResponder()
+            infoTextBox.resignFirstResponder()
+            
+            SwiftSpinner.show("Fetching GPS Coordinates...", animated: true);
+            
+            GPSHelper.sharedInstance.getQuickLocationUpdate { (locations) -> (Void) in
+                
+                
+                let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: locations)
+                print("Entry Title is " + travel!.title)
+                
+                //get currentTrip
+                var currentTrip : Trip?
+                var allTrips: [Trip] = []
+                allTrips = Trip.loadAll();
+                
+                for trip in allTrips {
+                    if (trip.endDate == nil) {
+                        currentTrip = trip
+                    }
                 }
+                print("Current trip is " + currentTrip!.title)
+                //go through array and find nil
+                travel!.trip = currentTrip;
+                
+                print(currentTrip!.entries);
+                print("Saved trip to entry: " + travel!.trip!.title)
+                
+                travel!.save()
+                //save currentTrip
+                currentTrip!.save()
+                
+                SwiftSpinner.hide()
+                
+                
+                self.navigationController?.popViewControllerAnimated(true)
+                
+                if locations == nil {
+                    let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Entry created but there are no entry coordinates", preferredStyle: .Alert)
+                    alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                    self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+                }
+                
+                
             }
-            print("Current trip is " + currentTrip!.title)
-            //go through array and find nil
-            travel!.trip = currentTrip;
-        
-            print(currentTrip!.entries);
-            print("Saved trip to entry: " + travel!.trip!.title)
-        
-            travel!.save()
-            //save currentTrip
-            currentTrip!.save()
+            
         }
         
-        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -98,6 +120,10 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func hideKeyboards(sender: AnyObject) {
+        titleTextBox.resignFirstResponder()
+        infoTextBox.resignFirstResponder()
     }
     
     //MARK: Actions

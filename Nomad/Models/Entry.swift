@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 public class Entry: Model {
     
@@ -19,9 +20,9 @@ public class Entry: Model {
     // optional variables
     var info: String?
     var photo: Photo?
-    var coords: [Float]?
+    var coords: CLLocation?
     
-    init?(_title: String, _info: String, _photo: Photo?, _coords: [Float]?) {
+    init?(_title: String, _info: String, _photo: Photo?, _coords: CLLocation?) {
         // constructor for loading from the disk
         
         title = _title
@@ -35,7 +36,7 @@ public class Entry: Model {
     }
     
     //When loading off of the disk
-    init?(_title: String, _date: NSDate, _info: String?, _photo: Photo?, _coords: [Float]?, _guid: NSUUID) {
+    init?(_title: String, _date: NSDate, _info: String?, _photo: Photo?, _coords: CLLocation?, _guid: NSUUID) {
         // constructor used for initial creation
         title = _title
         info = _info
@@ -52,7 +53,7 @@ public class Entry: Model {
         let date = decoder.decodeObjectForKey("date") as? NSDate,
         let info = decoder.decodeObjectForKey("info") as? String?,
         let photo = decoder.decodeObjectForKey("photo") as? Photo?,
-        let coords = decoder.decodeObjectForKey("coords") as? [Float]?,
+        let coords = decoder.decodeObjectForKey("coords") as? CLLocation?,
         let guid = decoder.decodeObjectForKey("guid") as? NSUUID            else {return nil}
         
         self.init(
