@@ -8,11 +8,13 @@
 
 import UIKit
 
-class TripViewController: UITableViewController {
+class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
     var toPass : Trip!
     var listOfEntries : [Entry]!
     
     override func viewDidLoad() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
+        
         super.viewDidLoad()
         if let _trip = toPass {
             print(_trip.title);
@@ -27,11 +29,24 @@ class TripViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 88
         
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        
+        self.tableView.tableFooterView = UIView()
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func addEntry() {
+        let vc = AddEntryViewController()
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -129,6 +144,10 @@ class TripViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if toPass == nil || (listOfEntries.count == 0 && toPass.endDate == nil) {
+            return 0
+        }
+        
         return 2
     }
 
@@ -173,59 +192,38 @@ class TripViewController: UITableViewController {
         
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Entries"
+        
+        let attributes = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+                           NSForegroundColorAttributeName: UIColor.darkGrayColor() ]
+        
+        return NSAttributedString(string: text, attributes: attributes)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "Oh no! You haven't added any entries to your trip yet. Log something you've done on your trip!"
+        
+        let para = NSMutableParagraphStyle()
+        para.lineBreakMode = .ByWordWrapping
+        para.alignment = .Center
+        
+        let attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(14),
+                           NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+                           NSParagraphStyleAttributeName: para ]
+        
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        let attr = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(17) ]
+        
+        return NSAttributedString(string: "Add Entry", attributes: attr)
+    }
+    
+    func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
+        let vc = AddEntryViewController()
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
