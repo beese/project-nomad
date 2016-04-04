@@ -118,7 +118,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func viewEntriesTapped(sender: AnyObject) {
-        self.navigationController?.pushViewController(EntryTableViewController(), animated: true)
+        
+        
+        let currentTrip =  allTrips.filter({ $0.endDate == nil }).first
+        let viewController = TripViewController()
+        viewController.toPass = currentTrip
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     
