@@ -46,19 +46,20 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     func saveTapped() {
         print("Entry Save")
+        
+        //get info from text boxes
         let title = titleTextBox.text
         let info = infoTextBox.text
         // This creates an NSData instance containing the raw bytes for a JPEG image at a 60% quality setting.
         let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
+        titleTextBox.resignFirstResponder()
+        infoTextBox.resignFirstResponder()
+        
         if (editMode == false) {
-            titleTextBox.resignFirstResponder()
-            infoTextBox.resignFirstResponder()
-            
             SwiftSpinner.show("Fetching GPS Coordinates...", animated: true);
             
             GPSHelper.sharedInstance.getQuickLocationUpdate { (locations) -> (Void) in
-                
                 
                 let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: locations)
                 print("Entry Title is " + travel!.title)
@@ -73,10 +74,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                         currentTrip = trip
                     }
                 }
+                
                 print("Current trip is " + currentTrip!.title)
                 //go through array and find nil
                 travel!.trip = currentTrip;
-                
+            
                 print(currentTrip!.entries);
                 print("Saved trip to entry: " + travel!.trip!.title)
                 
@@ -86,7 +88,6 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 
                 SwiftSpinner.hide()
                 
-                
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 if locations == nil {
@@ -94,10 +95,49 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                     alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                     self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
                 }
-                
-                
+            } //end gps
+        } //end if
+            
+        if (editMode == true) {
+            // initiate updated entry
+            let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: passToEditEntry.coords)
+            print("Entry Title is " + travel!.title)
+            
+            //delete old file
+            let fileManager = NSFileManager.defaultManager()
+            do {
+                try fileManager.removeItemAtPath(self.passToEditEntry.filePath() as String)
+                print("\(self.passToEditEntry.filePath() as String) is deleted")
+            }
+            catch let error as NSError {
+                print("Something went wrong when deleting the old entry file: \(error)")
             }
             
+            //save updated entry
+            //get currentTrip
+            var currentTrip : Trip?
+            var allTrips: [Trip] = []
+            allTrips = Trip.loadAll();
+            
+            for trip in allTrips {
+                if (trip.endDate == nil) {
+                    currentTrip = trip
+                }
+            }
+                
+            print("Current trip is " + currentTrip!.title)
+            //go through array and find nil
+            travel!.trip = currentTrip;
+                
+            print(currentTrip!.entries);
+            print("Saved trip to entry: " + travel!.trip!.title)
+                
+            travel!.save()
+            //save currentTrip
+            currentTrip!.save()
+            
+            //update view controller
+            self.navigationController?.popViewControllerAnimated(true)
         }
         
     }
