@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripsTableViewController: UITableViewController {
+class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     var listOfTrips: [Trip] = Trip.loadAll()
     var selectedTrip: Trip?
@@ -22,6 +22,11 @@ class TripsTableViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 88
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        
+        self.tableView.tableFooterView = UIView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -44,6 +49,10 @@ class TripsTableViewController: UITableViewController {
         
         // only 1 section
         
+        if listOfTrips.count == 0 {
+            return 0
+        }
+        
         return 1
     }
 
@@ -60,6 +69,7 @@ class TripsTableViewController: UITableViewController {
         // Configure the cell...
         
         // Put in the name of the trip
+        
         let trip = listOfTrips[indexPath.row]
         
         let formatter = NSDateFormatter()
@@ -93,6 +103,43 @@ class TripsTableViewController: UITableViewController {
         
         self.navigationController?.pushViewController(viewController, animated: true)
         
+    }
+    
+    // empty data set
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Trips"
+        
+        let attributes = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+                           NSForegroundColorAttributeName: UIColor.darkGrayColor() ]
+        
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "Oh no! You haven't started a trip yet. Go on an adventure today and create a trip!"
+        
+        let para = NSMutableParagraphStyle()
+        para.lineBreakMode = .ByWordWrapping
+        para.alignment = .Center
+        
+        let attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(14),
+                           NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+                           NSParagraphStyleAttributeName: para ]
+        
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        let attr = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(17) ]
+        
+        return NSAttributedString(string: "Add Trip", attributes: attr)
+    }
+    
+    func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
+        let vc = AddTripViewController()
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
  
