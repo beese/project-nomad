@@ -74,13 +74,22 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
+        let attributes = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+                            NSForegroundColorAttributeName: UIColor.whiteColor() ]
+        let attributesTitle = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(22),
+                           NSForegroundColorAttributeName: UIColor.whiteColor() ]
+        let formattedString = NSMutableAttributedString(string: "\(trip.title)\n", attributes: attributesTitle)
         
         let startString = formatter.stringFromDate(trip.startDate)
         if (trip.endDate != nil) {
             let endString = formatter.stringFromDate(trip.endDate!)
-            cell.textLabel?.text = "\(trip.title)\nwith \(trip.travelers)\n\(startString) - \(endString)"
+            
+            formattedString.appendAttributedString(NSAttributedString(string: "with \(trip.travelers)\n\(startString) - \(endString)", attributes: attributes))
+            
+            cell.textLabel?.attributedText = formattedString
         } else {
-            cell.textLabel?.text = "\(trip.title)\nwith \(trip.travelers)\n\(startString) - now\n"
+            formattedString.appendAttributedString(NSMutableAttributedString(string: "with \(trip.travelers)\n\(startString) - now\n", attributes: attributes))
+            cell.textLabel?.attributedText = formattedString
         }
         
         //cell.textLabel?.text = "\(trip.title)\n\(trip.travelers)\n\(trip.startDate) – \(trip.endDate)"
@@ -88,7 +97,11 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
         // Puts arrow next to it
         cell.accessoryType = .DisclosureIndicator
         
-
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor(red: 0.4627, green: 0.8549, blue: 0.698, alpha: 1.0)
+        } else {
+            cell.backgroundColor = UIColor(red: 124/255, green: 87/255, blue: 228/255, alpha: 1.0)
+        }
         return cell
     }
     

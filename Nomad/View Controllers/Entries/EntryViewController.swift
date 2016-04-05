@@ -71,24 +71,37 @@ class EntryViewController: UITableViewController {
             }
         
             let titleText = "\(entry.title)\n"
-            let restText = "on \(time)\n\(entryInfo)\n"
+            let timeText = "on \(time)\n"
+            let restText = "\(entryInfo)\n"
+            
         
-        
-            let attributes1 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(20),
-                           NSForegroundColorAttributeName: UIColor.darkGrayColor() ]
+            let attributes1 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(22),
+                           NSForegroundColorAttributeName: UIColor.whiteColor() ]
+            let para = NSMutableParagraphStyle()
+            para.lineBreakMode = .ByWordWrapping
+            para.alignment = .Left
+            
         
             let attributes2 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
-                           NSForegroundColorAttributeName: UIColor.lightGrayColor() ]
+                                NSForegroundColorAttributeName: UIColor.whiteColor(),
+                                NSParagraphStyleAttributeName: para  ]
+            let para2 = NSMutableParagraphStyle()
+            para2.lineBreakMode = .ByWordWrapping
+            para2.alignment = .Left
+            
+            let attributes3 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+                           NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+                           NSParagraphStyleAttributeName: para2 ]
         
             let titleFormatted = NSMutableAttributedString(string: titleText, attributes: attributes1)
-            //let restFormatted = NSAttributedString(string: restText, attributes: attributes2)
-        
+            
+            titleFormatted.appendAttributedString(NSAttributedString(string: timeText, attributes: attributes2))
        
-            titleFormatted.appendAttributedString(NSAttributedString(string: restText, attributes: attributes2))
+            titleFormatted.appendAttributedString(NSAttributedString(string: restText, attributes: attributes3))
         
             cell.textLabel?.attributedText = titleFormatted
        
-            cell.backgroundColor = UIColor(red: 0.6667, green: 1, blue: 0.7608, alpha: 1.0)
+            cell.backgroundColor = UIColor(red: 0.4627, green: 0.8549, blue: 0.698, alpha: 1.0)
         
             cell.textLabel?.numberOfLines = 0
         
