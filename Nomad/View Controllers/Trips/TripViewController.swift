@@ -191,6 +191,8 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         }
         
     }
+    
+    // empty data set
 
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = "No Entries"
