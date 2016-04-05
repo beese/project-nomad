@@ -43,12 +43,6 @@ class EntryViewController: UITableViewController {
         print("edit mode = \(addEntryVC.editMode)")
     }
     
-    override func viewWillAppear(animated: Bool) {
-        print("in EntryViewController viewWillAppear()")
-        
-        tableView.reloadData()
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("in EntryViewController tableView()")
         
