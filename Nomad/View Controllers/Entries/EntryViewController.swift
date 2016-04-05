@@ -55,22 +55,53 @@ class EntryViewController: UITableViewController {
         // Configure the cell...
         // Put in the name of the trip
         let entry : Entry! = Entry.loadFromDisk(toPass.filePath() as String)
-        let formatter = NSDateFormatter()
-        formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
+        if (indexPath.row == 0) {
         
-        let time = formatter.stringFromDate(entry.date)
+            let formatter = NSDateFormatter()
+            formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
         
-        var entryInfo: String
+            let time = formatter.stringFromDate(entry.date)
         
-        if entry.info != nil{
-            entryInfo = entry.info!
-        } else {
-            entryInfo = ""
+            var entryInfo: String
+        
+            if entry.info != nil{
+                entryInfo = entry.info!
+            } else {
+                entryInfo = ""
+            }
+        
+            let titleText = "\(entry.title)\n"
+            let restText = "on \(time)\n\(entryInfo)\n"
+        
+        
+            let attributes1 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(20),
+                           NSForegroundColorAttributeName: UIColor.darkGrayColor() ]
+        
+            let attributes2 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+                           NSForegroundColorAttributeName: UIColor.lightGrayColor() ]
+        
+            let titleFormatted = NSMutableAttributedString(string: titleText, attributes: attributes1)
+            //let restFormatted = NSAttributedString(string: restText, attributes: attributes2)
+        
+       
+            titleFormatted.appendAttributedString(NSAttributedString(string: restText, attributes: attributes2))
+        
+            cell.textLabel?.attributedText = titleFormatted
+       
+            cell.backgroundColor = UIColor(red: 0.6667, green: 1, blue: 0.7608, alpha: 1.0)
+        
+            cell.textLabel?.numberOfLines = 0
+        
         }
-        cell.textLabel?.text = "\(entry.title)\non \(time)\n\(entryInfo)\n"
         
-        cell.textLabel?.numberOfLines = 0
+        else if (indexPath.row == 1) {
+            //display picture
+            cell.backgroundColor = UIColor.grayColor()
+            cell.textLabel?.text = "picture goes here"
+            cell.textLabel?.numberOfLines = 0
+        }
         return cell
+        
     }
     
     func editTapped() {
@@ -104,7 +135,7 @@ class EntryViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
     
     
