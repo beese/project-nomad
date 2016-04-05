@@ -19,7 +19,9 @@ class EntryTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        print("EntryTableViewController viewDidLoad()")
         super.viewDidLoad()
+        
         for trip in allTrips {
             if (trip.endDate == nil) {
                 currentTrip = trip
@@ -44,6 +46,12 @@ class EntryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("EntryTableViewController viewWillAppear()")
+        allTrips = Trip.loadAll()
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,16 +67,19 @@ class EntryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("tableView 1")
         return listOfEntries.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("tableView 2")
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
         
         let entry = listOfEntries[indexPath.row]
+        //let entry : Entry! = Entry.loadFromDisk(listOfEntries[indexPath.row].filePath() as String)
         let formatter = NSDateFormatter()
         formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
         let time = formatter.stringFromDate(entry.date)
@@ -80,6 +91,7 @@ class EntryTableViewController: UITableViewController {
     
     //for an entry selected
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("tableView 3")
         let selectedEntry = listOfEntries[indexPath.row]
         
         print("selected a entry: " + selectedEntry.title);

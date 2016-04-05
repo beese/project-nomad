@@ -13,9 +13,12 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     var listOfEntries : [Entry]!
     
     override func viewDidLoad() {
+        print("TripViewController viewDidLoad()")
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
         
         super.viewDidLoad()
+        
         if let _trip = toPass {
             print(_trip.title);
             print(_trip.entries)
@@ -43,6 +46,14 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        print("toPass trip file path: \(toPass.filePath())")
+        toPass = Trip.loadFromDisk(toPass.filePath() as String)
+        print("toPass entries: \(toPass.entries)")
+        print("listOfEntries: \(listOfEntries)")
+        tableView.reloadData()
+    }
+    
     func addEntry() {
         let vc = AddEntryViewController()
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -59,6 +70,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("the important table view stuff")
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
@@ -152,6 +164,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("number of rows table view")
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 4
