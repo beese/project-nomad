@@ -91,7 +91,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 if locations == nil {
-                    let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Entry created but there are no entry coordinates", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Entry created without coordinates", preferredStyle: .Alert)
                     alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                     self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
                 }
@@ -100,7 +100,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             
         if (editMode == true) {
             // initiate updated entry
-            let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: passToEditEntry.coords)
+            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: photo, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
             print("Entry Title is " + travel!.title)
             
             //delete old file
@@ -126,7 +126,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             }
                 
             print("Current trip is " + currentTrip!.title)
-            //go through array and find nil
+            //go through array and find nil 
             travel!.trip = currentTrip;
                 
             print(currentTrip!.entries);
@@ -136,7 +136,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             //save currentTrip
             currentTrip!.save()
             
-            //update view controller
+            // TODO: update view controller
             self.navigationController?.popViewControllerAnimated(true)
         }
         

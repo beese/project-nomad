@@ -43,13 +43,20 @@ class EntryViewController: UITableViewController {
         print("edit mode = \(addEntryVC.editMode)")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        print("in EntryViewController viewWillAppear()")
+        
+        tableView.reloadData()
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("in EntryViewController tableView()")
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         // Configure the cell...
-        print("here entry")
         // Put in the name of the trip
-        let entry = toPass
+        let entry : Entry! = Entry.loadFromDisk(toPass.filePath() as String)
         let formatter = NSDateFormatter()
         formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
         

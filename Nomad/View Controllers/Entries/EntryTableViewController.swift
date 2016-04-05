@@ -25,7 +25,6 @@ class EntryTableViewController: UITableViewController {
                 currentTrip = trip
             }
         }
-        
        
         listOfEntries = currentTrip!.entries
         print("Current trip: " + currentTrip!.title)
@@ -78,6 +77,7 @@ class EntryTableViewController: UITableViewController {
         cell.accessoryType = .DisclosureIndicator
         return cell
     }
+    
     //for an entry selected
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedEntry = listOfEntries[indexPath.row]
