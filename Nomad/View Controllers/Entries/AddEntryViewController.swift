@@ -136,6 +136,12 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             //save currentTrip
             currentTrip!.save()
             
+            currentTrip!.entries.append(travel!)
+            print("after editing, trip entries: \(currentTrip?.entries)")
+            
+            let vc = TripViewController()
+            vc.toPass = currentTrip
+            
             // TODO: update view controller
             self.navigationController?.popViewControllerAnimated(true)
         }

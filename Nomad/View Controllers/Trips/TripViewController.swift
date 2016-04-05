@@ -48,7 +48,6 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     
     override func viewWillAppear(animated: Bool) {
         print("toPass trip file path: \(toPass.filePath())")
-        toPass = Trip.loadFromDisk(toPass.filePath() as String)
         print("toPass entries: \(toPass.entries)")
         print("listOfEntries: \(listOfEntries)")
         tableView.reloadData()

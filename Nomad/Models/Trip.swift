@@ -136,7 +136,7 @@ public class Trip: Model {
             let folders = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(allTripsFolder() as String)
             
             for folder in folders {
-                print("in folder in folders")
+                //print("in folder in folders")
                 // gets string of file containing trip info
                 let tripFile = (allTripsFolder().stringByAppendingPathComponent(folder) as NSString).stringByAppendingPathComponent("trip")
                 
@@ -157,10 +157,10 @@ public class Trip: Model {
                     // load in the entries
                     let allEntries = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(entriesFolder as String)
                     
-                    print("got all entries")
+                    //print("got all entries")
                     // loop through entries
                     for entry in allEntries {
-                        print("looping through entries")
+                        //print("looping through entries")
                         
                         let entryPath = (entriesFolder as NSString).stringByAppendingPathComponent(entry as String)
                         
@@ -172,8 +172,8 @@ public class Trip: Model {
                             o.trip = tripObject
                             loadedEntries.append(o)
                         }
-                        print("loaded entries")
-                        print(loadedEntries)
+                        //print("loaded entries")
+                        //print(loadedEntries)
                     }
                     
                 }
