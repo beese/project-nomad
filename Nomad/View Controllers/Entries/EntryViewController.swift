@@ -63,7 +63,7 @@ class EntryViewController: UITableViewController {
         } else {
             entryInfo = ""
         }
-        cell.textLabel?.text = "\(entry.title)\non \(time)\nat \(entry.coords)\n\(entryInfo)\n"
+        cell.textLabel?.text = "\(entry.title)\non \(time)\n\(entryInfo)\n"
         
         cell.textLabel?.numberOfLines = 0
         return cell
