@@ -151,16 +151,6 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             cell.textLabel?.numberOfLines = 0
             
             if indexPath.row == 0 {
-                // display trip title
-                
-                cell.textLabel?.text = "Trip Title: \(trip!.title)"
-                cell.accessoryType = .None
-                cell.selectionStyle = .None
-                
-            }
-            
-            
-            else if indexPath.row == 1 {
                 // display travelers
                 cell.textLabel?.text = "Travelers: \(trip!.travelers)"
                 cell.accessoryType = .None
@@ -168,7 +158,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 
             }
             
-            else if indexPath.row == 2 {
+            else if indexPath.row == 1 {
                 // display trip dates
                 
                 let formatter = NSDateFormatter()
@@ -191,7 +181,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 
             }
             
-            else if indexPath.row == 3 {
+            else if indexPath.row == 2 {
                 // button for the map view
                 
                 cell.textLabel?.text = "View Map 🗺"
@@ -209,7 +199,15 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             let formatter = NSDateFormatter()
             formatter.dateFormat =  "EEE, MMMM d, yyy 'at' h:mm a"
             let time = formatter.stringFromDate(entry.date)
-            cell.textLabel?.text = "\(entry.title)\n\(time)"
+            let attributesTime = [ NSFontAttributeName: UIFont.systemFontOfSize(16),
+                               NSForegroundColorAttributeName: UIColor.darkGrayColor() ]
+            let attributesTitle = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
+                                   NSForegroundColorAttributeName: UIColor.blackColor() ]
+             let formattedString = NSMutableAttributedString(string: "\(entry.title)\n", attributes: attributesTitle)
+            
+            formattedString.appendAttributedString(NSAttributedString(string: time, attributes: attributesTime))
+            
+            cell.textLabel?.attributedText = formattedString
             cell.textLabel?.numberOfLines = 0
             cell.accessoryType = .DisclosureIndicator
         }
@@ -236,7 +234,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return 4
+            return 3
         }
         else {
             return listOfEntries.count
@@ -247,7 +245,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         if indexPath.section == 0 {
-            if indexPath.row == 3 {
+            if indexPath.row == 2 {
                 // viewing the map
                 
                 let viewController = MapViewController(trip: trip!)
