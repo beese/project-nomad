@@ -17,7 +17,9 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func viewDidLoad() {
         print("TripViewController viewDidLoad()")
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
+        if (toPass.endDate == nil) {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
+        }
         
         super.viewDidLoad()
         
