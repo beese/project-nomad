@@ -71,26 +71,27 @@ class EntryViewController: UITableViewController {
             }
         
             let titleText = "\(entry.title)\n"
-            let timeText = "on \(time)\n"
+            let timeText = "on \(time)\n\n"
             let restText = "\(entryInfo)\n"
             
-        
+            //attributes for title
             let attributes1 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(22),
-                           NSForegroundColorAttributeName: UIColor.whiteColor() ]
+                           NSForegroundColorAttributeName: UIColor.blackColor() ]
             let para = NSMutableParagraphStyle()
             para.lineBreakMode = .ByWordWrapping
             para.alignment = .Left
             
-        
-            let attributes2 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
-                                NSForegroundColorAttributeName: UIColor.whiteColor(),
+            //attributes for time
+            let attributes2 = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
+                                NSForegroundColorAttributeName: UIColor.darkGrayColor(),
                                 NSParagraphStyleAttributeName: para  ]
             let para2 = NSMutableParagraphStyle()
             para2.lineBreakMode = .ByWordWrapping
             para2.alignment = .Left
             
-            let attributes3 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
-                           NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+            //attributes for description
+            let attributes3 = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
+                           NSForegroundColorAttributeName: UIColor.blackColor(),
                            NSParagraphStyleAttributeName: para2 ]
         
             let titleFormatted = NSMutableAttributedString(string: titleText, attributes: attributes1)
@@ -101,7 +102,7 @@ class EntryViewController: UITableViewController {
         
             cell.textLabel?.attributedText = titleFormatted
        
-            cell.backgroundColor = UIColor(red: 0.4627, green: 0.8549, blue: 0.698, alpha: 1.0)
+            //cell.backgroundColor = UIColor(red: 0.4627, green: 0.8549, blue: 0.698, alpha: 1.0)
         
             cell.textLabel?.numberOfLines = 0
         

@@ -37,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate   {
         
         print(Trip.loadAll())
         
+        let navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.tintColor = UIColor.whiteColor()
+        navigationBarAppearace.barTintColor = UIColor(red: 0.4627, green: 0.8549, blue: 0.698, alpha: 1.0)
+        
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
         return true
     }
 
