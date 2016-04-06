@@ -97,7 +97,9 @@ class HomeViewController: UIViewController {
         else {
             // not on trip
             // can add a trip
-            self.navigationController?.pushViewController(AddTripViewController(), animated: true)
+            let vc = AddTripViewController()
+            vc.editMode = false
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
