@@ -12,6 +12,8 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     var toPass : Trip!
     var listOfEntries : [Entry]!
     
+    var trip : Trip?
+    
     override func viewDidLoad() {
         print("TripViewController viewDidLoad()")
         
@@ -19,14 +21,16 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         
         super.viewDidLoad()
         
-        if let _trip = toPass {
+        let trip = toPass
+        
+        if let _trip = trip {
             print(_trip.title);
             print(_trip.entries)
         } else {
             print("whyy");
         }
-        self.title = toPass.title
-        self.listOfEntries = toPass.entries
+        self.title = trip.title
+        self.listOfEntries = trip.entries
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -47,9 +51,57 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("toPass trip file path: \(toPass.filePath())")
-        print("toPass entries: \(toPass.entries)")
+        
+        //reload entries from disk to update table view
+        // load that file from the disk and use super's loadFromDisk to extract the trip
+        trip = toPass
+        trip = Trip.loadFromDisk(trip!.filePath() as String)
+        
+        // load in the trip's entries
+        var loadedEntries: [Entry] = []
+        
+        //let entriesFolder = (folder as NSString).stringByAppendingPathComponent("entries")
+        let entriesFolder = (trip!.filePath().stringByDeletingLastPathComponent as NSString).stringByAppendingPathComponent("entries")
+        // check if folder exists
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(entriesFolder) {
+            // load in the entries
+            do {
+                let allEntries = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(entriesFolder as String)
+            
+                // loop through entries
+                for entry in allEntries {
+                    let entryPath = (entriesFolder as NSString).stringByAppendingPathComponent(entry as String)
+                    
+                    let entryObject: Entry? = Entry.loadFromDisk(entryPath)
+                
+                    // make sure it isn't nil
+                    if let o = entryObject {
+                        print("entry is " + o.title)
+                        o.trip = trip
+                        loadedEntries.append(o)
+                    }
+                } // end for loop
+                
+                //sort entries
+                loadedEntries.sortInPlace {
+                    $1.date.compare($0.date) == .OrderedAscending
+                }
+                trip!.entries = loadedEntries
+                
+            } catch {
+                print("something went wrong with loading all the entries in TripViewController()")
+            }
+            
+        } // end if
+        
+        trip!.entries = loadedEntries
+        listOfEntries = trip!.entries
+        
+        print("toPass trip file path: \(self.trip!.filePath())")
+        print("toPass entries: \(self.trip!.entries)")
         print("listOfEntries: \(listOfEntries)")
+        
         tableView.reloadData()
     }
     
