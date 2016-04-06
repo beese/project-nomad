@@ -74,10 +74,10 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
-        let attributes = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
-                            NSForegroundColorAttributeName: UIColor.whiteColor() ]
+        let attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
+                            NSForegroundColorAttributeName: UIColor.darkGrayColor() ]
         let attributesTitle = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(22),
-                           NSForegroundColorAttributeName: UIColor.whiteColor() ]
+                           NSForegroundColorAttributeName: UIColor.blackColor() ]
         let formattedString = NSMutableAttributedString(string: "\(trip.title)\n", attributes: attributesTitle)
         
         let startString = formatter.stringFromDate(trip.startDate)
@@ -97,11 +97,9 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
         // Puts arrow next to it
         cell.accessoryType = .DisclosureIndicator
         
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor(red: 0.4627, green: 0.8549, blue: 0.698, alpha: 1.0)
-        } else {
-            cell.backgroundColor = UIColor(red: 124/255, green: 87/255, blue: 228/255, alpha: 1.0)
-        }
+        
+            //cell.backgroundColor = UIColor(red: 124/255, green: 87/255, blue: 228/255, alpha: 1.0)
+        
         return cell
     }
     
