@@ -123,8 +123,6 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("the important table view stuff")
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         if indexPath.section == 0 {
@@ -217,7 +215,6 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("number of rows table view")
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 4
