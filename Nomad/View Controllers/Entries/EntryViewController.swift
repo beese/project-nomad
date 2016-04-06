@@ -36,7 +36,7 @@ class EntryViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editTapped")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: #selector(editTapped))
         
         let addEntryVC = AddEntryViewController()
         addEntryVC.editMode = false
@@ -74,7 +74,7 @@ class EntryViewController: UITableViewController {
             let timeText = "on \(time)\n"
             let restText = "\(entryInfo)\n"
             
-        
+            // design aesthetics
             let attributes1 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(22),
                            NSForegroundColorAttributeName: UIColor.whiteColor() ]
             let para = NSMutableParagraphStyle()

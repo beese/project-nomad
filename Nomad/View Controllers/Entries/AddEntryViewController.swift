@@ -34,7 +34,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveTapped")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: #selector(saveTapped))
 
         // Do any additional setup after loading the view.
     }

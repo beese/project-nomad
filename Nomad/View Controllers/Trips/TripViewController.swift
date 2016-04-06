@@ -12,18 +12,24 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     var toPass : Trip!
     var listOfEntries : [Entry]!
     
-    var trip : Trip?
+    var trip : Trip!
     
     override func viewDidLoad() {
         print("TripViewController viewDidLoad()")
         
-        if (toPass.endDate == nil) {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
+        self.trip = toPass
+        
+        if (self.trip.endDate == nil) {
+            // multiple buttons in navigation controller
+            let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
+            let rightEditBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(editTrip))
+            self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem,rightEditBarButtonItem], animated: true)
+            
+            // + button only
+            //self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addEntry))
         }
         
         super.viewDidLoad()
-        
-        let trip = toPass
         
         if let _trip = trip {
             print(_trip.title);
@@ -58,6 +64,9 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         // load that file from the disk and use super's loadFromDisk to extract the trip
         trip = toPass
         trip = Trip.loadFromDisk(trip!.filePath() as String)
+        
+        print("after loading from disk, trip is \(trip) at")
+        print("\(trip?.filePath())")
         
         // load in the trip's entries
         var loadedEntries: [Entry] = []
@@ -110,6 +119,16 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     func addEntry() {
         let vc = AddEntryViewController()
         self.navigationController?.popToRootViewControllerAnimated(true)
+        
+        vc.editMode = false
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func editTrip() {
+        print("Edit button pushed in TripViewController")
+        let vc = AddTripViewController()
+        vc.editMode = true
+        vc.toPass = trip
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -134,7 +153,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             if indexPath.row == 0 {
                 // display trip title
                 
-                cell.textLabel?.text = "Trip Title: \(toPass.title)"
+                cell.textLabel?.text = "Trip Title: \(trip!.title)"
                 cell.accessoryType = .None
                 cell.selectionStyle = .None
                 
@@ -143,7 +162,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             
             else if indexPath.row == 1 {
                 // display travelers
-                cell.textLabel?.text = "Travelers: \(toPass.travelers)"
+                cell.textLabel?.text = "Travelers: \(trip!.travelers)"
                 cell.accessoryType = .None
                 cell.selectionStyle = .None
                 
@@ -155,11 +174,11 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 let formatter = NSDateFormatter()
                 formatter.dateFormat = "MMMM d, yyy"
                 
-                let startString = formatter.stringFromDate(toPass.startDate)
+                let startString = formatter.stringFromDate(trip!.startDate)
                 
                 // trip is over
-                if (toPass.endDate != nil) {
-                    let endString = formatter.stringFromDate(toPass.endDate!)
+                if (trip!.endDate != nil) {
+                    let endString = formatter.stringFromDate(trip!.endDate!)
                     cell.textLabel?.text = "Dates: \(startString) - \(endString)"
                 }
                 // still on trip
@@ -207,7 +226,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if toPass == nil || (listOfEntries.count == 0 && toPass.endDate == nil) {
+        if trip == nil || (listOfEntries.count == 0 && trip!.endDate == nil) {
             return 0
         }
         
@@ -231,7 +250,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             if indexPath.row == 3 {
                 // viewing the map
                 
-                let viewController = MapViewController(trip: toPass)
+                let viewController = MapViewController(trip: trip!)
                 print("loaded vc")
                 self.navigationController?.pushViewController(viewController, animated: true)
                 
