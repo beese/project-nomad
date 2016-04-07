@@ -11,7 +11,8 @@ import UIKit
 
 class EntryViewController: UITableViewController {
     var toPass : Entry!
-    
+    var imageView: UIImageView!
+    var scaledImage: UIImage!
     override func viewDidLoad() {
         print("in entry view");
 
@@ -28,8 +29,35 @@ class EntryViewController: UITableViewController {
         print("before calling tableview");
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        
+        
+        let url = NSURL(string: "https://index.co/uploads/lists/a981c586ee454b2f0210d64d013870dab46332c8.jpeg")
+        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        
+        let image = UIImage(data: data!)
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let factor = screenSize.size.width / image!.size.width
+        print("factor: ")
+        print( factor )
+        let size = CGSizeApplyAffineTransform(image!.size, CGAffineTransformMakeScale(factor, factor))
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        image!.drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        
+        
+        imageView = UIImageView(image: scaledImage!)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 88
+        //imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: 200)
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -110,9 +138,11 @@ class EntryViewController: UITableViewController {
         
         else if (indexPath.row == 1) {
             //display picture
-            cell.backgroundColor = UIColor.grayColor()
-            cell.textLabel?.text = "picture goes here"
+            //cell.backgroundColor = UIColor.grayColor()
+            //cell.textLabel?.text = "picture goes here"
             cell.textLabel?.numberOfLines = 0
+           
+            cell.addSubview(self.imageView)
         }
         return cell
         
@@ -152,7 +182,14 @@ class EntryViewController: UITableViewController {
         return 2
     }
     
-    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let section = indexPath.section
+        let row = indexPath.row
+        if section == 0 && row == 1{
+            return scaledImage.size.height
+        }
+        return UITableViewAutomaticDimension
+    }
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
