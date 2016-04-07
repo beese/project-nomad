@@ -26,7 +26,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             let selectedEntry = passToEditEntry
             titleTextBox.text = selectedEntry.title
             infoTextBox.text = selectedEntry.info
-            photoImageView.image = selectedEntry.photo
+            photoImageView.image = selectedEntry.photo!.photo
         }
         else {
             self.title = "Add an Entry"
@@ -52,7 +52,9 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let info = infoTextBox.text
         // This creates an NSData instance containing the raw bytes for a JPEG image at a 60% quality setting.
         //let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
+        
         let photo = photoImageView.image
+        let image = Photo (_photo: photo)
         titleTextBox.resignFirstResponder()
         infoTextBox.resignFirstResponder()
         
@@ -60,8 +62,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             SwiftSpinner.show("Fetching GPS Coordinates...", animated: true);
             
             GPSHelper.sharedInstance.getQuickLocationUpdate { (locations) -> (Void) in
-                
-                let travel = Entry(_title: title!, _info: info!, _photo: photo!, _coords: locations)
+            
+                let travel = Entry(_title: title!, _info: info!, _photo: image!, _coords: locations)
                 print("Entry Title is " + travel!.title)
                 
                 //get currentTrip
@@ -100,7 +102,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             
         if (editMode == true) {
             // initiate updated entry
-            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: photo, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
+            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
             print("Entry Title is " + travel!.title)
             
             //delete old file

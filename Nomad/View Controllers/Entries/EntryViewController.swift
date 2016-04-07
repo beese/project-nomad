@@ -35,7 +35,7 @@ class EntryViewController: UITableViewController {
         //let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
         
         //let image = UIImage(data: data!)
-        let image = toPass.photo
+        let image = toPass.photo!.photo
         
         //scaling image to screen width
         let screenSize: CGRect = UIScreen.mainScreen().bounds
