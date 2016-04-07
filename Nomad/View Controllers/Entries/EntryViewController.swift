@@ -30,11 +30,13 @@ class EntryViewController: UITableViewController {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         
-        
+        //loading image
         let url = NSURL(string: "https://index.co/uploads/lists/a981c586ee454b2f0210d64d013870dab46332c8.jpeg")
         let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
         
         let image = UIImage(data: data!)
+        
+        //scaling image to screen width
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let factor = screenSize.size.width / image!.size.width
         print("factor: ")
@@ -48,9 +50,6 @@ class EntryViewController: UITableViewController {
         
         scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        
-        
         
         imageView = UIImageView(image: scaledImage!)
         
@@ -90,17 +89,11 @@ class EntryViewController: UITableViewController {
         
             let time = formatter.stringFromDate(entry.date)
         
-            var entryInfo: String
-        
-            if entry.info != nil{
-                entryInfo = entry.info!
-            } else {
-                entryInfo = ""
-            }
+            
         
             let titleText = "\(entry.title)\n"
-            let timeText = "on \(time)\n\n"
-            let restText = "\(entryInfo)\n"
+            let timeText = "on \(time)"
+            
             
             //attributes for title
             let attributes1 = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(22),
@@ -113,20 +106,12 @@ class EntryViewController: UITableViewController {
             let attributes2 = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
                                 NSForegroundColorAttributeName: UIColor.darkGrayColor(),
                                 NSParagraphStyleAttributeName: para  ]
-            let para2 = NSMutableParagraphStyle()
-            para2.lineBreakMode = .ByWordWrapping
-            para2.alignment = .Left
             
-            //attributes for description
-            let attributes3 = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
-                           NSForegroundColorAttributeName: UIColor.blackColor(),
-                           NSParagraphStyleAttributeName: para2 ]
         
             let titleFormatted = NSMutableAttributedString(string: titleText, attributes: attributes1)
             
             titleFormatted.appendAttributedString(NSAttributedString(string: timeText, attributes: attributes2))
        
-            titleFormatted.appendAttributedString(NSAttributedString(string: restText, attributes: attributes3))
         
             cell.textLabel?.attributedText = titleFormatted
        
@@ -143,6 +128,29 @@ class EntryViewController: UITableViewController {
             cell.textLabel?.numberOfLines = 0
            
             cell.addSubview(self.imageView)
+        } else if (indexPath.row == 2) {
+            var entryInfo: String
+            
+            if entry.info != nil{
+                entryInfo = entry.info!
+            } else {
+                entryInfo = ""
+            }
+            let restText = "\(entryInfo)\n"
+            
+            let para2 = NSMutableParagraphStyle()
+            para2.lineBreakMode = .ByWordWrapping
+            para2.alignment = .Left
+            
+            //attributes for description
+            let attributes3 = [ NSFontAttributeName: UIFont.systemFontOfSize(18),
+                                NSForegroundColorAttributeName: UIColor.blackColor(),
+                                NSParagraphStyleAttributeName: para2 ]
+            
+             cell.textLabel?.attributedText = NSAttributedString(string: restText, attributes: attributes3)
+            cell.textLabel?.numberOfLines = 0
+            
+            
         }
         return cell
         
@@ -179,7 +187,7 @@ class EntryViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
