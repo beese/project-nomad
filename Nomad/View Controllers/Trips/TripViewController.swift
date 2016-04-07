@@ -225,7 +225,12 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if trip == nil || (listOfEntries.count == 0 && trip!.endDate == nil) {
+            if ( tableView.numberOfSections != 0) {
+                tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+            }
             return 0
+        } else if (listOfEntries.count == 0 ) {
+            return 1
         }
         
         return 2
@@ -294,7 +299,8 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 self.listOfEntries.removeAtIndex(index)
                 print("Removed from listOfEntries array")
                 // Remove row from table view
-                tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+                //tableView.deleteSections(sections, withRowAnimation: .Automatic)
+                tableView.deleteSections( NSIndexSet(index: 1), withRowAnimation: .Automatic)
                 //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 print("Removed from Table view")
             }
