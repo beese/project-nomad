@@ -102,7 +102,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             
         if (editMode == true) {
             // initiate updated entry
-            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
+            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image!, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
             print("Entry Title is " + travel!.title)
             
             //delete old file
