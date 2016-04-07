@@ -165,7 +165,21 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
-        photoImageView.image = selectedImage
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let factor = screenSize.size.width / selectedImage.size.width
+        
+        let size = CGSizeApplyAffineTransform(selectedImage.size, CGAffineTransformMakeScale(factor, factor))
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        selectedImage.drawInRect(CGRect(origin: CGPointZero, size: size))
+        var scaledImage: UIImage!
+        scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        photoImageView.image = scaledImage
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
