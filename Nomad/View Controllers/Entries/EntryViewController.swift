@@ -130,9 +130,11 @@ class EntryViewController: UITableViewController {
             //display picture
             //cell.backgroundColor = UIColor.grayColor()
             //cell.textLabel?.text = "picture goes here"
+            print ("update image")
             cell.textLabel?.numberOfLines = 0
             if (toPass.photo != nil) {
-                cell.addSubview(self.imageView)
+                print("image exists")
+                cell.addSubview(imageView!)
             }
         } else if (indexPath.row == 2) {
             var entryInfo: String
@@ -177,6 +179,8 @@ class EntryViewController: UITableViewController {
 
         //push AddEntryViewController
         self.navigationController?.pushViewController(AEViewController, animated: true)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

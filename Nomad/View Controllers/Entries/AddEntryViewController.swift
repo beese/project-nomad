@@ -102,7 +102,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             
         if (editMode == true) {
             // initiate updated entry
-            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
+            let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image!, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
             print("Entry Title is " + travel!.title)
             
             //delete old file
@@ -141,10 +141,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             currentTrip!.entries.append(travel!)
             print("after editing, trip entries: \(currentTrip?.entries)")
             
-            let vc = TripViewController()
-            vc.toPass = currentTrip
+            let vc = EntryViewController()
+            vc.toPass = travel!
             
             // TODO: update view controller
+            //self.navigationController?.pushViewController(vc, animated: true)
             self.navigationController?.popViewControllerAnimated(true)
         }
         

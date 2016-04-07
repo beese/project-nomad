@@ -22,7 +22,7 @@ public class Entry: Model {
     var photo: Photo?
     var coords: CLLocation?
     
-    init?(_title: String, _info: String, _photo: Photo?, _coords: CLLocation?) {
+    init?(_title: String, _info: String, _photo: Photo, _coords: CLLocation?) {
         // constructor for loading from the disk
         
         title = _title
