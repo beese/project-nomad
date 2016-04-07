@@ -11,13 +11,13 @@ import Foundation
 public class Photo: Model {
     
     // MARK: Read only Properties
-    var photo: NSData
+    var photo: UIImage?
     var entry: Entry?
 
     
     // Create a new Photo
     
-    init?(_photo: NSData) {
+    init?(_photo: UIImage?) {
         
         // Initialize variables
         //fileName = _fileName
@@ -32,7 +32,7 @@ public class Photo: Model {
  
     // Loading a photo off the disk
     
-    init?(_photo: NSData, _guid: NSUUID) {
+    init?(_photo: UIImage, _guid: NSUUID) {
         
         // Initialize variables
         //fileName = _fileName
@@ -50,7 +50,7 @@ public class Photo: Model {
         guard //let fileName = decoder.decodeObjectForKey("fileName") as? String,
             //let thumbnailPath = decoder.decodeObjectForKey("thumbnailPath") as? String,
             //let fullSizePath = decoder.decodeObjectForKey("fullSizePath") as? String,
-            let photo = decoder.decodeObjectForKey("photo") as? NSData,
+            let photo = decoder.decodeObjectForKey("photo") as? UIImage,
             let guid = decoder.decodeObjectForKey("guid") as? NSUUID
             else { return nil }
         

@@ -31,10 +31,11 @@ class EntryViewController: UITableViewController {
         
         
         //loading image
-        let url = NSURL(string: "https://index.co/uploads/lists/a981c586ee454b2f0210d64d013870dab46332c8.jpeg")
-        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        //let url = NSURL(string: "https://index.co/uploads/lists/a981c586ee454b2f0210d64d013870dab46332c8.jpeg")
+        //let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
         
-        let image = UIImage(data: data!)
+        //let image = UIImage(data: data!)
+        let image = toPass.photo
         
         //scaling image to screen width
         let screenSize: CGRect = UIScreen.mainScreen().bounds

@@ -26,7 +26,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             let selectedEntry = passToEditEntry
             titleTextBox.text = selectedEntry.title
             infoTextBox.text = selectedEntry.info
-            //photoImageView.image = selectedEntry.photo
+            photoImageView.image = selectedEntry.photo
         }
         else {
             self.title = "Add an Entry"
@@ -51,8 +51,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let title = titleTextBox.text
         let info = infoTextBox.text
         // This creates an NSData instance containing the raw bytes for a JPEG image at a 60% quality setting.
-        let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
-        
+        //let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
+        let photo = photoImageView.image
         titleTextBox.resignFirstResponder()
         infoTextBox.resignFirstResponder()
         
@@ -61,7 +61,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             
             GPSHelper.sharedInstance.getQuickLocationUpdate { (locations) -> (Void) in
                 
-                let travel = Entry(_title: title!, _info: info!, _photo: photo, _coords: locations)
+                let travel = Entry(_title: title!, _info: info!, _photo: photo!, _coords: locations)
                 print("Entry Title is " + travel!.title)
                 
                 //get currentTrip
@@ -149,15 +149,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     }
     
     // MARK: UIImagePickerControllerDelegate
-    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
         // Dismiss the picker if the user canceled.
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
         // The info dictionary contains multiple representations of the image, and this uses the original.
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -167,30 +163,28 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+         //MARK: Actions
     @IBAction func hideKeyboards(sender: AnyObject) {
         titleTextBox.resignFirstResponder()
         infoTextBox.resignFirstResponder()
     }
     
-    //MARK: Actions
 
     @IBAction func selectImage(sender: UITapGestureRecognizer) {
-        
-        // Hide the keyboard.
-        //titleTextBox.resignFirstResponder()
-        //infoTextBox.resignFirstResponder()
-        
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePicker = UIImagePickerController()
+        print("tap gesture works");
+        let imagePickerController = UIImagePickerController()
         
         // Only allow photos to be picked, not taken.
-        imagePicker.sourceType = .PhotoLibrary
+        imagePickerController.sourceType = .PhotoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
-        //imagePicker.delegate = self
+        imagePickerController.delegate = self
         
-        presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePickerController, animated: true, completion: nil)
     }
+    
+    
     
     
     
