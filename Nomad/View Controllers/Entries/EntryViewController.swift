@@ -29,13 +29,15 @@ class EntryViewController: UITableViewController {
         print("before calling tableview");
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        
+        print("photo info")
+        print(toPass.photo)
+        print(toPass.photo!.photo?.scale)
+        print(toPass.photo!.photo?.imageOrientation)
+        print(toPass.photo!.photo?.CGImage)
+
+
         //loading image
-        //let url = NSURL(string: "https://index.co/uploads/lists/a981c586ee454b2f0210d64d013870dab46332c8.jpeg")
-        //let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-        
-        //let image = UIImage(data: data!)
-        if (toPass.photo == nil) {
+        if (toPass.photo == nil || toPass.photo!.photo?.scale == 2.0) {
             print("no image")
         } else {
             let image = toPass.photo!.photo
@@ -132,9 +134,8 @@ class EntryViewController: UITableViewController {
             //cell.textLabel?.text = "picture goes here"
             print ("update image")
             cell.textLabel?.numberOfLines = 0
-            if (toPass.photo != nil) {
-                print("image exists")
-                cell.addSubview(imageView!)
+            if (toPass.photo != nil && toPass.photo!.photo?.scale != 2.0) {
+                cell.addSubview(self.imageView)
             }
         } else if (indexPath.row == 2) {
             var entryInfo: String
@@ -205,7 +206,7 @@ class EntryViewController: UITableViewController {
         let section = indexPath.section
         let row = indexPath.row
         if section == 0 && row == 1 {
-            if (toPass.photo == nil) {
+            if (toPass.photo == nil || toPass.photo!.photo?.scale == 2.0) {
                 return 0
             } else {
                 return scaledImage.size.height

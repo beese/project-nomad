@@ -26,7 +26,9 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             let selectedEntry = passToEditEntry
             titleTextBox.text = selectedEntry.title
             infoTextBox.text = selectedEntry.info
-            photoImageView.image = selectedEntry.photo!.photo
+            if (selectedEntry.photo != nil) {
+                photoImageView.image = selectedEntry.photo!.photo
+            }
         }
         else {
             self.title = "Add an Entry"
@@ -54,6 +56,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         //let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
         let photo = photoImageView.image
+        print("default image in add entry")
+        print(photoImageView.image)
         let image = Photo (_photo: photo)
         titleTextBox.resignFirstResponder()
         infoTextBox.resignFirstResponder()
