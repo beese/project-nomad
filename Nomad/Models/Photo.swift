@@ -32,7 +32,7 @@ public class Photo: Model {
  
     // Loading a photo off the disk
     
-    init?(_photo: UIImage, _guid: NSUUID) {
+    init?(_photo: UIImage?, _guid: NSUUID) {
         
         // Initialize variables
         //fileName = _fileName

@@ -225,7 +225,12 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if trip == nil || (listOfEntries.count == 0 && trip!.endDate == nil) {
+            if ( tableView.numberOfSections != 0) {
+                tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+            }
             return 0
+        } else if (listOfEntries.count == 0 ) {
+            return 1
         }
         
         return 2
@@ -271,6 +276,49 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         }
         
     }
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let index = indexPath.row
+            print ("delete " + self.listOfEntries[index].title)
+            let delPath = self.listOfEntries[index].filePath()
+            print ("count=\(self.listOfEntries.count)")
+            if ( self.listOfEntries.count > 1)  {
+                // Delete the row from the listOfEntries variable
+                self.listOfEntries.removeAtIndex(index)
+                print("Removed from listOfEntries array > 1")
+                // Remove row from table view
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                print("Removed from Table view")
+            }
+            else {
+                // Delete the row from the listOfEntries variable
+                self.listOfEntries.removeAtIndex(index)
+                print("Removed from listOfEntries array")
+                // Remove row from table view
+                //tableView.deleteSections(sections, withRowAnimation: .Automatic)
+                tableView.deleteSections( NSIndexSet(index: 1), withRowAnimation: .Automatic)
+                //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                print("Removed from Table view")
+            }
+            // Remove file frm disk
+            let fileManager = NSFileManager.defaultManager()
+            do {
+                try fileManager.removeItemAtPath(delPath as String)
+                print("deleted")
+            }
+            catch let error as NSError {
+                print("Ooops! Something went wrong: \(error)")
+            }
+            
+            
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
     
     // empty data set
 
@@ -308,4 +356,5 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         self.navigationController?.popToRootViewControllerAnimated(true)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }

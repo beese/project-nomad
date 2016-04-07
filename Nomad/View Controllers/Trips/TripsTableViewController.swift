@@ -155,25 +155,67 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
     
  
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            let index = indexPath.row
+            if (self.listOfTrips[index].endDate != nil) {
+                print ("delete " + self.listOfTrips[index].title)
+                let delPath = self.listOfTrips[index].filePath()
+                let alert = UIAlertController(title: "Are you sure?", message: "Once you delete a trip all data for this trip will be deleted", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Delete Trip", style: UIAlertActionStyle.Destructive, handler: { action in
+                    print("selected Delete Trip")
+                    if ( self.listOfTrips.count > 1)  {
+                        // Delete the row from the listOfTrips variable
+                        self.listOfTrips.removeAtIndex(index)
+                        print("Removed from listOfTrips array")
+                        // Remove row from table view
+                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                        print("Removed from Table view")
+                    }
+                    else {
+                        // Delete the row from the listOfTrips variable
+                        self.listOfTrips.removeAtIndex(index)
+                        print("Removed from listOfTrips array")
+                        // Remove row from table view
+                        tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+                        //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                        print("Removed from Table view")
+                    }
+                    // Remove file frm disk
+                    let fileManager = NSFileManager.defaultManager()
+                    do {
+                        try fileManager.removeItemAtPath(delPath as String)
+                        print("deleted")
+                    }
+                    catch let error as NSError {
+                        print("Ooops! Something went wrong: \(error)")
+                    }
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+            else {
+                let alert = UIAlertController(title: "Error", message: "You cannot delete and active trip", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

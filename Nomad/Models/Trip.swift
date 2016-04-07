@@ -203,6 +203,7 @@ public class Trip: Model {
         
     }
     
+    
     public override func filePath() -> NSString {
         
         let tripsFolder = filePathFolder()
