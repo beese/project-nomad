@@ -35,27 +35,31 @@ class EntryViewController: UITableViewController {
         //let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
         
         //let image = UIImage(data: data!)
-        let image = toPass.photo!.photo
+        if (toPass.photo == nil) {
+            print("no image")
+        } else {
+            let image = toPass.photo!.photo
         
-        //scaling image to screen width
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let factor = screenSize.size.width / image!.size.width
-        print("factor: ")
-        print( factor )
-        let size = CGSizeApplyAffineTransform(image!.size, CGAffineTransformMakeScale(factor, factor))
-        let hasAlpha = false
-        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+            //scaling image to screen width
+            let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let factor = screenSize.size.width / image!.size.width
+            
+            let size = CGSizeApplyAffineTransform(image!.size, CGAffineTransformMakeScale(factor, factor))
+            let hasAlpha = false
+            let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
         
-        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
-        image!.drawInRect(CGRect(origin: CGPointZero, size: size))
+            UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+            image!.drawInRect(CGRect(origin: CGPointZero, size: size))
         
-        scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+            scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
         
-        imageView = UIImageView(image: scaledImage!)
-        
+            imageView = UIImageView(image: scaledImage!)
+        }
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 88
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
         //imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: 200)
         
         
@@ -127,8 +131,9 @@ class EntryViewController: UITableViewController {
             //cell.backgroundColor = UIColor.grayColor()
             //cell.textLabel?.text = "picture goes here"
             cell.textLabel?.numberOfLines = 0
-           
-            cell.addSubview(self.imageView)
+            if (toPass.photo != nil) {
+                cell.addSubview(self.imageView)
+            }
         } else if (indexPath.row == 2) {
             var entryInfo: String
             
@@ -195,8 +200,12 @@ class EntryViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let section = indexPath.section
         let row = indexPath.row
-        if section == 0 && row == 1{
-            return scaledImage.size.height
+        if section == 0 && row == 1 {
+            if (toPass.photo == nil) {
+                return 0
+            } else {
+                return scaledImage.size.height
+            }
         }
         return UITableViewAutomaticDimension
     }
