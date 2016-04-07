@@ -278,20 +278,31 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let index = indexPath.row
-            print ("delete " + listOfEntries[index].title)
-            listOfEntries.removeAtIndex(index)
-            
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            let delPath = self.trip.entries[index].filePath()
-            
-            
+            print ("delete " + self.listOfEntries[index].title)
+            let delPath = self.listOfEntries[index].filePath()
+            print ("count=\(self.listOfEntries.count)")
+            if ( self.listOfEntries.count > 1)  {
+                // Delete the row from the listOfEntries variable
+                self.listOfEntries.removeAtIndex(index)
+                print("Removed from listOfEntries array > 1")
+                // Remove row from table view
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                print("Removed from Table view")
+            }
+            else {
+                // Delete the row from the listOfEntries variable
+                self.listOfEntries.removeAtIndex(index)
+                print("Removed from listOfEntries array")
+                // Remove row from table view
+                tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+                //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                print("Removed from Table view")
+            }
+            // Remove file frm disk
             let fileManager = NSFileManager.defaultManager()
-            
-            // Delete 'hello.swift' file
-            
             do {
                 try fileManager.removeItemAtPath(delPath as String)
+                print("deleted")
             }
             catch let error as NSError {
                 print("Ooops! Something went wrong: \(error)")
