@@ -253,7 +253,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         if indexPath.section == 0 {
             if indexPath.row == 2 {
                 // viewing the map
-                
+                self.tableView.reloadData()
                 let viewController = MapViewController(trip: trip!)
                 print("loaded vc")
                 self.navigationController?.pushViewController(viewController, animated: true)
@@ -294,6 +294,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 // Remove row from table view
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 print("Removed from Table view")
+
             }
             else {
                 // Delete the row from the listOfEntries variable
@@ -304,12 +305,14 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 tableView.deleteSections( NSIndexSet(index: 1), withRowAnimation: .Automatic)
                 //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 print("Removed from Table view")
+                
             }
             // Remove file frm disk
             let fileManager = NSFileManager.defaultManager()
             do {
                 try fileManager.removeItemAtPath(delPath as String)
                 print("deleted")
+                trip = Trip.loadFromDisk(toPass.filePath() as String)
             }
             catch let error as NSError {
                 print("Ooops! Something went wrong: \(error)")
