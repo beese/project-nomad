@@ -13,6 +13,7 @@ class EntryViewController: UITableViewController {
     var toPass : Entry!
     var imageView: UIImageView!
     var scaledImage: UIImage!
+    
     override func viewDidLoad() {
         print("in entry view");
 
@@ -76,6 +77,12 @@ class EntryViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        let updatedEntry : Entry! = Entry.loadFromDisk(toPass.filePath() as String)
+        
+        toPass.title = updatedEntry.title
+        toPass.info = updatedEntry.info
+        toPass.photo = updatedEntry.photo
+        
         tableView.reloadData()
     }
     

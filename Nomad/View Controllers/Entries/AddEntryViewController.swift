@@ -101,19 +101,12 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         } //end if
             
         if (editMode == true) {
+            print("passToEditEntry:\(passToEditEntry)")
+            
+            
             // initiate updated entry
             let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image!, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
             print("Entry Title is " + travel!.title)
-            
-            //delete old file
-            let fileManager = NSFileManager.defaultManager()
-            do {
-                try fileManager.removeItemAtPath(self.passToEditEntry.filePath() as String)
-                print("\(self.passToEditEntry.filePath() as String) is deleted")
-            }
-            catch let error as NSError {
-                print("Something went wrong when deleting the old entry file: \(error)")
-            }
             
             //save updated entry
             //get currentTrip
@@ -126,14 +119,24 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                     currentTrip = trip
                 }
             }
-                
+            
             print("Current trip is " + currentTrip!.title)
-            //go through array and find nil 
+            //go through array and find nil
             travel!.trip = currentTrip;
-                
+            
             print(currentTrip!.entries);
             print("Saved trip to entry: " + travel!.trip!.title)
-                
+            
+            //delete old file
+            let fileManager = NSFileManager.defaultManager()
+            do {
+                try fileManager.removeItemAtPath(passToEditEntry.filePath() as String)
+                print("\(passToEditEntry.filePath() as String) is deleted")
+            }
+            catch let error as NSError {
+                print("Something went wrong when deleting the old entry file: \(error)")
+            }
+            
             travel!.save()
             //save currentTrip
             currentTrip!.save()

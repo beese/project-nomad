@@ -15,7 +15,7 @@ public class Entry: Model {
     
     var title: String
     var date: NSDate
-    var trip: Trip?
+    var trip: Trip!
     
     // optional variables
     var info: String?
@@ -81,7 +81,7 @@ public class Entry: Model {
     public override func filePath() -> NSString {
         
         // rootfolder/trips/tripGUID/entries/{entryGUID}
-        
+                
         let entryFolder = self.trip!.filePathFolder() as NSString
         print("Entry folder: " + (entryFolder as String))
         return (entryFolder.stringByAppendingPathComponent("entries") as NSString).stringByAppendingPathComponent(guID.UUIDString)
