@@ -93,6 +93,8 @@ class EntryViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
+        cell.selectionStyle = .None
+        
         // Configure the cell...
         // Put in the name of the trip
         let entry : Entry! = Entry.loadFromDisk(toPass.filePath() as String)
@@ -213,7 +215,7 @@ class EntryViewController: UITableViewController {
         let section = indexPath.section
         let row = indexPath.row
         if section == 0 && row == 1 {
-            if (toPass.photo == nil || toPass.photo!.photo?.scale == 2.0) {
+            if (toPass.photo == nil) {
                 return 0
             } else {
                 return scaledImage.size.height
