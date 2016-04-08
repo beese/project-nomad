@@ -24,7 +24,9 @@ class AddTripViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: #selector(saveTapped))
-        
+        if( editMode == nil) {
+            editMode = false;
+        }
         if (editMode == true) {
             self.title = "Edit Trip"
             let tripToEdit = toPass

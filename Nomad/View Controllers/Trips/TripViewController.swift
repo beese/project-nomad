@@ -118,9 +118,10 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     
     func addEntry() {
         let vc = AddEntryViewController()
-        self.navigationController?.popToRootViewControllerAnimated(true)
-        
         vc.editMode = false
+        //self.navigationController?.popToRootViewControllerAnimated(true)
+        
+        //vc.editMode = false
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

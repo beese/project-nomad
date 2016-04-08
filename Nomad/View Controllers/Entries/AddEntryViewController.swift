@@ -26,7 +26,9 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             let selectedEntry = passToEditEntry
             titleTextBox.text = selectedEntry.title
             infoTextBox.text = selectedEntry.info
-            photoImageView.image = selectedEntry.photo!.photo
+            if (selectedEntry.photo != nil) {
+                photoImageView.image = selectedEntry.photo!.photo
+            }
         }
         else {
             self.title = "Add an Entry"
@@ -54,6 +56,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         //let photo = Photo(_photo: NSData(data:UIImageJPEGRepresentation(photoImageView.image!, 0.6)!))
         
         let photo = photoImageView.image
+        print("default image in add entry")
+        print(photoImageView.image)
         let image = Photo (_photo: photo)
         titleTextBox.resignFirstResponder()
         infoTextBox.resignFirstResponder()
@@ -144,10 +148,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             currentTrip!.entries.append(travel!)
             print("after editing, trip entries: \(currentTrip?.entries)")
             
-            let vc = TripViewController()
-            vc.toPass = currentTrip
+            let vc = EntryViewController()
+            vc.toPass = travel!
             
             // TODO: update view controller
+            //self.navigationController?.pushViewController(vc, animated: true)
             self.navigationController?.popViewControllerAnimated(true)
         }
         
@@ -163,7 +168,21 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
-        photoImageView.image = selectedImage
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let factor = screenSize.size.width / selectedImage.size.width
+        
+        let size = CGSizeApplyAffineTransform(selectedImage.size, CGAffineTransformMakeScale(factor, factor))
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        selectedImage.drawInRect(CGRect(origin: CGPointZero, size: size))
+        var scaledImage: UIImage!
+        scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        photoImageView.image = scaledImage
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
