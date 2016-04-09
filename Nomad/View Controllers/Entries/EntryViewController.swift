@@ -38,7 +38,7 @@ class EntryViewController: UITableViewController {
 
 
         //loading image
-        if (toPass.photo == nil || toPass.photo!.photo?.scale == 2.0) {
+        if (toPass.photo == nil) {
             print("no image")
         } else {
             let image = toPass.photo!.photo
@@ -49,7 +49,7 @@ class EntryViewController: UITableViewController {
             
             let size = CGSizeApplyAffineTransform(image!.size, CGAffineTransformMakeScale(factor, factor))
             let hasAlpha = false
-            let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+            let scale: CGFloat = UIScreen.mainScreen().scale // Automatically use scale factor of main screen
         
             UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
             image!.drawInRect(CGRect(origin: CGPointZero, size: size))
@@ -92,6 +92,8 @@ class EntryViewController: UITableViewController {
         print("in EntryViewController tableView()")
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        cell.selectionStyle = .None
         
         // Configure the cell...
         // Put in the name of the trip
@@ -141,7 +143,7 @@ class EntryViewController: UITableViewController {
             //cell.textLabel?.text = "picture goes here"
             print ("update image")
             cell.textLabel?.numberOfLines = 0
-            if (toPass.photo != nil && toPass.photo!.photo?.scale != 2.0) {
+            if (toPass.photo != nil) {
                 cell.addSubview(self.imageView)
             }
         } else if (indexPath.row == 2) {
@@ -213,7 +215,7 @@ class EntryViewController: UITableViewController {
         let section = indexPath.section
         let row = indexPath.row
         if section == 0 && row == 1 {
-            if (toPass.photo == nil || toPass.photo!.photo?.scale == 2.0) {
+            if (toPass.photo == nil) {
                 return 0
             } else {
                 return scaledImage.size.height
