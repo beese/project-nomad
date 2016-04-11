@@ -53,10 +53,10 @@ class HomeViewController: UIViewController {
         if (onTrip) {
             // MARK: End trip confirmation dialog
             // create the alert
-            let alert = UIAlertController(title: "Are you sure?", message: "You will not be able to add any more entries to this trip.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Are you sure?", message: "You will not be able to add any more entries to this adventure.", preferredStyle: UIAlertControllerStyle.Alert)
             
             // add the actions (buttons)
-            alert.addAction(UIAlertAction(title: "End trip", style: UIAlertActionStyle.Destructive, handler: { action in
+            alert.addAction(UIAlertAction(title: "End Adventure", style: UIAlertActionStyle.Destructive, handler: { action in
                 // ends the trip
                 let tripToEnd = self.allTrips.filter({ $0.endDate == nil })
                 
@@ -76,7 +76,7 @@ class HomeViewController: UIViewController {
                         self.navigationController?.popViewControllerAnimated(true)
                         
                         if locations == nil {
-                            let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Trip ended but there are no ending coordinates", preferredStyle: .Alert)
+                            let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Adventure ended but there are no ending coordinates", preferredStyle: .Alert)
                             alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                             self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
                         }
@@ -144,7 +144,7 @@ class HomeViewController: UIViewController {
             addEntryButton.hidden = false
             viewEntriesButton.hidden = false
             startButton.backgroundColor = UIColor(red: 0.9615, green: 0.7353, blue: 0.724, alpha: 1.0)
-            startButton.setTitle("End Trip", forState: UIControlState.Normal)
+            startButton.setTitle("End Adventure", forState: UIControlState.Normal)
             
         }
         
@@ -155,7 +155,7 @@ class HomeViewController: UIViewController {
             addEntryButton.hidden = true
             viewEntriesButton.hidden = true
             startButton.backgroundColor = UIColor(red: 0.8233, green: 1.0, blue: 0.8367, alpha: 1.0)
-            startButton.setTitle("Start Trip", forState: UIControlState.Normal)
+            startButton.setTitle("Start Adventure", forState: UIControlState.Normal)
         }
     }
 }

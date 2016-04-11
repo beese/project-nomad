@@ -28,13 +28,13 @@ class AddTripViewController: UIViewController {
             editMode = false;
         }
         if (editMode == true) {
-            self.title = "Edit Trip"
+            self.title = "Edit Adventure"
             let tripToEdit = toPass
             titleTextBox.text = tripToEdit!.title
             travelersTextBox.text = tripToEdit!.travelers
         }
         else {
-            self.title = "Add a Trip"
+            self.title = "Add an Adventure"
         }
 
         // Do any additional setup after loading the view.
@@ -46,7 +46,7 @@ class AddTripViewController: UIViewController {
     }
     
     func saveTapped() {
-        print("Saving trip...")
+        print("Saving your adventure...")
         
         let title = titleTextBox.text
         let travelers = travelersTextBox.text
@@ -64,7 +64,7 @@ class AddTripViewController: UIViewController {
                 print("\(self.toPass!.filePath() as String) is deleted")
             }
             catch let error as NSError {
-                print("Something went wrong when deleting the old trip file: \(error)")
+                print("Something went wrong when deleting the old adventure file: \(error)")
             }
 
             updatedTrip!.save()
@@ -87,7 +87,7 @@ class AddTripViewController: UIViewController {
                 self.navigationController?.popViewControllerAnimated(true)
             
                 if locations == nil {
-                    let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Trip created but there are no starting coordinates", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Adventure created but there are no starting coordinates", preferredStyle: .Alert)
                     alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                 self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
                 }

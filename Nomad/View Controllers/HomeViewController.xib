@@ -20,7 +20,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXg-jV-QNZ">
                     <rect key="frame" x="8" y="532" width="584" height="30"/>
                     <color key="backgroundColor" red="0.79780409697920773" green="0.96079962092079774" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="View Trips">
+                    <state key="normal" title="View Adventures">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -36,7 +36,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrE-gP-LGa">
                     <rect key="frame" x="8" y="477" width="584" height="30"/>
                     <color key="backgroundColor" red="0.8232702526346295" green="1" blue="0.83668065155618565" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Start Trip">
+                    <state key="normal" title="Start Adventure">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -62,7 +62,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfs-rh-hJA">
                     <rect key="frame" x="8" y="367" width="584" height="30"/>
                     <color key="backgroundColor" red="0.84734324682865381" green="0.7952637312526305" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="View Current Trip">
+                    <state key="normal" title="View Current Adventure">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

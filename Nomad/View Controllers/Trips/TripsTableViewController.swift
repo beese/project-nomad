@@ -16,7 +16,7 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "All Trips"
+        self.title = "All Adventures"
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
@@ -128,7 +128,7 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
     }
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "Oh no! You haven't started a trip yet. Go on an adventure today and create a trip!"
+        let text = "Oh no! You haven't started an adventure yet. Start your adventure today!"
         
         let para = NSMutableParagraphStyle()
         para.lineBreakMode = .ByWordWrapping
@@ -144,7 +144,7 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
         let attr = [ NSFontAttributeName: UIFont.boldSystemFontOfSize(17) ]
         
-        return NSAttributedString(string: "Add Trip", attributes: attr)
+        return NSAttributedString(string: "Start an Adventure", attributes: attr)
     }
     
     func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
@@ -171,8 +171,8 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
             if (self.listOfTrips[index].endDate != nil) {
                 print ("delete " + self.listOfTrips[index].title)
                 let delPath = self.listOfTrips[index].filePath()
-                let alert = UIAlertController(title: "Are you sure?", message: "Once you delete a trip all data for this trip will be deleted", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Delete Trip", style: UIAlertActionStyle.Destructive, handler: { action in
+                let alert = UIAlertController(title: "Are you sure?", message: "Once you delete an adventure all data for this adventure will be deleted", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Delete Adventure", style: UIAlertActionStyle.Destructive, handler: { action in
                     print("selected Delete Trip")
                     if ( self.listOfTrips.count > 1)  {
                         // Delete the row from the listOfTrips variable
@@ -206,7 +206,7 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
                 
             }
             else {
-                let alert = UIAlertController(title: "Error", message: "You cannot delete and active trip", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Error", message: "You cannot delete an active adventure", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }

@@ -65,7 +65,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         trip = toPass
         trip = Trip.loadFromDisk(trip!.filePath() as String)
         
-        print("after loading from disk, trip is \(trip) at")
+        print("after loading from disk, adventure is \(trip) at")
         print("\(trip?.filePath())")
         
         // load in the trip's entries
@@ -135,7 +135,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Trip Information"
+            return "Adventure Information"
         }
         else {
             return "Entries"
