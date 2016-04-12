@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5672E041CBC8A6700ACC336 /* basictitlefont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */; };
 		A58EB85B1CB171910047D7DF /* GPSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EB85A1CB171910047D7DF /* GPSHelper.swift */; };
 		A58EB85D1CB17CC50047D7DF /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EB85C1CB17CC50047D7DF /* SwiftSpinner.swift */; };
 		A58EB85F1CB1840E0047D7DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = basictitlefont.ttf; sourceTree = "<group>"; };
 		A58EB85A1CB171910047D7DF /* GPSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPSHelper.swift; path = Helpers/GPSHelper.swift; sourceTree = SOURCE_ROOT; };
 		A58EB85C1CB17CC50047D7DF /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftSpinner.swift; path = Helpers/SwiftSpinner.swift; sourceTree = "<group>"; };
 		A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -152,6 +154,7 @@
 		A5FC09411C716B1700DF77D8 = {
 			isa = PBXGroup;
 			children = (
+				A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */,
 				A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */,
 				A58EB8591CB1714B0047D7DF /* Helpers */,
 				A5DF20FC1C7F8883009EBCC9 /* Models */,
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5672E041CBC8A6700ACC336 /* basictitlefont.ttf in Resources */,
 				A5DF21001C7F88C1009EBCC9 /* TripsTableViewController.xib in Resources */,
 				A5DF21041C7F88E3009EBCC9 /* TripViewController.xib in Resources */,
 				A5DF21101C7F895E009EBCC9 /* EntryTableViewController.xib in Resources */,
