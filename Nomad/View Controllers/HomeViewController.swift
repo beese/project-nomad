@@ -23,9 +23,11 @@ class HomeViewController: UIViewController {
     }
     var allTrips: [Trip] = []
     //get currentTrip
+
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.view.backgroundColor = UIColor(red: 0.3255, green: 0.3255, blue: 0.3255, alpha: 1.0)
         
         
         allTrips = Trip.loadAll()
@@ -131,6 +133,7 @@ class HomeViewController: UIViewController {
     
     
     func updateUI() {
+        
         addEntryButton.hidden = true
         viewEntriesButton.hidden = true
         
