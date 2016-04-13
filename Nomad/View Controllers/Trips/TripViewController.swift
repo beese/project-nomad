@@ -191,6 +191,15 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 cell.textLabel?.textAlignment = .Center
             }
             
+            else if indexPath.row == 3 {
+                // button for sharing trip
+                
+                cell.textLabel?.text = "Share with Friends"
+                cell.textLabel?.font = UIFont.boldSystemFontOfSize(UIFont.systemFontSize())
+                cell.accessoryType = .DisclosureIndicator
+                cell.textLabel?.textAlignment = .Center
+            }
+            
         }
         
         else {
@@ -240,7 +249,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return 3
+            return 4
         }
         else {
             return listOfEntries.count
@@ -258,6 +267,28 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
                 print("loaded vc")
                 self.navigationController?.pushViewController(viewController, animated: true)
                 
+            }
+            
+            else if indexPath.row == 3 {
+                // sharing options
+                self.tableView.reloadData()
+                
+                var shareText = ""
+                
+                let formatter = NSDateFormatter()
+                formatter.dateFormat =  "EEE, MMMM d 'at' h:mm a"
+                let starttime = formatter.stringFromDate(trip.startDate)
+                
+                if trip.endDate == nil {
+                    shareText += "I am using the Nomad App to track my current \(trip.title) Adventure where I am travelling with \(trip.travelers).  The adventure started on \(starttime).  Download Nomad from the iOS App store today!"
+                }
+                else {
+                    let endtime = formatter.stringFromDate(trip.endDate!)
+                    shareText += "I used the Nomad App to track my \(trip.title) Adventure when I travelled with \(trip.travelers).  The adventure started on \(starttime) and ended on \(endtime).  Nomad the app from the iOS App store today!"
+                }
+                
+                let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+                self.presentViewController(activityViewController, animated: true, completion: nil)
             }
             
             return

@@ -71,7 +71,18 @@ class EntryViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: #selector(editTapped))
+        
+        let rightShareBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(shareEntry))
+        
+        if(toPass.trip.endDate == nil) {
+            // show edit and show share buttons
+            let rightEditBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(editTapped))
+            self.navigationItem.setRightBarButtonItems([rightEditBarButtonItem,rightShareBarButtonItem], animated: false)
+        }
+        else {
+            // show share buttons
+            self.navigationItem.rightBarButtonItem = rightShareBarButtonItem
+        }
         
         let addEntryVC = AddEntryViewController()
         addEntryVC.editMode = false
@@ -189,6 +200,29 @@ class EntryViewController: UITableViewController {
 
         //push AddEntryViewController
         self.navigationController?.pushViewController(AEViewController, animated: true)
+        
+        
+    }
+    
+    func shareEntry() {
+        // share selected entry
+        
+        var shareText = "I used Nomad to track when I went to \(toPass.title) on my \(toPass.trip.title) adventure. "
+        
+        if toPass.info != nil {
+            shareText += "\n\(toPass.info!)\n"
+        }
+        
+        shareText += "Download Nomad from the iOS App store today!"
+        
+        if toPass.photo != nil {
+            let activityViewController = UIActivityViewController(activityItems: [shareText, toPass.photo!.photo!], applicationActivities: nil)
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+        else {
+            let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+        }
         
         
     }

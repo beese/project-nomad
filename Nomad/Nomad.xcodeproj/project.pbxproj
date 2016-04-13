@@ -12,6 +12,7 @@
 		A58EB85D1CB17CC50047D7DF /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EB85C1CB17CC50047D7DF /* SwiftSpinner.swift */; };
 		A58EB85F1CB1840E0047D7DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */; };
 		A58EB8631CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A58EB8621CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m */; };
+		A5B20B601CBDD1B10001F046 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B20B5F1CBDD1B10001F046 /* Social.framework */; };
 		A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */; };
 		A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6F1C795A880043EEF2 /* Entry.swift */; };
 		A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD711C795AAF0043EEF2 /* Photo.swift */; };
@@ -47,6 +48,7 @@
 		A58EB8601CB1C1340047D7DF /* Nomad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nomad-Bridging-Header.h"; sourceTree = "<group>"; };
 		A58EB8611CB1C1350047D7DF /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		A58EB8621CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		A5B20B5F1CBDD1B10001F046 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A5D8FD6F1C795A880043EEF2 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A5D8FD711C795AAF0043EEF2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B20B601CBDD1B10001F046 /* Social.framework in Frameworks */,
 				A58EB85F1CB1840E0047D7DF /* CoreLocation.framework in Frameworks */,
 				A5FC09601C716C7300DF77D8 /* MapKit.framework in Frameworks */,
 			);
@@ -154,6 +157,7 @@
 		A5FC09411C716B1700DF77D8 = {
 			isa = PBXGroup;
 			children = (
+				A5B20B5F1CBDD1B10001F046 /* Social.framework */,
 				A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */,
 				A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */,
 				A58EB8591CB1714B0047D7DF /* Helpers */,
