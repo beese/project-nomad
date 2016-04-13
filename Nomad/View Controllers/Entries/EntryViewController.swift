@@ -8,8 +8,9 @@
 
 
 import UIKit
+import MapKit
 
-class EntryViewController: UITableViewController {
+class EntryViewController: UITableViewController, MKMapViewDelegate {
     var toPass : Entry!
     var imageView: UIImageView!
     var scaledImage: UIImage!
@@ -147,8 +148,36 @@ class EntryViewController: UITableViewController {
             cell.textLabel?.numberOfLines = 0
         
         }
-        
+            
         else if (indexPath.row == 1) {
+            
+            if (toPass.coords != nil) {
+                // build the map view
+                let view = MKMapView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 100))
+                
+                
+                let a = MKPointAnnotation()
+                a.coordinate = (toPass.coords?.coordinate)!
+                view.addAnnotation(a)
+                
+                
+                view.delegate = self
+                
+                
+                //location is the center point
+                
+                let regionRadius : CLLocationDistance = 1000
+                
+                let coordinateRegion = MKCoordinateRegionMakeWithDistance(a.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+                
+                view.setRegion(coordinateRegion, animated: true)
+                
+                cell.contentView.addSubview(view)
+            }
+            
+        }
+        
+        else if (indexPath.row == 2) {
             //display picture
             //cell.backgroundColor = UIColor.grayColor()
             //cell.textLabel?.text = "picture goes here"
@@ -157,7 +186,7 @@ class EntryViewController: UITableViewController {
             if (toPass.photo != nil) {
                 cell.addSubview(self.imageView)
             }
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == 3) {
             var entryInfo: String
             
             if entry.info != nil{
@@ -242,75 +271,54 @@ class EntryViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 4
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let section = indexPath.section
         let row = indexPath.row
-        if section == 0 && row == 1 {
+        
+        if row == 1 {
+            // coordinates
+            if (toPass.coords == nil) {
+                return 0
+            }
+            else {
+                return 115
+            }
+            
+        }
+        else if row == 2 {
+            // photo
             if (toPass.photo == nil) {
                 return 0
-            } else {
+            }
+            else {
                 return scaledImage.size.height
             }
+            
         }
+        
         return UITableViewAutomaticDimension
     }
     
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-    
-    // Configure the cell...
-    
-    return cell
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin") as? MKPinAnnotationView
+        
+        if anView == nil {
+            anView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        }
+        
+        anView?.annotation = annotation
+        
+        // change pin color
+        
+        anView?.pinTintColor = UIColor.blueColor()
+        
+        return anView
     }
-    */
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+        
 }
