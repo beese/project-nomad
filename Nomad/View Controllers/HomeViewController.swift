@@ -13,8 +13,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var viewTripsButton: UIButton!
     @IBOutlet weak var addEntryButton: UIButton!
-    @IBOutlet weak var viewEntriesButton: UIButton!
     
+    @IBOutlet weak var constraintCenterXMyAdventures: NSLayoutConstraint!
+    @IBOutlet weak var contraintCenterXEndAdventure: NSLayoutConstraint!
+    @IBOutlet weak var constraintCenterXAddEntry: NSLayoutConstraint!
     // check to see if on any current trips
     var onTrip: Bool {
         get {
@@ -23,12 +25,35 @@ class HomeViewController: UIViewController {
     }
     var allTrips: [Trip] = []
     //get currentTrip
-
     
+    override func viewDidLoad() {
+        self.constraintCenterXMyAdventures.constant = -1 * (self.view.bounds.size.width / 2 + 150)
+        self.contraintCenterXEndAdventure.constant = -1 * (self.view.bounds.size.width / 2 + 150)
+        self.constraintCenterXAddEntry.constant = -1 * (self.view.bounds.size.width / 2 + 150)
+        self.view.layoutIfNeeded()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateKeyframesWithDuration(1.0, delay: 0, options: .AllowUserInteraction, animations: {
+            UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.33333, animations: {
+                self.constraintCenterXMyAdventures.constant = 0
+                self.view.layoutIfNeeded()
+            })
+            UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.33333, animations: {
+                self.contraintCenterXEndAdventure.constant = 0
+                self.view.layoutIfNeeded()
+            })
+            UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.33333, animations: {
+                self.constraintCenterXAddEntry.constant = 0
+                self.view.layoutIfNeeded()
+            })
+        }, completion: nil)
+    }
+
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.view.backgroundColor = UIColor(red: 0.3255, green: 0.3255, blue: 0.3255, alpha: 1.0)
         
+
         
         allTrips = Trip.loadAll()
         updateUI()
@@ -135,7 +160,6 @@ class HomeViewController: UIViewController {
     func updateUI() {
         
         addEntryButton.hidden = true
-        viewEntriesButton.hidden = true
         
         
         // if user is on a trip
@@ -145,9 +169,8 @@ class HomeViewController: UIViewController {
             // on a trip
             
             addEntryButton.hidden = false
-            viewEntriesButton.hidden = false
-            startButton.backgroundColor = UIColor(red: 0.9615, green: 0.7353, blue: 0.724, alpha: 1.0)
-            startButton.setTitle("End Adventure", forState: UIControlState.Normal)
+            //startButton.backgroundColor = UIColor(red: 0.9615, green: 0.7353, blue: 0.724, alpha: 1.0)
+            startButton.setTitle("end adventure", forState: UIControlState.Normal)
             
         }
         
@@ -156,9 +179,8 @@ class HomeViewController: UIViewController {
             // not on a trip
             
             addEntryButton.hidden = true
-            viewEntriesButton.hidden = true
-            startButton.backgroundColor = UIColor(red: 0.8233, green: 1.0, blue: 0.8367, alpha: 1.0)
-            startButton.setTitle("Start Adventure", forState: UIControlState.Normal)
+            //startButton.backgroundColor = UIColor(red: 0.8233, green: 1.0, blue: 0.8367, alpha: 1.0)
+            startButton.setTitle("start adventure", forState: UIControlState.Normal)
         }
     }
 }

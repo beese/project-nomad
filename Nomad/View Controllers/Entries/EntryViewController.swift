@@ -30,6 +30,7 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
         //self.listOfEntries = toPass.entries'
         print("before calling tableview");
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "map")
         
         print("photo info")
         print(toPass.photo)
@@ -103,7 +104,13 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("in EntryViewController tableView()")
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        var identifier = "cell"
+        
+        if indexPath.row == 1 {
+            identifier = "map"
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
         
         cell.selectionStyle = .None
         
@@ -151,9 +158,10 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
             
         else if (indexPath.row == 1) {
             
-            if (toPass.coords != nil) {
+            if (toPass.coords != nil && cell.contentView.viewWithTag(1234) == nil) {
                 // build the map view
                 let view = MKMapView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 100))
+                view.tag = 1234
                 
                 
                 let a = MKPointAnnotation()

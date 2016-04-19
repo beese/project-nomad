@@ -388,8 +388,9 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     
     func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
         let vc = AddEntryViewController()
+        let nav = self.navigationController!
         self.navigationController?.popToRootViewControllerAnimated(true)
-        self.navigationController?.pushViewController(vc, animated: true)
+        nav.pushViewController(vc, animated: true)        
     }
     
 }
