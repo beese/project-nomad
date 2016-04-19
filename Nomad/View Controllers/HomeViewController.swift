@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        UIView.animateKeyframesWithDuration(1.0, delay: 0, options: .AllowUserInteraction, animations: {
+        UIView.animateKeyframesWithDuration(1.0, delay: 0.5, options: .AllowUserInteraction, animations: {
             UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.33333, animations: {
                 self.constraintCenterXMyAdventures.constant = 0
                 self.view.layoutIfNeeded()
