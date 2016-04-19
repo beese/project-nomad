@@ -20,15 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard-1" translatesAutoresizingMaskIntoConstraints="NO" id="m1z-Iu-Ye8">
+                    <rect key="frame" x="0.0" y="391" width="600" height="249"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLogoTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="7Yz-pV-gqc">
                     <rect key="frame" x="200" y="35" width="200" height="220"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="220" id="AAt-lm-vUZ"/>
                         <constraint firstAttribute="width" constant="200" id="aOo-52-KRL"/>
                     </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard-1" translatesAutoresizingMaskIntoConstraints="NO" id="m1z-Iu-Ye8">
-                    <rect key="frame" x="0.0" y="387" width="600" height="249"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekq-Cv-jPn">
                     <rect key="frame" x="228" y="319" width="145" height="40"/>
@@ -67,7 +67,7 @@
                 <constraint firstItem="Ekq-Cv-jPn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8nq-O3-hLI"/>
                 <constraint firstItem="Ekq-Cv-jPn" firstAttribute="top" secondItem="qjA-NZ-ydi" secondAttribute="bottom" constant="8" id="BXR-E0-NYw"/>
                 <constraint firstItem="qjA-NZ-ydi" firstAttribute="top" secondItem="7Yz-pV-gqc" secondAttribute="bottom" constant="16" id="Nnt-Tk-Y99"/>
-                <constraint firstAttribute="bottom" secondItem="m1z-Iu-Ye8" secondAttribute="bottom" constant="-36" id="OB0-Cu-x27"/>
+                <constraint firstAttribute="bottom" secondItem="m1z-Iu-Ye8" secondAttribute="bottom" constant="-40" id="OB0-Cu-x27"/>
                 <constraint firstItem="417-aS-nI5" firstAttribute="top" secondItem="Ekq-Cv-jPn" secondAttribute="bottom" constant="8" id="PEl-nB-Y88"/>
                 <constraint firstItem="7Yz-pV-gqc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ygh-hd-hat"/>
                 <constraint firstItem="m1z-Iu-Ye8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aqX-Kf-995"/>
