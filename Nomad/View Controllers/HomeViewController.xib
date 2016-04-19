@@ -34,7 +34,7 @@
                     <rect key="frame" x="228" y="319" width="145" height="40"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                     <state key="normal" title="end adventure">
-                        <color key="titleColor" red="0.9796310587" green="1" blue="0.83503603749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="startTripTapped:" destination="-1" eventType="touchUpInside" id="eNu-Pv-rlE"/>
@@ -44,7 +44,7 @@
                     <rect key="frame" x="252" y="367" width="96" height="40"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                     <state key="normal" title="add entry">
-                        <color key="titleColor" red="0.9796310587" green="1" blue="0.83503603749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="addEntryTapped:" destination="-1" eventType="touchUpInside" id="pER-U2-N4Q"/>
@@ -54,7 +54,7 @@
                     <rect key="frame" x="226" y="271" width="148" height="40"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                     <state key="normal" title="my adventures">
-                        <color key="titleColor" red="0.9796310587" green="1" blue="0.83503603749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="viewTripsTapped:" destination="-1" eventType="touchUpInside" id="eR3-af-SVu"/>
