@@ -40,6 +40,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         self.title = trip.title
         self.listOfEntries = trip.entries
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "center")
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 88
@@ -144,7 +145,14 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        var identifier = "cell"
+        
+        if indexPath.section == 0 && (indexPath.row == 2 || indexPath.row == 3) {
+            identifier = "center"
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
         
         if indexPath.section == 0 {
             // Information section
