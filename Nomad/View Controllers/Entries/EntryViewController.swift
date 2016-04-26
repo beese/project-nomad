@@ -61,6 +61,7 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
             UIGraphicsEndImageContext()
         
             imageView = UIImageView(image: scaledImage!)
+            imageView.sizeToFit()
         }
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 88
@@ -193,8 +194,14 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
             print ("update image")
             cell.textLabel?.numberOfLines = 0
             if (toPass.photo != nil) {
+                //cell.sizeToFit()
+                print("sub view count \(cell.subviews.count)")
+                if ( cell.subviews.count > 0) {
+                //imageView.removeFromSuperview()
+                    cell.subviews[0].removeFromSuperview()
+                }
+                    cell.addSubview(imageView)
                 
-                cell.addSubview(self.imageView)
             }
         } else if (indexPath.row == 3) {
             var entryInfo: String
@@ -317,6 +324,8 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
                 scaledImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 imageView = UIImageView(image: scaledImage!)
+                imageView.sizeToFit()
+                print("height \(scaledImage.size.height)\n")
                 return scaledImage.size.height
             }
             
