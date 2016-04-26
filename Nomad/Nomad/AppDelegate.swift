@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate   {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        if !NSUserDefaults.standardUserDefaults().boolForKey("generated_data") {
+            SampleData.generateAndSaveData()
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "generated_data")
+        }
+
         usleep(500)
         
         // when application opens

@@ -31,8 +31,9 @@ public class Entry: Model {
         photo = _photo
         coords = _coords
         
-         super.init(guid: NSUUID())
+        super.init(guid: NSUUID())
         
+        photo?.entry = self
     }
     
     //When loading off of the disk
@@ -46,6 +47,7 @@ public class Entry: Model {
         
         super.init(guid: _guid)
         
+        photo?.entry = self
     }
     
     required convenience public init?(coder decoder: NSCoder) {

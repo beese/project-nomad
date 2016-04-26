@@ -80,7 +80,9 @@ public class Model: NSObject, NSCoding {
         }
         
         // Writes information to the disk
-        NSKeyedArchiver.archiveRootObject(self, toFile: path)
+        if !NSKeyedArchiver.archiveRootObject(self, toFile: path) {
+            NSLog("error saving to %@!", path)
+        }
         
     }
     

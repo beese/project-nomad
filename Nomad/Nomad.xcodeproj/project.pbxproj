@@ -13,6 +13,22 @@
 		A58EB85F1CB1840E0047D7DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */; };
 		A58EB8631CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A58EB8621CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m */; };
 		A5B20B601CBDD1B10001F046 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B20B5F1CBDD1B10001F046 /* Social.framework */; };
+		A5C470AF1CD0115000E6AD22 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C470A41CD0115000E6AD22 /* JTSAnimatedGIFUtility.m */; };
+		A5C470B01CD0115000E6AD22 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C470A61CD0115000E6AD22 /* JTSImageInfo.m */; };
+		A5C470B11CD0115000E6AD22 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C470A81CD0115000E6AD22 /* JTSImageViewController.m */; };
+		A5C470B21CD0115000E6AD22 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C470AA1CD0115000E6AD22 /* JTSSimpleImageDownloader.m */; };
+		A5C470B31CD0115000E6AD22 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C470AC1CD0115000E6AD22 /* UIApplication+JTSImageViewController.m */; };
+		A5C470B41CD0115000E6AD22 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C470AE1CD0115000E6AD22 /* UIImage+JTSImageEffects.m */; };
+		A5C470B71CD0119D00E6AD22 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C470B61CD0119D00E6AD22 /* SampleData.swift */; };
+		A5C470C11CD011AC00E6AD22 /* bigben.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470B81CD011AC00E6AD22 /* bigben.jpg */; };
+		A5C470C21CD011AC00E6AD22 /* eifeltower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470B91CD011AC00E6AD22 /* eifeltower.jpg */; };
+		A5C470C31CD011AC00E6AD22 /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BA1CD011AC00E6AD22 /* eye.jpg */; };
+		A5C470C41CD011AC00E6AD22 /* guard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BB1CD011AC00E6AD22 /* guard.jpg */; };
+		A5C470C51CD011AC00E6AD22 /* hostel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BC1CD011AC00E6AD22 /* hostel.jpg */; };
+		A5C470C61CD011AC00E6AD22 /* londonairport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BD1CD011AC00E6AD22 /* londonairport.jpg */; };
+		A5C470C71CD011AC00E6AD22 /* lovebridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BE1CD011AC00E6AD22 /* lovebridge.jpg */; };
+		A5C470C81CD011AC00E6AD22 /* parisairport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BF1CD011AC00E6AD22 /* parisairport.jpg */; };
+		A5C470C91CD011AC00E6AD22 /* phone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470C01CD011AC00E6AD22 /* phone.jpg */; };
 		A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */; };
 		A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6F1C795A880043EEF2 /* Entry.swift */; };
 		A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD711C795AAF0043EEF2 /* Photo.swift */; };
@@ -38,12 +54,6 @@
 		A5FC09601C716C7300DF77D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FC095F1C716C7300DF77D8 /* MapKit.framework */; };
 		FC7B92C91CCF3A63008AAD31 /* AddEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */; };
 		FC7B92CD1CCF3AC4008AAD31 /* AddEntryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */; };
-		FC7B93071CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92FC1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m */; };
-		FC7B93081CCFDBE8008AAD31 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92FE1CCFDBE8008AAD31 /* JTSImageInfo.m */; };
-		FC7B93091CCFDBE8008AAD31 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93001CCFDBE8008AAD31 /* JTSImageViewController.m */; };
-		FC7B930A1CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93021CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m */; };
-		FC7B930B1CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93041CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m */; };
-		FC7B930C1CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93061CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m */; };
 		FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE145221C84D75600215DA7 /* EntryViewController.swift */; };
 		FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE145241C84D9BE00215DA7 /* EntryViewController.xib */; };
 /* End PBXBuildFile section */
@@ -57,6 +67,28 @@
 		A58EB8611CB1C1350047D7DF /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		A58EB8621CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		A5B20B5F1CBDD1B10001F046 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A5C470A31CD0115000E6AD22 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		A5C470A41CD0115000E6AD22 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		A5C470A51CD0115000E6AD22 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		A5C470A61CD0115000E6AD22 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		A5C470A71CD0115000E6AD22 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		A5C470A81CD0115000E6AD22 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		A5C470A91CD0115000E6AD22 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		A5C470AA1CD0115000E6AD22 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		A5C470AB1CD0115000E6AD22 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		A5C470AC1CD0115000E6AD22 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		A5C470AD1CD0115000E6AD22 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		A5C470AE1CD0115000E6AD22 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		A5C470B61CD0119D00E6AD22 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		A5C470B81CD011AC00E6AD22 /* bigben.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bigben.jpg; sourceTree = "<group>"; };
+		A5C470B91CD011AC00E6AD22 /* eifeltower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eifeltower.jpg; sourceTree = "<group>"; };
+		A5C470BA1CD011AC00E6AD22 /* eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eye.jpg; sourceTree = "<group>"; };
+		A5C470BB1CD011AC00E6AD22 /* guard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guard.jpg; sourceTree = "<group>"; };
+		A5C470BC1CD011AC00E6AD22 /* hostel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hostel.jpg; sourceTree = "<group>"; };
+		A5C470BD1CD011AC00E6AD22 /* londonairport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = londonairport.jpg; sourceTree = "<group>"; };
+		A5C470BE1CD011AC00E6AD22 /* lovebridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lovebridge.jpg; sourceTree = "<group>"; };
+		A5C470BF1CD011AC00E6AD22 /* parisairport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parisairport.jpg; sourceTree = "<group>"; };
+		A5C470C01CD011AC00E6AD22 /* phone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phone.jpg; sourceTree = "<group>"; };
 		A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A5D8FD6F1C795A880043EEF2 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A5D8FD711C795AAF0043EEF2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -84,18 +116,6 @@
 		A5FC095F1C716C7300DF77D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryVC.swift; sourceTree = "<group>"; };
 		FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEntryVC.xib; sourceTree = "<group>"; };
-		FC7B92FB1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSAnimatedGIFUtility.h; path = "../../../JTSImageViewController-master/Source/JTSAnimatedGIFUtility.h"; sourceTree = "<group>"; };
-		FC7B92FC1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSAnimatedGIFUtility.m; path = "../../../JTSImageViewController-master/Source/JTSAnimatedGIFUtility.m"; sourceTree = "<group>"; };
-		FC7B92FD1CCFDBE8008AAD31 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageInfo.h; path = "../../../JTSImageViewController-master/Source/JTSImageInfo.h"; sourceTree = "<group>"; };
-		FC7B92FE1CCFDBE8008AAD31 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageInfo.m; path = "../../../JTSImageViewController-master/Source/JTSImageInfo.m"; sourceTree = "<group>"; };
-		FC7B92FF1CCFDBE8008AAD31 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewController.h; path = "../../../JTSImageViewController-master/Source/JTSImageViewController.h"; sourceTree = "<group>"; };
-		FC7B93001CCFDBE8008AAD31 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewController.m; path = "../../../JTSImageViewController-master/Source/JTSImageViewController.m"; sourceTree = "<group>"; };
-		FC7B93011CCFDBE8008AAD31 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSSimpleImageDownloader.h; path = "../../../JTSImageViewController-master/Source/JTSSimpleImageDownloader.h"; sourceTree = "<group>"; };
-		FC7B93021CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSSimpleImageDownloader.m; path = "../../../JTSImageViewController-master/Source/JTSSimpleImageDownloader.m"; sourceTree = "<group>"; };
-		FC7B93031CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+JTSImageViewController.h"; path = "../../../JTSImageViewController-master/Source/UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
-		FC7B93041CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+JTSImageViewController.m"; path = "../../../JTSImageViewController-master/Source/UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
-		FC7B93051CCFDBE8008AAD31 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+JTSImageEffects.h"; path = "../../../JTSImageViewController-master/Source/UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
-		FC7B93061CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+JTSImageEffects.m"; path = "../../../JTSImageViewController-master/Source/UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
 		FCE145221C84D75600215DA7 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		FCE145241C84D9BE00215DA7 /* EntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +144,43 @@
 				A58EB8601CB1C1340047D7DF /* Nomad-Bridging-Header.h */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A5C470A21CD0115000E6AD22 /* ImageZoom */ = {
+			isa = PBXGroup;
+			children = (
+				A5C470A31CD0115000E6AD22 /* JTSAnimatedGIFUtility.h */,
+				A5C470A41CD0115000E6AD22 /* JTSAnimatedGIFUtility.m */,
+				A5C470A51CD0115000E6AD22 /* JTSImageInfo.h */,
+				A5C470A61CD0115000E6AD22 /* JTSImageInfo.m */,
+				A5C470A71CD0115000E6AD22 /* JTSImageViewController.h */,
+				A5C470A81CD0115000E6AD22 /* JTSImageViewController.m */,
+				A5C470A91CD0115000E6AD22 /* JTSSimpleImageDownloader.h */,
+				A5C470AA1CD0115000E6AD22 /* JTSSimpleImageDownloader.m */,
+				A5C470AB1CD0115000E6AD22 /* UIApplication+JTSImageViewController.h */,
+				A5C470AC1CD0115000E6AD22 /* UIApplication+JTSImageViewController.m */,
+				A5C470AD1CD0115000E6AD22 /* UIImage+JTSImageEffects.h */,
+				A5C470AE1CD0115000E6AD22 /* UIImage+JTSImageEffects.m */,
+			);
+			name = ImageZoom;
+			path = Helpers/ImageZoom;
+			sourceTree = "<group>";
+		};
+		A5C470B51CD0118D00E6AD22 /* Sample Content */ = {
+			isa = PBXGroup;
+			children = (
+				A5C470B61CD0119D00E6AD22 /* SampleData.swift */,
+				A5C470B81CD011AC00E6AD22 /* bigben.jpg */,
+				A5C470B91CD011AC00E6AD22 /* eifeltower.jpg */,
+				A5C470BA1CD011AC00E6AD22 /* eye.jpg */,
+				A5C470BB1CD011AC00E6AD22 /* guard.jpg */,
+				A5C470BC1CD011AC00E6AD22 /* hostel.jpg */,
+				A5C470BD1CD011AC00E6AD22 /* londonairport.jpg */,
+				A5C470BE1CD011AC00E6AD22 /* lovebridge.jpg */,
+				A5C470BF1CD011AC00E6AD22 /* parisairport.jpg */,
+				A5C470C01CD011AC00E6AD22 /* phone.jpg */,
+			);
+			name = "Sample Content";
 			sourceTree = "<group>";
 		};
 		A5DF20FB1C7F8860009EBCC9 /* View Controllers */ = {
@@ -181,7 +238,8 @@
 		A5FC09411C716B1700DF77D8 = {
 			isa = PBXGroup;
 			children = (
-				FC7B92D61CCFDA57008AAD31 /* ImageZoom */,
+				A5C470B51CD0118D00E6AD22 /* Sample Content */,
+				A5C470A21CD0115000E6AD22 /* ImageZoom */,
 				A5B20B5F1CBDD1B10001F046 /* Social.framework */,
 				A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */,
 				A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */,
@@ -213,25 +271,6 @@
 				A5FC094F1C716B1700DF77D8 /* ViewController.swift */,
 			);
 			path = Nomad;
-			sourceTree = "<group>";
-		};
-		FC7B92D61CCFDA57008AAD31 /* ImageZoom */ = {
-			isa = PBXGroup;
-			children = (
-				FC7B92FB1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.h */,
-				FC7B92FC1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m */,
-				FC7B92FD1CCFDBE8008AAD31 /* JTSImageInfo.h */,
-				FC7B92FE1CCFDBE8008AAD31 /* JTSImageInfo.m */,
-				FC7B92FF1CCFDBE8008AAD31 /* JTSImageViewController.h */,
-				FC7B93001CCFDBE8008AAD31 /* JTSImageViewController.m */,
-				FC7B93011CCFDBE8008AAD31 /* JTSSimpleImageDownloader.h */,
-				FC7B93021CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m */,
-				FC7B93031CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.h */,
-				FC7B93041CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m */,
-				FC7B93051CCFDBE8008AAD31 /* UIImage+JTSImageEffects.h */,
-				FC7B93061CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m */,
-			);
-			name = ImageZoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,17 +338,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5672E041CBC8A6700ACC336 /* basictitlefont.ttf in Resources */,
+				A5C470C61CD011AC00E6AD22 /* londonairport.jpg in Resources */,
 				A5DF21001C7F88C1009EBCC9 /* TripsTableViewController.xib in Resources */,
 				A5DF21041C7F88E3009EBCC9 /* TripViewController.xib in Resources */,
 				A5DF21101C7F895E009EBCC9 /* EntryTableViewController.xib in Resources */,
 				A5DF21141C7F8987009EBCC9 /* MapViewController.xib in Resources */,
 				A5FC09581C716B1700DF77D8 /* LaunchScreen.storyboard in Resources */,
+				A5C470C81CD011AC00E6AD22 /* parisairport.jpg in Resources */,
 				A5FC09551C716B1700DF77D8 /* Assets.xcassets in Resources */,
+				A5C470C21CD011AC00E6AD22 /* eifeltower.jpg in Resources */,
 				FC7B92CD1CCF3AC4008AAD31 /* AddEntryVC.xib in Resources */,
+				A5C470C31CD011AC00E6AD22 /* eye.jpg in Resources */,
 				A5DF210C1C7F8940009EBCC9 /* AddEntryViewController.xib in Resources */,
+				A5C470C41CD011AC00E6AD22 /* guard.jpg in Resources */,
 				FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */,
+				A5C470C71CD011AC00E6AD22 /* lovebridge.jpg in Resources */,
 				A5DF20FA1C7F8855009EBCC9 /* HomeViewController.xib in Resources */,
+				A5C470C91CD011AC00E6AD22 /* phone.jpg in Resources */,
+				A5C470C51CD011AC00E6AD22 /* hostel.jpg in Resources */,
 				A5DF21081C7F892C009EBCC9 /* AddTripViewController.xib in Resources */,
+				A5C470C11CD011AC00E6AD22 /* bigben.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,25 +373,26 @@
 				A5DF20FF1C7F88C1009EBCC9 /* TripsTableViewController.swift in Sources */,
 				FC7B92C91CCF3A63008AAD31 /* AddEntryVC.swift in Sources */,
 				A58EB85B1CB171910047D7DF /* GPSHelper.swift in Sources */,
-				FC7B93081CCFDBE8008AAD31 /* JTSImageInfo.m in Sources */,
+				A5C470B01CD0115000E6AD22 /* JTSImageInfo.m in Sources */,
 				FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */,
 				A58EB85D1CB17CC50047D7DF /* SwiftSpinner.swift in Sources */,
 				A5DF21031C7F88E3009EBCC9 /* TripViewController.swift in Sources */,
 				A5DF210B1C7F8940009EBCC9 /* AddEntryViewController.swift in Sources */,
-				FC7B930A1CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m in Sources */,
-				FC7B93071CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m in Sources */,
+				A5C470B21CD0115000E6AD22 /* JTSSimpleImageDownloader.m in Sources */,
+				A5C470AF1CD0115000E6AD22 /* JTSAnimatedGIFUtility.m in Sources */,
 				A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */,
 				A5DF21131C7F8987009EBCC9 /* MapViewController.swift in Sources */,
 				A5DF21071C7F892C009EBCC9 /* AddTripViewController.swift in Sources */,
 				A5D8FD741C795AC30043EEF2 /* Model.swift in Sources */,
 				A5FC094E1C716B1700DF77D8 /* AppDelegate.swift in Sources */,
 				A5DF20F91C7F8855009EBCC9 /* HomeViewController.swift in Sources */,
-				FC7B930B1CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m in Sources */,
+				A5C470B71CD0119D00E6AD22 /* SampleData.swift in Sources */,
+				A5C470B31CD0115000E6AD22 /* UIApplication+JTSImageViewController.m in Sources */,
 				A5DF210F1C7F895E009EBCC9 /* EntryTableViewController.swift in Sources */,
-				FC7B930C1CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m in Sources */,
+				A5C470B41CD0115000E6AD22 /* UIImage+JTSImageEffects.m in Sources */,
 				A58EB8631CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m in Sources */,
 				A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */,
-				FC7B93091CCFDBE8008AAD31 /* JTSImageViewController.m in Sources */,
+				A5C470B11CD0115000E6AD22 /* JTSImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

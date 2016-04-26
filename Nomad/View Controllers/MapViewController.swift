@@ -24,14 +24,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //helper method
-    func centerMapOnLocation(location : CLLocation) {
-        //location is the center point
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,15 +65,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             a.subtitle = entry.info
             self.mapView.addAnnotation(a)
         }
-
-        // set initial position
-        if let initialLocation = trip.startCoords {
-            centerMapOnLocation(initialLocation)
-        }
-        
-        else if let e = entriesWithCoords.first?.coords {
-            centerMapOnLocation(e)
-        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
