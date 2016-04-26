@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y1e-GC-gID">
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y1e-GC-gID">
                     <rect key="frame" x="8" y="19" width="584" height="502"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spr-5e-wKF">
@@ -49,8 +49,9 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="c3t-d3-SZj">
-                            <rect key="frame" x="0.0" y="182" width="320" height="320"/>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c3t-d3-SZj">
+                            <rect key="frame" x="0.0" y="182" width="584" height="320"/>
+                            <color key="backgroundColor" red="0.50588235294117645" green="0.83921568627450982" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="UiX-ut-d1S" appends="YES" id="pKB-Es-Mg5"/>
@@ -61,7 +62,9 @@
                     <constraints>
                         <constraint firstItem="6vH-8e-c6a" firstAttribute="leading" secondItem="Y1e-GC-gID" secondAttribute="leading" id="6Yb-kR-6xl"/>
                         <constraint firstItem="WZM-BE-3jh" firstAttribute="leading" secondItem="Y1e-GC-gID" secondAttribute="leading" id="7rb-W9-S69"/>
+                        <constraint firstAttribute="trailing" secondItem="c3t-d3-SZj" secondAttribute="trailing" id="Rg3-dq-u43"/>
                         <constraint firstAttribute="trailing" secondItem="WZM-BE-3jh" secondAttribute="trailing" id="ShT-lN-e9B"/>
+                        <constraint firstItem="c3t-d3-SZj" firstAttribute="leading" secondItem="Y1e-GC-gID" secondAttribute="leading" id="XKG-3N-95L"/>
                         <constraint firstAttribute="trailing" secondItem="6vH-8e-c6a" secondAttribute="trailing" id="gYY-jR-HMh"/>
                     </constraints>
                     <connections>
@@ -89,7 +92,4 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
-    <resources>
-        <image name="defaultPhoto" width="320" height="320"/>
-    </resources>
 </document>

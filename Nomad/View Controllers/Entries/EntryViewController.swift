@@ -31,12 +31,13 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
         print("before calling tableview");
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "map")
-        
-        print("photo info")
-        print(toPass.photo)
-        print(toPass.photo!.photo?.scale)
-        print(toPass.photo!.photo?.imageOrientation)
-        print(toPass.photo!.photo?.CGImage)
+        if ( toPass.photo != nil) {
+            print("photo info")
+            print(toPass.photo)
+            print(toPass.photo!.photo?.scale)
+            print(toPass.photo!.photo?.imageOrientation)
+            print(toPass.photo!.photo?.CGImage)
+        }
 
 
         //loading image
