@@ -193,6 +193,7 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
             print ("update image")
             cell.textLabel?.numberOfLines = 0
             if (toPass.photo != nil) {
+                
                 cell.addSubview(self.imageView)
             }
         } else if (indexPath.row == 3) {
@@ -302,6 +303,20 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
                 return 0
             }
             else {
+                let image = toPass.photo!.photo
+                let screenSize: CGRect = UIScreen.mainScreen().bounds
+                let factor = screenSize.size.width / image!.size.width
+                
+                let size = CGSizeApplyAffineTransform(image!.size, CGAffineTransformMakeScale(factor, factor))
+                let hasAlpha = false
+                let scale: CGFloat = UIScreen.mainScreen().scale // Automatically use scale factor of main screen
+                
+                UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+                image!.drawInRect(CGRect(origin: CGPointZero, size: size))
+                
+                scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                imageView = UIImageView(image: scaledImage!)
                 return scaledImage.size.height
             }
             
