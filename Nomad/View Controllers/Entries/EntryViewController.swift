@@ -88,7 +88,8 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
             self.navigationItem.rightBarButtonItem = rightShareBarButtonItem
         }
         
-        let addEntryVC = AddEntryViewController()
+        //let addEntryVC = AddEntryViewController()
+        let addEntryVC = AddEntryVC()
         addEntryVC.editMode = false
         print("edit mode = \(addEntryVC.editMode)")
     }
@@ -237,7 +238,8 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
         let selectedEntry = toPass
         print("selected a entry: " + selectedEntry.title);
         
-        let AEViewController = AddEntryViewController()
+        //let AEViewController = AddEntryViewController()
+        let AEViewController = AddEntryVC()
         print("loaded vc")
         AEViewController.passToEditEntry = selectedEntry
         AEViewController.editMode = true

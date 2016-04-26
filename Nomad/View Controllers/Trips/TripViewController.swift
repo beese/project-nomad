@@ -117,7 +117,8 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
     
     func addEntry() {
-        let vc = AddEntryViewController()
+        //let vc = AddEntryViewController()
+        let vc = AddEntryVC()
         vc.editMode = false
         //self.navigationController?.popToRootViewControllerAnimated(true)
         
@@ -387,7 +388,8 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     }
     
     func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
-        let vc = AddEntryViewController()
+        //let vc = AddEntryViewController()
+        let vc = AddEntryVC()
         let nav = self.navigationController!
         self.navigationController?.popToRootViewControllerAnimated(true)
         nav.pushViewController(vc, animated: true)        

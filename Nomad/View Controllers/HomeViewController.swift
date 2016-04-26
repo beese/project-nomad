@@ -142,8 +142,9 @@ class HomeViewController: UIViewController {
     @IBAction func addEntryTapped(sender: AnyObject) {
         // code for when user taps add entry
         
-        self.navigationController?.pushViewController(AddEntryViewController(), animated: true)
-        
+        //self.navigationController?.pushViewController(AddEntryViewController(), animated: true)
+        self.navigationController?.pushViewController(AddEntryVC(), animated: true)
+
     }
     
     @IBAction func viewEntriesTapped(sender: AnyObject) {

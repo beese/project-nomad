@@ -36,6 +36,8 @@
 		A5FC09551C716B1700DF77D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09541C716B1700DF77D8 /* Assets.xcassets */; };
 		A5FC09581C716B1700DF77D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09561C716B1700DF77D8 /* LaunchScreen.storyboard */; };
 		A5FC09601C716C7300DF77D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FC095F1C716C7300DF77D8 /* MapKit.framework */; };
+		FC7B92C91CCF3A63008AAD31 /* AddEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */; };
+		FC7B92CD1CCF3AC4008AAD31 /* AddEntryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */; };
 		FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE145221C84D75600215DA7 /* EntryViewController.swift */; };
 		FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE145241C84D9BE00215DA7 /* EntryViewController.xib */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		A5FC09571C716B1700DF77D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5FC09591C716B1700DF77D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5FC095F1C716C7300DF77D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryVC.swift; sourceTree = "<group>"; };
+		FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEntryVC.xib; sourceTree = "<group>"; };
 		FCE145221C84D75600215DA7 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		FCE145241C84D9BE00215DA7 /* EntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +154,8 @@
 				A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */,
 				FCE145221C84D75600215DA7 /* EntryViewController.swift */,
 				FCE145241C84D9BE00215DA7 /* EntryViewController.xib */,
+				FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */,
+				FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				A5DF21141C7F8987009EBCC9 /* MapViewController.xib in Resources */,
 				A5FC09581C716B1700DF77D8 /* LaunchScreen.storyboard in Resources */,
 				A5FC09551C716B1700DF77D8 /* Assets.xcassets in Resources */,
+				FC7B92CD1CCF3AC4008AAD31 /* AddEntryVC.xib in Resources */,
 				A5DF210C1C7F8940009EBCC9 /* AddEntryViewController.xib in Resources */,
 				FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */,
 				A5DF20FA1C7F8855009EBCC9 /* HomeViewController.xib in Resources */,
@@ -278,6 +285,7 @@
 				A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */,
 				A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */,
 				A5DF20FF1C7F88C1009EBCC9 /* TripsTableViewController.swift in Sources */,
+				FC7B92C91CCF3A63008AAD31 /* AddEntryVC.swift in Sources */,
 				A58EB85B1CB171910047D7DF /* GPSHelper.swift in Sources */,
 				FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */,
 				A58EB85D1CB17CC50047D7DF /* SwiftSpinner.swift in Sources */,
