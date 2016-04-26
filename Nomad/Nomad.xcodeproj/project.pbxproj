@@ -38,6 +38,12 @@
 		A5FC09601C716C7300DF77D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FC095F1C716C7300DF77D8 /* MapKit.framework */; };
 		FC7B92C91CCF3A63008AAD31 /* AddEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */; };
 		FC7B92CD1CCF3AC4008AAD31 /* AddEntryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */; };
+		FC7B93071CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92FC1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m */; };
+		FC7B93081CCFDBE8008AAD31 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B92FE1CCFDBE8008AAD31 /* JTSImageInfo.m */; };
+		FC7B93091CCFDBE8008AAD31 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93001CCFDBE8008AAD31 /* JTSImageViewController.m */; };
+		FC7B930A1CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93021CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m */; };
+		FC7B930B1CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93041CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m */; };
+		FC7B930C1CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7B93061CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m */; };
 		FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE145221C84D75600215DA7 /* EntryViewController.swift */; };
 		FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE145241C84D9BE00215DA7 /* EntryViewController.xib */; };
 /* End PBXBuildFile section */
@@ -78,6 +84,18 @@
 		A5FC095F1C716C7300DF77D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FC7B92C81CCF3A63008AAD31 /* AddEntryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryVC.swift; sourceTree = "<group>"; };
 		FC7B92CC1CCF3AC4008AAD31 /* AddEntryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEntryVC.xib; sourceTree = "<group>"; };
+		FC7B92FB1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSAnimatedGIFUtility.h; path = "../../../JTSImageViewController-master/Source/JTSAnimatedGIFUtility.h"; sourceTree = "<group>"; };
+		FC7B92FC1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSAnimatedGIFUtility.m; path = "../../../JTSImageViewController-master/Source/JTSAnimatedGIFUtility.m"; sourceTree = "<group>"; };
+		FC7B92FD1CCFDBE8008AAD31 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageInfo.h; path = "../../../JTSImageViewController-master/Source/JTSImageInfo.h"; sourceTree = "<group>"; };
+		FC7B92FE1CCFDBE8008AAD31 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageInfo.m; path = "../../../JTSImageViewController-master/Source/JTSImageInfo.m"; sourceTree = "<group>"; };
+		FC7B92FF1CCFDBE8008AAD31 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewController.h; path = "../../../JTSImageViewController-master/Source/JTSImageViewController.h"; sourceTree = "<group>"; };
+		FC7B93001CCFDBE8008AAD31 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewController.m; path = "../../../JTSImageViewController-master/Source/JTSImageViewController.m"; sourceTree = "<group>"; };
+		FC7B93011CCFDBE8008AAD31 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSSimpleImageDownloader.h; path = "../../../JTSImageViewController-master/Source/JTSSimpleImageDownloader.h"; sourceTree = "<group>"; };
+		FC7B93021CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSSimpleImageDownloader.m; path = "../../../JTSImageViewController-master/Source/JTSSimpleImageDownloader.m"; sourceTree = "<group>"; };
+		FC7B93031CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+JTSImageViewController.h"; path = "../../../JTSImageViewController-master/Source/UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		FC7B93041CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+JTSImageViewController.m"; path = "../../../JTSImageViewController-master/Source/UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		FC7B93051CCFDBE8008AAD31 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+JTSImageEffects.h"; path = "../../../JTSImageViewController-master/Source/UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		FC7B93061CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+JTSImageEffects.m"; path = "../../../JTSImageViewController-master/Source/UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
 		FCE145221C84D75600215DA7 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		FCE145241C84D9BE00215DA7 /* EntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +181,7 @@
 		A5FC09411C716B1700DF77D8 = {
 			isa = PBXGroup;
 			children = (
+				FC7B92D61CCFDA57008AAD31 /* ImageZoom */,
 				A5B20B5F1CBDD1B10001F046 /* Social.framework */,
 				A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */,
 				A58EB85E1CB1840E0047D7DF /* CoreLocation.framework */,
@@ -194,6 +213,25 @@
 				A5FC094F1C716B1700DF77D8 /* ViewController.swift */,
 			);
 			path = Nomad;
+			sourceTree = "<group>";
+		};
+		FC7B92D61CCFDA57008AAD31 /* ImageZoom */ = {
+			isa = PBXGroup;
+			children = (
+				FC7B92FB1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.h */,
+				FC7B92FC1CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m */,
+				FC7B92FD1CCFDBE8008AAD31 /* JTSImageInfo.h */,
+				FC7B92FE1CCFDBE8008AAD31 /* JTSImageInfo.m */,
+				FC7B92FF1CCFDBE8008AAD31 /* JTSImageViewController.h */,
+				FC7B93001CCFDBE8008AAD31 /* JTSImageViewController.m */,
+				FC7B93011CCFDBE8008AAD31 /* JTSSimpleImageDownloader.h */,
+				FC7B93021CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m */,
+				FC7B93031CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.h */,
+				FC7B93041CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m */,
+				FC7B93051CCFDBE8008AAD31 /* UIImage+JTSImageEffects.h */,
+				FC7B93061CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m */,
+			);
+			name = ImageZoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,19 +325,25 @@
 				A5DF20FF1C7F88C1009EBCC9 /* TripsTableViewController.swift in Sources */,
 				FC7B92C91CCF3A63008AAD31 /* AddEntryVC.swift in Sources */,
 				A58EB85B1CB171910047D7DF /* GPSHelper.swift in Sources */,
+				FC7B93081CCFDBE8008AAD31 /* JTSImageInfo.m in Sources */,
 				FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */,
 				A58EB85D1CB17CC50047D7DF /* SwiftSpinner.swift in Sources */,
 				A5DF21031C7F88E3009EBCC9 /* TripViewController.swift in Sources */,
 				A5DF210B1C7F8940009EBCC9 /* AddEntryViewController.swift in Sources */,
+				FC7B930A1CCFDBE8008AAD31 /* JTSSimpleImageDownloader.m in Sources */,
+				FC7B93071CCFDBE8008AAD31 /* JTSAnimatedGIFUtility.m in Sources */,
 				A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */,
 				A5DF21131C7F8987009EBCC9 /* MapViewController.swift in Sources */,
 				A5DF21071C7F892C009EBCC9 /* AddTripViewController.swift in Sources */,
 				A5D8FD741C795AC30043EEF2 /* Model.swift in Sources */,
 				A5FC094E1C716B1700DF77D8 /* AppDelegate.swift in Sources */,
 				A5DF20F91C7F8855009EBCC9 /* HomeViewController.swift in Sources */,
+				FC7B930B1CCFDBE8008AAD31 /* UIApplication+JTSImageViewController.m in Sources */,
 				A5DF210F1C7F895E009EBCC9 /* EntryTableViewController.swift in Sources */,
+				FC7B930C1CCFDBE8008AAD31 /* UIImage+JTSImageEffects.m in Sources */,
 				A58EB8631CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m in Sources */,
 				A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */,
+				FC7B93091CCFDBE8008AAD31 /* JTSImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

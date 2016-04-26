@@ -274,6 +274,37 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
         
         
     }
+    //for an photo selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        if ( indexPath.row == 2) {
+            print("photo selected")
+            if( toPass.photo?.photo != nil) {
+            
+                let imageInfo = JTSImageInfo()
+                imageInfo.image = toPass.photo?.photo
+                imageInfo.referenceRect = imageView.frame
+                imageInfo.referenceView = imageView.superview
+                imageInfo.referenceContentMode = imageView.contentMode
+                imageInfo.referenceCornerRadius = imageView.layer.cornerRadius
+                
+                
+                //var mode : JTSImageViewControllerMode
+                //mode = JTSImageViewControllerMode_Image
+                
+                //let backgroundStyle = JTSImageViewControllerBackgroundOption_Scaled
+                
+                let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: JTSImageViewControllerMode.Image, backgroundStyle: JTSImageViewControllerBackgroundOptions.Scaled)
+    
+                imageViewer.showFromViewController(self, transition: JTSImageViewControllerTransition.FromOriginalPosition)
+                
+            // Present the view controller.
+           // [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+            }
+        }
+
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
