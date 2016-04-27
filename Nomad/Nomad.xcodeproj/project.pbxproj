@@ -611,7 +611,7 @@
 				INFOPLIST_FILE = Nomad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.purdue.cs307.team9.Nomad;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.purdue.cs307.team9.NomadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nomad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -627,7 +627,7 @@
 				INFOPLIST_FILE = Nomad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.purdue.cs307.team9.Nomad;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.purdue.cs307.team9.NomadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nomad-Bridging-Header.h";
 			};
@@ -643,6 +643,7 @@
 				A5C470D71CD087CD00E6AD22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5FC09451C716B1700DF77D8 /* Build configuration list for PBXProject "Nomad" */ = {
 			isa = XCConfigurationList;
