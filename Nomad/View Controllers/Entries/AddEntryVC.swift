@@ -10,17 +10,19 @@ import UIKit
 
 class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var Scroller: UIScrollView!
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var infoTextBox: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var chooseButton: UIButton!
     
     var passToEditEntry : Entry!
     var editMode : Bool = false
+    var buttonText: String? = ""
     
     override func viewDidLoad() {
         print("in addEntryVC, editMode is \(editMode)")
-        Scroller.scrollEnabled = true
+        
+        self.buttonText = self.chooseButton.titleForState(.Normal)
         
         if ((editMode) != false) {
             self.title = "Edit Entry"
@@ -186,6 +188,8 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         photoImageView.image = scaledImage
         
+        self.chooseButton.setTitle("", forState: .Normal)
+        
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -196,7 +200,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         infoTextBox.resignFirstResponder()
     }
     
-    @IBAction func selectImage(sender: UITapGestureRecognizer) {
+    @IBAction func selectImage(sender: UIButton) {
         print("tap gesture works");
         let imagePickerController = UIImagePickerController()
         

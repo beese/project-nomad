@@ -244,9 +244,6 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if trip == nil || (listOfEntries.count == 0 && trip!.endDate == nil) {
-            if ( tableView.numberOfSections != 0) {
-                tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-            }
             return 0
         } else if (listOfEntries.count == 0 ) {
             return 1
@@ -327,26 +324,23 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             print ("delete " + self.listOfEntries[index].title)
             let delPath = self.listOfEntries[index].filePath()
             print ("count=\(self.listOfEntries.count)")
-            if ( self.listOfEntries.count > 1)  {
-                // Delete the row from the listOfEntries variable
-                self.listOfEntries.removeAtIndex(index)
-                print("Removed from listOfEntries array > 1")
-                // Remove row from table view
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                print("Removed from Table view")
 
+            // Delete the row from the listOfEntries variable
+            self.listOfEntries.removeAtIndex(index)
+            print("Removed from listOfEntries array > 1")
+            // Remove row from table view
+            tableView.beginUpdates()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            print("Removed from Table view")
+            
+            if listOfEntries.count == 0 && trip.endDate == nil {
+                tableView.deleteSections(NSIndexSet(indexesInRange: NSMakeRange(0, 2)), withRowAnimation: .None)
             }
-            else {
-                // Delete the row from the listOfEntries variable
-                self.listOfEntries.removeAtIndex(index)
-                print("Removed from listOfEntries array")
-                // Remove row from table view
-                //tableView.deleteSections(sections, withRowAnimation: .Automatic)
-                tableView.deleteSections( NSIndexSet(index: 1), withRowAnimation: .Automatic)
-                //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                print("Removed from Table view")
-                
+            else if listOfEntries.count == 0 {
+                tableView.deleteSections(NSIndexSet(index: 1), withRowAnimation: .None)
             }
+            tableView.endUpdates()
+
             // Remove file frm disk
             let fileManager = NSFileManager.defaultManager()
             do {
