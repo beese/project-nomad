@@ -29,6 +29,8 @@
 		A5C470C71CD011AC00E6AD22 /* lovebridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BE1CD011AC00E6AD22 /* lovebridge.jpg */; };
 		A5C470C81CD011AC00E6AD22 /* parisairport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470BF1CD011AC00E6AD22 /* parisairport.jpg */; };
 		A5C470C91CD011AC00E6AD22 /* phone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5C470C01CD011AC00E6AD22 /* phone.jpg */; };
+		A5C470D11CD087CD00E6AD22 /* NomadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C470D01CD087CD00E6AD22 /* NomadUITests.swift */; };
+		A5C470DA1CD0883800E6AD22 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C470D81CD0881C00E6AD22 /* SnapshotHelper.swift */; };
 		A5D8FD6E1C795A4F0043EEF2 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */; };
 		A5D8FD701C795A880043EEF2 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD6F1C795A880043EEF2 /* Entry.swift */; };
 		A5D8FD721C795AAF0043EEF2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8FD711C795AAF0043EEF2 /* Photo.swift */; };
@@ -57,6 +59,16 @@
 		FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE145221C84D75600215DA7 /* EntryViewController.swift */; };
 		FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE145241C84D9BE00215DA7 /* EntryViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5C470D31CD087CD00E6AD22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5FC09421C716B1700DF77D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5FC09491C716B1700DF77D8;
+			remoteInfo = Nomad;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A5672E031CBC8A6700ACC336 /* basictitlefont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = basictitlefont.ttf; sourceTree = "<group>"; };
@@ -89,6 +101,10 @@
 		A5C470BE1CD011AC00E6AD22 /* lovebridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lovebridge.jpg; sourceTree = "<group>"; };
 		A5C470BF1CD011AC00E6AD22 /* parisairport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parisairport.jpg; sourceTree = "<group>"; };
 		A5C470C01CD011AC00E6AD22 /* phone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phone.jpg; sourceTree = "<group>"; };
+		A5C470CE1CD087CC00E6AD22 /* NomadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NomadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C470D01CD087CD00E6AD22 /* NomadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadUITests.swift; sourceTree = "<group>"; };
+		A5C470D21CD087CD00E6AD22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C470D81CD0881C00E6AD22 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A5D8FD6D1C795A4F0043EEF2 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A5D8FD6F1C795A880043EEF2 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A5D8FD711C795AAF0043EEF2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -121,6 +137,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A5C470CB1CD087CC00E6AD22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5FC09471C716B1700DF77D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +160,7 @@
 		A58EB8591CB1714B0047D7DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A5C470D81CD0881C00E6AD22 /* SnapshotHelper.swift */,
 				A58EB8611CB1C1350047D7DF /* UIScrollView+EmptyDataSet.h */,
 				A58EB8621CB1C1350047D7DF /* UIScrollView+EmptyDataSet.m */,
 				A58EB85A1CB171910047D7DF /* GPSHelper.swift */,
@@ -181,6 +205,15 @@
 				A5C470C01CD011AC00E6AD22 /* phone.jpg */,
 			);
 			name = "Sample Content";
+			sourceTree = "<group>";
+		};
+		A5C470CF1CD087CD00E6AD22 /* NomadUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5C470D01CD087CD00E6AD22 /* NomadUITests.swift */,
+				A5C470D21CD087CD00E6AD22 /* Info.plist */,
+			);
+			path = NomadUITests;
 			sourceTree = "<group>";
 		};
 		A5DF20FB1C7F8860009EBCC9 /* View Controllers */ = {
@@ -246,6 +279,7 @@
 				A58EB8591CB1714B0047D7DF /* Helpers */,
 				A5DF20FC1C7F8883009EBCC9 /* Models */,
 				A5FC094C1C716B1700DF77D8 /* Nomad */,
+				A5C470CF1CD087CD00E6AD22 /* NomadUITests */,
 				A5FC094B1C716B1700DF77D8 /* Products */,
 				A5DF20FB1C7F8860009EBCC9 /* View Controllers */,
 				A5FC095F1C716C7300DF77D8 /* MapKit.framework */,
@@ -257,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				A5FC094A1C716B1700DF77D8 /* Nomad.app */,
+				A5C470CE1CD087CC00E6AD22 /* NomadUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -276,6 +311,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A5C470CD1CD087CC00E6AD22 /* NomadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5C470D51CD087CD00E6AD22 /* Build configuration list for PBXNativeTarget "NomadUITests" */;
+			buildPhases = (
+				A5C470CA1CD087CC00E6AD22 /* Sources */,
+				A5C470CB1CD087CC00E6AD22 /* Frameworks */,
+				A5C470CC1CD087CC00E6AD22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5C470D41CD087CD00E6AD22 /* PBXTargetDependency */,
+			);
+			name = NomadUITests;
+			productName = NomadUITests;
+			productReference = A5C470CE1CD087CC00E6AD22 /* NomadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A5FC09491C716B1700DF77D8 /* Nomad */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5FC095C1C716B1700DF77D8 /* Build configuration list for PBXNativeTarget "Nomad" */;
@@ -303,6 +356,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Team 9";
 				TargetAttributes = {
+					A5C470CD1CD087CC00E6AD22 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = A5FC09491C716B1700DF77D8;
+					};
 					A5FC09491C716B1700DF77D8 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = HT7ELV3Q35;
@@ -328,11 +385,19 @@
 			projectRoot = "";
 			targets = (
 				A5FC09491C716B1700DF77D8 /* Nomad */,
+				A5C470CD1CD087CC00E6AD22 /* NomadUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A5C470CC1CD087CC00E6AD22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5FC09481C716B1700DF77D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,6 +429,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A5C470CA1CD087CC00E6AD22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C470D11CD087CD00E6AD22 /* NomadUITests.swift in Sources */,
+				A5C470DA1CD0883800E6AD22 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5FC09461C716B1700DF77D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,6 +472,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A5C470D41CD087CD00E6AD22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5FC09491C716B1700DF77D8 /* Nomad */;
+			targetProxy = A5C470D31CD087CD00E6AD22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A5FC09561C716B1700DF77D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -411,6 +493,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A5C470D61CD087CD00E6AD22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = NomadUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kristinbeese.NomadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Nomad;
+			};
+			name = Debug;
+		};
+		A5C470D71CD087CD00E6AD22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = NomadUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kristinbeese.NomadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Nomad;
+			};
+			name = Release;
+		};
 		A5FC095A1C716B1700DF77D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -528,6 +636,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A5C470D51CD087CD00E6AD22 /* Build configuration list for PBXNativeTarget "NomadUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5C470D61CD087CD00E6AD22 /* Debug */,
+				A5C470D71CD087CD00E6AD22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A5FC09451C716B1700DF77D8 /* Build configuration list for PBXProject "Nomad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

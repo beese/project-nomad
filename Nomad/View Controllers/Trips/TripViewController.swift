@@ -327,6 +327,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
 
             // Delete the row from the listOfEntries variable
             self.listOfEntries.removeAtIndex(index)
+            self.trip.entries.removeAtIndex(index)
             print("Removed from listOfEntries array > 1")
             // Remove row from table view
             tableView.beginUpdates()
@@ -346,7 +347,6 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             do {
                 try fileManager.removeItemAtPath(delPath as String)
                 print("deleted")
-                trip = Trip.loadFromDisk(toPass.filePath() as String)
             }
             catch let error as NSError {
                 print("Ooops! Something went wrong: \(error)")
