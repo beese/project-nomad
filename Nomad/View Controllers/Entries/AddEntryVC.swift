@@ -163,7 +163,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             
             // TODO: update view controller
             //self.navigationController?.pushViewController(vc, animated: true)
-            
+            super.viewWillAppear(true)
             self.navigationController?.popViewControllerAnimated(true)
         }
         
@@ -226,43 +226,13 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         print("deleting\n");
         photoImageView.image = nil
-        let title = titleTextBox.text
-        let info = infoTextBox.text
+        
         let photo = photoImageView.image
         let image = Photo (_photo: photo)
-        titleTextBox.resignFirstResponder()
-        infoTextBox.resignFirstResponder()
 
         
-        let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image!, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
-        
-        var currentTrip : Trip?
-        var allTrips: [Trip] = []
-        allTrips = Trip.loadAll();
-        
-        for trip in allTrips {
-            if (trip.endDate == nil) {
-                currentTrip = trip
-            }
-        }
-        
-        travel!.trip = currentTrip;
-
-        let fileManager = NSFileManager.defaultManager()
-        do {
-            try fileManager.removeItemAtPath(passToEditEntry.filePath() as String)
-            print("\(passToEditEntry.filePath() as String) is deleted")
-        }
-        catch let error as NSError {
-            print("Something went wrong when deleting the old entry file: \(error)")
-        }
-        
-        travel!.save()
-        currentTrip!.save()
-        
-        currentTrip!.entries.append(travel!)
-        passToEditEntry = travel!
-        viewDidLoad()
+        passToEditEntry.photo = image
+        //viewDidLoad()
         
         
     }
