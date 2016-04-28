@@ -204,6 +204,13 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
                     cell.addSubview(imageView)
                 
             }
+            else if (toPass.photo == nil) {
+                if ( cell.subviews.count > 0) {
+                    //imageView.removeFromSuperview()
+                    cell.subviews[0].removeFromSuperview()
+                }
+                print( "adding subview but topass.photo is nil")
+            }
         } else if (indexPath.row == 3) {
             var entryInfo: String
             
@@ -340,10 +347,15 @@ class EntryViewController: UITableViewController, MKMapViewDelegate {
         else if row == 2 {
             // photo
             if (toPass.photo == nil) {
-                return 0
+                print("no toPass.photo")
+                return 1
             }
             else {
                 let image = toPass.photo!.photo
+                if( image == nil) {
+                    print("no photo.photo\n")
+                    return 10
+                }
                 let screenSize: CGRect = UIScreen.mainScreen().bounds
                 let factor = screenSize.size.width / image!.size.width
                 

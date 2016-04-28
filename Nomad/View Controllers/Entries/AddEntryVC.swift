@@ -164,6 +164,10 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             // TODO: update view controller
             //self.navigationController?.pushViewController(vc, animated: true)
             //viewWillAppear(true)
+            if(passToEditEntry.photo?.photo == nil) {
+                print("no photo\n")
+            }
+            print("back to old view controller\n")
             self.navigationController?.popViewControllerAnimated(true)
         }
         
