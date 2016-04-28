@@ -163,7 +163,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             
             // TODO: update view controller
             //self.navigationController?.pushViewController(vc, animated: true)
-            //super.viewWillAppear(true)
+            //viewWillAppear(true)
             self.navigationController?.popViewControllerAnimated(true)
         }
         
@@ -195,8 +195,14 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         photoImageView.image = scaledImage
         
-        self.chooseButton.setTitle("", forState: .Normal)
-        
+        //self.chooseButton.setTitle("", forState: .Normal)
+        if( photoImageView.image != nil) {
+            deleteImage.hidden = false
+            chooseButton.hidden = true
+        } else if (photoImageView.image == nil) {
+            deleteImage.hidden = true
+            chooseButton.hidden = false
+        }
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -231,12 +237,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         let image = Photo (_photo: photo)
         deleteImage.hidden = true
         chooseButton.hidden = false
-
-        
         passToEditEntry.photo = image
-        //viewDidLoad()
-        
-        
     }
     
     
