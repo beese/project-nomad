@@ -36,6 +36,10 @@ class TripsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
         
         
     }
+    override func viewWillAppear(animated: Bool) {
+        listOfTrips = Trip.loadAll()
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

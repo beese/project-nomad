@@ -43,8 +43,6 @@
 		A5DF21041C7F88E3009EBCC9 /* TripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF21021C7F88E3009EBCC9 /* TripViewController.xib */; };
 		A5DF21071C7F892C009EBCC9 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21051C7F892C009EBCC9 /* AddTripViewController.swift */; };
 		A5DF21081C7F892C009EBCC9 /* AddTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF21061C7F892C009EBCC9 /* AddTripViewController.xib */; };
-		A5DF210B1C7F8940009EBCC9 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21091C7F8940009EBCC9 /* AddEntryViewController.swift */; };
-		A5DF210C1C7F8940009EBCC9 /* AddEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF210A1C7F8940009EBCC9 /* AddEntryViewController.xib */; };
 		A5DF210F1C7F895E009EBCC9 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF210D1C7F895E009EBCC9 /* EntryTableViewController.swift */; };
 		A5DF21101C7F895E009EBCC9 /* EntryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */; };
 		A5DF21131C7F8987009EBCC9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF21111C7F8987009EBCC9 /* MapViewController.swift */; };
@@ -117,8 +115,6 @@
 		A5DF21021C7F88E3009EBCC9 /* TripViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripViewController.xib; sourceTree = "<group>"; };
 		A5DF21051C7F892C009EBCC9 /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		A5DF21061C7F892C009EBCC9 /* AddTripViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTripViewController.xib; sourceTree = "<group>"; };
-		A5DF21091C7F8940009EBCC9 /* AddEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
-		A5DF210A1C7F8940009EBCC9 /* AddEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEntryViewController.xib; sourceTree = "<group>"; };
 		A5DF210D1C7F895E009EBCC9 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryTableViewController.xib; sourceTree = "<group>"; };
 		A5DF21111C7F8987009EBCC9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -256,8 +252,6 @@
 		A5DF21161C7F89A7009EBCC9 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				A5DF21091C7F8940009EBCC9 /* AddEntryViewController.swift */,
-				A5DF210A1C7F8940009EBCC9 /* AddEntryViewController.xib */,
 				A5DF210D1C7F895E009EBCC9 /* EntryTableViewController.swift */,
 				A5DF210E1C7F895E009EBCC9 /* EntryTableViewController.xib */,
 				FCE145221C84D75600215DA7 /* EntryViewController.swift */,
@@ -414,7 +408,6 @@
 				A5C470C21CD011AC00E6AD22 /* eifeltower.jpg in Resources */,
 				FC7B92CD1CCF3AC4008AAD31 /* AddEntryVC.xib in Resources */,
 				A5C470C31CD011AC00E6AD22 /* eye.jpg in Resources */,
-				A5DF210C1C7F8940009EBCC9 /* AddEntryViewController.xib in Resources */,
 				A5C470C41CD011AC00E6AD22 /* guard.jpg in Resources */,
 				FCE145251C84D9BE00215DA7 /* EntryViewController.xib in Resources */,
 				A5C470C71CD011AC00E6AD22 /* lovebridge.jpg in Resources */,
@@ -451,7 +444,6 @@
 				FCE145231C84D75600215DA7 /* EntryViewController.swift in Sources */,
 				A58EB85D1CB17CC50047D7DF /* SwiftSpinner.swift in Sources */,
 				A5DF21031C7F88E3009EBCC9 /* TripViewController.swift in Sources */,
-				A5DF210B1C7F8940009EBCC9 /* AddEntryViewController.swift in Sources */,
 				A5C470B21CD0115000E6AD22 /* JTSSimpleImageDownloader.m in Sources */,
 				A5C470AF1CD0115000E6AD22 /* JTSAnimatedGIFUtility.m in Sources */,
 				A5FC09501C716B1700DF77D8 /* ViewController.swift in Sources */,

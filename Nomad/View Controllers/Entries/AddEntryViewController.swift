@@ -93,7 +93,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 currentTrip!.save()
                 
                 SwiftSpinner.hide()
-                
+                let vc = TripViewController()
+                vc.toPass = currentTrip!
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 if locations == nil {

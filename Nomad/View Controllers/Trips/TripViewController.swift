@@ -63,12 +63,15 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         
         //reload entries from disk to update table view
         // load that file from the disk and use super's loadFromDisk to extract the trip
-        trip = toPass
-        trip = Trip.loadFromDisk(trip!.filePath() as String)
-        
         print("after loading from disk, adventure is \(trip) at")
+        print("toPass")
+        print(toPass.entries)
+        //trip = toPass
+        trip = Trip.loadFromDisk(trip!.filePath() as String)
+        self.title = trip.title
+        print("trip")
+        print(trip.entries)
         print("\(trip?.filePath())")
-        
         // load in the trip's entries
         var loadedEntries: [Entry] = []
         
@@ -107,8 +110,8 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
             
         } // end if
         
-        trip!.entries = loadedEntries
-        listOfEntries = trip!.entries
+        //trip!.entries = loadedEntries
+        //listOfEntries = trip!.entries
         
         print("toPass trip file path: \(self.trip!.filePath())")
         print("toPass entries: \(self.trip!.entries)")
@@ -121,10 +124,9 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
         //let vc = AddEntryViewController()
         let vc = AddEntryVC()
         vc.editMode = false
-        //self.navigationController?.popToRootViewControllerAnimated(true)
-        
-        //vc.editMode = false
-        self.navigationController?.pushViewController(vc, animated: true)
+        let nav = self.navigationController!
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        nav.pushViewController(vc, animated: true)
     }
     
     func editTrip() {
@@ -392,6 +394,7 @@ class TripViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpty
     func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
         //let vc = AddEntryViewController()
         let vc = AddEntryVC()
+        vc.editMode = false
         let nav = self.navigationController!
         self.navigationController?.popToRootViewControllerAnimated(true)
         nav.pushViewController(vc, animated: true)        

@@ -103,13 +103,14 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
                 currentTrip!.save()
                 
                 SwiftSpinner.hide()
-                
+                let vc = TripViewController()
+                vc.toPass = currentTrip!
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 if locations == nil {
                     let alertController = UIAlertController(title: "GPS Coordinates Failed", message: "Entry created without coordinates", preferredStyle: .Alert)
                     alertController.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
-                    self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+                    //self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
                 }
             } //end gps
         } //end if
