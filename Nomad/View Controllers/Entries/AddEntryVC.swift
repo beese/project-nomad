@@ -163,7 +163,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             
             // TODO: update view controller
             //self.navigationController?.pushViewController(vc, animated: true)
-            super.viewWillAppear(true)
+            //super.viewWillAppear(true)
             self.navigationController?.popViewControllerAnimated(true)
         }
         
@@ -229,6 +229,8 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         let photo = photoImageView.image
         let image = Photo (_photo: photo)
+        deleteImage.hidden = true
+        chooseButton.hidden = false
 
         
         passToEditEntry.photo = image
