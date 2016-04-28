@@ -41,6 +41,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         }
         else {
             self.title = "Add an Entry"
+            deleteImage.hidden = true
         }
         
         super.viewDidLoad()
