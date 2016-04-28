@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddEntryVC" customModule="Nomad" customModuleProvider="target">
             <connections>
                 <outlet property="chooseButton" destination="lZk-Ew-wkb" id="Lc8-NB-LWR"/>
+                <outlet property="deleteImage" destination="dDm-TW-t2s" id="gyC-SC-ewb"/>
                 <outlet property="infoTextBox" destination="sdw-eg-ALg" id="T9E-z7-OMR"/>
                 <outlet property="photoImageView" destination="flR-DF-R8P" id="s5f-kw-WbI"/>
                 <outlet property="titleTextBox" destination="O1C-uE-ikn" id="h1d-R0-dXp"/>
@@ -67,6 +68,13 @@
                                     </state>
                                     <connections>
                                         <action selector="selectImage:" destination="-1" eventType="touchUpInside" id="cxq-Mq-I9X"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-TW-t2s">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <state key="normal" title="x"/>
+                                    <connections>
+                                        <action selector="deletePhoto:" destination="-1" eventType="touchUpInside" id="aJp-hY-iDv"/>
                                     </connections>
                                 </button>
                             </subviews>

@@ -14,6 +14,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
     @IBOutlet weak var infoTextBox: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var chooseButton: UIButton!
+    @IBOutlet weak var deleteImage: UIButton!
     
     var passToEditEntry : Entry!
     var editMode : Bool = false
@@ -23,7 +24,6 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         print("in addEntryVC, editMode is \(editMode)")
         
         self.buttonText = self.chooseButton.titleForState(.Normal)
-        
         if ((editMode) != false) {
             self.title = "Edit Entry"
             print("Loading selected entry to edit into text boxes")
@@ -31,7 +31,12 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             titleTextBox.text = selectedEntry.title
             infoTextBox.text = selectedEntry.info
             if (selectedEntry.photo != nil) {
+                deleteImage.hidden = false
+                chooseButton.hidden = true
                 photoImageView.image = selectedEntry.photo!.photo
+            }
+            else {
+                deleteImage.hidden = true
             }
         }
         else {
@@ -157,6 +162,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             
             // TODO: update view controller
             //self.navigationController?.pushViewController(vc, animated: true)
+            
             self.navigationController?.popViewControllerAnimated(true)
         }
         
@@ -213,6 +219,52 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
  
+    @IBAction func deletePhoto(sender: AnyObject) {
+        
+
+        
+        /*print("deleting\n");
+        photoImageView.image = nil
+        let title = titleTextBox.text
+        let info = infoTextBox.text
+        let photo = photoImageView.image
+        let image = Photo (_photo: photo)
+        titleTextBox.resignFirstResponder()
+        infoTextBox.resignFirstResponder()
+
+        
+        let travel = Entry(_title: title!, _date: passToEditEntry.date, _info: info!, _photo: image!, _coords: passToEditEntry.coords, _guid: passToEditEntry.guID)
+        
+        var currentTrip : Trip?
+        var allTrips: [Trip] = []
+        allTrips = Trip.loadAll();
+        
+        for trip in allTrips {
+            if (trip.endDate == nil) {
+                currentTrip = trip
+            }
+        }
+        
+        travel!.trip = currentTrip;
+
+        let fileManager = NSFileManager.defaultManager()
+        do {
+            try fileManager.removeItemAtPath(passToEditEntry.filePath() as String)
+            print("\(passToEditEntry.filePath() as String) is deleted")
+        }
+        catch let error as NSError {
+            print("Something went wrong when deleting the old entry file: \(error)")
+        }
+        
+        travel!.save()
+        currentTrip!.save()
+        
+        currentTrip!.entries.append(travel!)
+        passToEditEntry = travel!
+        viewDidLoad()*/
+        
+        
+    }
     
     
 }
