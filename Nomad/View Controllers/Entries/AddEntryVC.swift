@@ -223,7 +223,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         
 
         
-        /*print("deleting\n");
+        print("deleting\n");
         photoImageView.image = nil
         let title = titleTextBox.text
         let info = infoTextBox.text
@@ -261,7 +261,7 @@ class AddEntryVC: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         currentTrip!.entries.append(travel!)
         passToEditEntry = travel!
-        viewDidLoad()*/
+        viewDidLoad()
         
         
     }
